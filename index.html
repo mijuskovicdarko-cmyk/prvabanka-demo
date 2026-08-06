@@ -34,11 +34,27 @@
     <p>Svaka nova iteracija demo naslovne stranice čuva se kao posebna verzija (v1, v2, v3...) — prethodne se ne prepisuju, tako da ceo pravac razvoja ostaje vidljiv i uporediv.</p>
   </div>
   <div class="grid">
-    <a class="version latest" href="v13/index.html">
+    <a class="version latest" href="v15/index.html">
+      <span class="tag">v15</span>
+      <span class="body">
+        <h2>v15 — Orbit vraćen na tačan izgled iz "O nama.png" reference, sa dodatom loop animacijom <span class="badge">Najnovije</span></h2>
+        <p>Orbitalni dijagram u "O nama" sekciji vraćen tačno na proporcije/stil iz izvornog referentnog fajla (`O nama.png`, dostavio klijent) — kompaktna veličina (440px), tanke isprekidane linije (1px, sitne tačke 7px). Preko te tačne reference dodata beskonačna loop animacija — tačke-prekretnice (1901./1906./2015./2026.) kontinuirano kruže oko linije (48s po krugu), dok tekst ostaje uspravan/čitljiv (samo pozicija se kreće). Spoljni krug obojen tamno sivo, unutrašnji krug (na kome kruže tačke) brend crvenom bojom. Pauzira se na hover/focus, poštuje prefers-reduced-motion.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v14/index.html">
+      <span class="tag">v14</span>
+      <span class="body">
+        <h2>v14 — Potvrđena verzija: tačke-planete pune rotacije (360°) prate liniju</h2>
+        <p>Snapshot v13 nakon ispravke istog dana — tačke-prekretnice (1901./1906./2015./2026., sa godinom i opisom) kruže oko zlatne linije kao "planete", i sada se FIZIČKI okreću zajedno sa pozicijom (puni 360° krug po orbiti, 48s), umjesto da tekst ostaje uspravan. Fajlovi identični finalnoj v13 verziji — v14 postoji kao čista, potvrđena tačka u istoriji verzija nakon više uzastopnih korekcija u istoj sesiji.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v13/index.html">
       <span class="tag">v13</span>
       <span class="body">
-        <h2>v13 — Tačke-prekretnice kruže kao planete tačno po liniji, pune tanje linije <span class="badge">Najnovije</span></h2>
-        <p>"O nama" orbitalni dijagram redizajniran: isprekidane linije zamijenjene punim, tanjim ali vidljivim (1.5px/1.75px). Tačke-prekretnice (1901./1906./2015./2026., sa godinom i opisom) sada sjede tačno na zlatnoj liniji kao "planete" i kontinuirano kruže oko nje u beskonačnoj petlji (48s po krugu), dok tekst ostaje uvijek uspravan i čitljiv kroz cijelu rotaciju (kontra-rotacija preko CSS custom property-ja koja pamti početni ugao svake tačke). Rotacija pauzira na hover/focus radi lakšeg čitanja i klika, poštuje prefers-reduced-motion. Zamijenjena je v12 pristup (rotirajuće isprekidane linije) koji korisnik nije odobrio.</p>
+        <h2>v13 — Tačke-prekretnice kruže kao planete tačno po liniji, pune tanje linije</h2>
+        <p>"O nama" orbitalni dijagram redizajniran: isprekidane linije zamijenjene punim, tanjim ali vidljivim (1.5px/1.75px). Tačke-prekretnice sada sjede tačno na zlatnoj liniji kao "planete" i kontinuirano kruže oko nje u beskonačnoj petlji (48s po krugu). Zamijenjena je v12 pristup (rotirajuće isprekidane linije) koji korisnik nije odobrio. Naknadno u istoj sesiji ispravljeno (vidi v14): tekst prvobitno ostajao uspravan/nerotirajuć — korisnik tražio da se umjesto toga fizički okreće zajedno sa pozicijom tačke.</p>
       </span>
       <span class="open">Otvori →</span>
     </a>

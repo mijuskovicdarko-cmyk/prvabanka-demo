@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prva banka Crne Gore — Beta 1 (demo naslovna)</title>
+<meta name="description" content="Demo naslovna stranica — Prva banka Crne Gore. Interni pregled pravca, ne finalni dizajn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font-body);color:var(--color-text);background:var(--color-surface);line-height:var(--lh-normal);-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:"Fraunces",var(--font-display);font-weight:600;line-height:var(--lh-tight);margin:0}
+  p{margin:0}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  ul{margin:0;padding:0;list-style:none}
+  button{font-family:inherit;cursor:pointer}
+  .accent{color:var(--color-primary)}
+  .wrap{max-width:var(--container-wide);margin:0 auto;padding:0 24px}
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--color-primary);color:#fff;padding:12px 20px;border-radius:0 0 8px 0;z-index:200}
+  .skip-link:focus{left:0}
+  @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}}
+
+  /* ---- Topbar ---- */
+  .topbar{background:var(--pb-ink-950);color:#fff;font-size:.8rem}
+  .topbar .wrap{display:flex;align-items:center;justify-content:flex-end;gap:22px;padding-top:8px;padding-bottom:8px}
+  .topbar a{opacity:.82;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .topbar a:hover{opacity:1}
+  .topbar .lang{display:flex;gap:6px}
+  .topbar .lang button{background:none;border:0;color:#fff;opacity:.6;font-size:.8rem;padding:2px 4px}
+  .topbar .lang button.active{opacity:1;font-weight:700;border-bottom:1px solid var(--pb-gold-500)}
+
+  /* ---- Header ---- */
+  header.site{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--color-border)}
+  .header-row{display:flex;align-items:center;gap:28px;height:var(--header-h)}
+  .logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .logo img{height:34px}
+  nav.mega{display:flex;align-items:center;gap:4px;flex:1}
+  nav.mega > ul{display:flex;gap:2px}
+  nav.mega > ul > li{position:relative}
+  nav.mega > ul > li > button, nav.mega > ul > li > a{background:none;border:0;font:inherit;font-weight:600;font-size:.92rem;color:var(--color-text);padding:10px 12px;border-radius:8px;display:inline-flex;align-items:center;gap:4px;text-decoration:none}
+  nav.mega > ul > li > button:hover, nav.mega > ul > li > a:hover{background:var(--color-surface-2)}
+  nav.mega > ul > li > button[aria-expanded="true"]{background:var(--color-surface-2);color:var(--color-primary)}
+  .caret{width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.6}
+  .mega-panel{position:absolute;top:calc(100% + 10px);left:0;min-width:340px;background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:18px;display:none;grid-template-columns:1fr 1fr;gap:6px 20px}
+  nav.mega > ul > li:hover .mega-panel,
+  nav.mega > ul > li > button[aria-expanded="true"] + .mega-panel{display:grid}
+  .mega-panel a{display:block;padding:8px 10px;border-radius:8px;font-size:.88rem;text-decoration:none;color:var(--color-text)}
+  .mega-panel a:hover{background:var(--color-surface-2);color:var(--color-primary)}
+  .mega-panel .col-title{grid-column:1 / -1;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-subtle);font-weight:700;padding:6px 10px 2px}
+  .header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .icon-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--color-border);background:#fff;display:grid;place-items:center;color:var(--color-text)}
+  .icon-btn:hover{background:var(--color-surface-2)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:var(--radius-pill);font-weight:700;font-size:.88rem;padding:11px 22px;text-decoration:none;border:1px solid transparent;white-space:nowrap}
+  .btn-primary{background:var(--color-primary);color:#fff;box-shadow:var(--shadow-red)}
+  .btn-primary:hover{background:var(--color-primary-hover)}
+  .btn-ghost{background:#fff;border-color:var(--color-border);color:var(--color-text)}
+  .btn-ghost:hover{border-color:var(--color-border-strong)}
+  .btn-outline-invert{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
+  .btn-outline-invert:hover{background:rgba(255,255,255,.1)}
+  .hamburger{display:none}
+
+  @media (max-width: 1080px){
+    nav.mega{display:none}
+    .hamburger{display:grid;place-items:center}
+    .header-actions .btn-ghost span.label{display:none}
+  }
+
+  /* ---- Hero ---- */
+  .hero{position:relative;background:#12141a;color:#fff;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;filter:saturate(.92) contrast(1.02)}
+  .hero-bg.active{opacity:1}
+  .hero-photo-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(100deg, rgba(10,11,15,.96) 0%, rgba(10,11,15,.90) 36%, rgba(16,13,15,.72) 60%, rgba(28,14,16,.5) 100%)}
+  .ridge{position:absolute;left:0;right:0;bottom:-2px;height:180px;opacity:.45;z-index:1}
+  .hero-inner{position:relative;z-index:2;padding:64px 0 0;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+  .hero-left{position:relative}
+  @media (max-width:900px){.hero-photo-overlay{background:linear-gradient(180deg, rgba(10,11,15,.93) 0%, rgba(10,11,15,.90) 55%, rgba(10,11,15,.96) 100%)}}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--pb-gold-300);margin-bottom:18px}
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--pb-gold-500)}
+  .hero h1{font-size:var(--fs-4xl);color:#fff;letter-spacing:-0.02em;max-width:14ch}
+  .hero p.lead{margin-top:18px;font-size:var(--fs-lg);color:rgba(255,255,255,.72);max-width:46ch}
+  .hero-ctas{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+
+  /* ---- Hero slider ---- */
+  .hero-slide-content{min-height:230px}
+  .hero-slide-content.fade{animation:heroFade .38s var(--ease-out)}
+  @keyframes heroFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  .hero-slider-nav{display:flex;align-items:center;gap:10px;margin-top:34px}
+  .slider-arrow{width:34px;height:34px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:#fff;display:grid;place-items:center;flex-shrink:0}
+  .slider-arrow:hover{background:rgba(255,255,255,.12)}
+  .slider-tabs{display:flex;gap:4px;flex-wrap:wrap;border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-pill);padding:4px}
+  .slider-tabs button{background:none;border:0;color:rgba(255,255,255,.6);font-size:.82rem;font-weight:600;padding:8px 14px;border-radius:var(--radius-pill);white-space:nowrap}
+  .slider-tabs button[aria-selected="true"]{background:var(--color-primary);color:#fff}
+  .hero-card-link{margin-top:16px;display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(255,255,255,.68);text-decoration:none;padding-top:14px;border-top:1px solid rgba(255,255,255,.1)}
+  .hero-card-link:hover{color:#fff}
+  @media (max-width:520px){.hero-slider-nav{flex-wrap:wrap}.slider-tabs{order:3;width:100%;justify-content:center}}
+
+  .segment{margin-top:32px;display:flex;gap:6px;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:0}
+  .segment button{background:none;border:0;color:rgba(255,255,255,.55);font-weight:700;font-size:.88rem;padding:10px 4px;margin-right:22px;border-bottom:2px solid transparent;position:relative;top:1px}
+  .segment button[aria-selected="true"]{color:#fff;border-bottom-color:var(--color-primary)}
+  .segment-msg{margin-top:16px;color:rgba(255,255,255,.68);font-size:.94rem;min-height:24px}
+  .segment-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .segment-chips span{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 12px;font-size:.78rem;color:rgba(255,255,255,.85)}
+
+  .hero-card{background:rgba(12,13,17,.55);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius-xl);padding:26px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 20px 50px rgba(0,0,0,.35);align-self:start}
+  .hero-card .stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .hero-card .stat-row:last-child{border-bottom:0}
+  .hero-card .stat-label{color:rgba(255,255,255,.6);font-size:.82rem}
+  .hero-card .stat-value{font-family:"Fraunces",serif;font-size:1.35rem;font-variant-numeric:tabular-nums}
+  .hero-card .stat-value.up{color:#7CD68A}
+  .hero-card .stat-value.down{color:#F08A8A}
+  .hero-card-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--pb-gold-300);font-weight:700;margin-bottom:6px}
+
+  @media (max-width: 900px){
+    .hero-inner{grid-template-columns:1fr;padding-top:40px}
+    .hero h1{font-size:var(--fs-3xl);max-width:none}
+  }
+
+  /* ---- Sections generic ---- */
+  section{padding:76px 0}
+  section.tight{padding:56px 0}
+  .section-head{max-width:60ch;margin-bottom:36px}
+  .kicker{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--color-primary);margin-bottom:10px}
+  .section-head h2{font-size:var(--fs-3xl);letter-spacing:-0.01em}
+  .section-head p{margin-top:12px;color:var(--color-text-muted);font-size:1.02rem}
+  .section-foot{margin-top:34px}
+
+  /* ---- Quick access ---- */
+  .qa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .qa-card{background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:22px;text-decoration:none;color:var(--color-text);transition:transform .18s var(--ease-out), box-shadow .18s var(--ease-out), border-color .18s}
+  .qa-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--color-border-strong)}
+  .qa-icon{width:44px;height:44px;border-radius:12px;background:var(--color-surface-2);display:grid;place-items:center;margin-bottom:14px;color:var(--color-primary)}
+  .qa-card h3{font-size:1.02rem;font-weight:700;font-family:var(--font-body)}
+  .qa-card p{font-size:.85rem;color:var(--color-text-muted);margin-top:4px}
+  @media (max-width:820px){.qa-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.qa-grid{grid-template-columns:1fr}}
+
+  /* ---- Calculator ---- */
+  .calc-section{position:relative;background:#14161b;color:#fff;overflow:hidden}
+  .calc-section::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.4px, transparent 1.6px);background-size:16px 16px;-webkit-mask-image:radial-gradient(ellipse 65% 75% at 50% 50%, #000 35%, transparent 78%);mask-image:radial-gradient(ellipse 65% 75% at 50% 50%, #000 35%, transparent 78%);pointer-events:none}
+  .calc-section::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 15% 100%, rgba(210,35,42,.16), transparent 70%);pointer-events:none}
+  .calc-section .kicker{position:relative;z-index:1}
+  .calc-section .wrap{position:relative;z-index:1}
+  .calc-section > .wrap > div:last-child h2{color:#fff}
+  .calc-section > .wrap > div:last-child .product-pill{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#fff}
+  .calc-section > .wrap > div:last-child .product-pill .tag{color:rgba(255,255,255,.55)}
+  .calc-section > .wrap > div:last-child .product-pill:hover{border-color:var(--color-primary)}
+  .calc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .calc-card{background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-md)}
+  .calc-field{margin-bottom:22px}
+  .calc-field label{display:flex;justify-content:space-between;font-size:.86rem;font-weight:700;margin-bottom:10px}
+  .calc-field output{font-variant-numeric:tabular-nums;color:var(--color-primary)}
+  input[type=range]{width:100%;accent-color:var(--color-primary)}
+  .calc-results{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px;padding-top:22px;border-top:1px solid var(--color-border)}
+  .calc-result .label{font-size:.78rem;color:var(--color-text-muted)}
+  .calc-result .value{font-family:"Fraunces",serif;font-size:1.6rem;font-variant-numeric:tabular-nums;margin-top:2px}
+  .calc-note{font-size:.76rem;color:var(--color-text-subtle);margin-top:18px}
+  .product-list{display:flex;flex-direction:column;gap:10px}
+  .product-pill{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-md);padding:14px 18px;text-decoration:none;color:var(--color-text)}
+  .product-pill:hover{border-color:var(--color-primary)}
+  .product-pill .name{font-weight:700;font-size:.92rem}
+  .product-pill .tag{font-size:.76rem;color:var(--color-text-muted)}
+  @media (max-width:900px){.calc-grid{grid-template-columns:1fr}}
+
+  /* ---- Digital banking ---- */
+  .digital{position:relative;color:#fff;background:linear-gradient(100deg, rgba(15,17,20,.97) 0%, rgba(15,17,20,.94) 42%, rgba(15,17,20,.7) 100%), url('assets/images/digitalno-bankarstvo.jpg') center 30%/cover;isolation:isolate}
+  .digital-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .digital h2{color:#fff}
+  .digital p{color:rgba(255,255,255,.68)}
+  .feature-list{margin-top:26px;display:flex;flex-direction:column;gap:14px}
+  .feature-list li{display:flex;gap:12px;align-items:flex-start;font-size:.94rem;color:rgba(255,255,255,.85)}
+  .feature-list .dot{width:6px;height:6px;border-radius:999px;background:var(--pb-gold-500);margin-top:8px;flex-shrink:0}
+  .phone{width:230px;height:460px;margin:0 auto;background:#0c0d10;border-radius:36px;border:6px solid #2a2d34;padding:16px;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+  .phone-screen{background:linear-gradient(160deg,#1c1f27,#12141a);height:100%;border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:14px}
+  .phone-balance{color:rgba(255,255,255,.55);font-size:.7rem}
+  .phone-balance strong{display:block;color:#fff;font-family:"Fraunces",serif;font-size:1.5rem;margin-top:4px}
+  .phone-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .phone-actions div{background:rgba(255,255,255,.08);border-radius:10px;height:44px}
+  .phone-tx{background:rgba(255,255,255,.06);border-radius:12px;padding:10px;font-size:.68rem;color:rgba(255,255,255,.7);display:flex;justify-content:space-between}
+
+  /* ---- Kursna lista / ridge ---- */
+  .rates-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:end}
+  .ridge-card{background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:28px;box-shadow:var(--shadow-sm)}
+  .ridge-card svg{width:100%;height:auto}
+  .rate-table{width:100%;border-collapse:collapse;font-size:.9rem}
+  .rate-table th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-subtle);padding:0 0 10px;font-weight:700}
+  .rate-table td{padding:11px 0;border-top:1px solid var(--color-border);font-variant-numeric:tabular-nums}
+  .rate-table td.curr{font-weight:700}
+  .updated{font-size:.76rem;color:var(--color-text-subtle);margin-top:14px}
+  @media (max-width:900px){.rates-grid{grid-template-columns:1fr}}
+
+  /* ---- Popusti banner ---- */
+  .popusti{background:linear-gradient(135deg,#FFFFFF 0%, var(--pb-cream) 100%);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border)}
+  .popusti-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .popusti h2{max-width:16ch}
+  .popusti-stats{display:flex;gap:34px;margin-top:24px}
+  .popusti-stats .n{font-family:"Fraunces",serif;font-size:2rem;color:var(--color-primary)}
+  .popusti-stats .l{font-size:.78rem;color:var(--color-text-muted)}
+  .partner-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .partner-tile{aspect-ratio:1.4;background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-md);display:grid;place-items:center;font-weight:800;color:var(--color-text-subtle);font-size:.72rem;letter-spacing:.03em}
+  @media (max-width:900px){.popusti-grid{grid-template-columns:1fr}}
+
+  /* ---- Elektronsko bankarstvo banner ---- */
+  .ebank-banner{position:relative;min-height:480px;display:flex;align-items:center;color:#fff;background:linear-gradient(100deg, rgba(10,11,15,.95) 0%, rgba(10,11,15,.82) 40%, rgba(10,11,15,.35) 100%), url('assets/images/ebanking.jpg') center/cover}
+  .ebank-inner{width:100%;padding:60px 0}
+  .ebank-card{max-width:44ch}
+  .ebank-card h2{font-size:var(--fs-3xl);letter-spacing:-0.01em;margin-top:10px;color:#fff}
+  .ebank-card p{margin-top:16px;color:rgba(255,255,255,.78);font-size:1rem;line-height:1.6}
+  .ebank-card .btn{margin-top:26px}
+  @media (max-width:700px){.ebank-banner{background:linear-gradient(180deg, rgba(10,11,15,.7) 0%, rgba(10,11,15,.95) 65%), url('assets/images/ebanking.jpg') center/cover;align-items:flex-end;min-height:520px}.ebank-inner{padding-bottom:40px}}
+
+  /* ---- Campaigns ---- */
+  .campaign-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .campaign-card{border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--color-border);background:#fff}
+  .campaign-media{height:170px;background-size:cover;background-position:center;position:relative}
+  .campaign-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(12,13,17,0) 45%, rgba(12,13,17,.55) 100%)}
+  .campaign-body{padding:20px}
+  .campaign-body .tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--color-primary)}
+  .campaign-body h3{font-size:1.05rem;margin-top:8px;font-family:var(--font-body);font-weight:700}
+  .campaign-body p{font-size:.86rem;color:var(--color-text-muted);margin-top:8px}
+  @media (max-width:900px){.campaign-grid{grid-template-columns:1fr}}
+
+  /* ---- Heritage ---- */
+  .heritage{background:#fff}
+  .heritage-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .timeline{margin-top:26px;display:flex;flex-direction:column;gap:0}
+  .timeline .row{display:flex;gap:18px;padding:14px 0;border-top:1px solid var(--color-border)}
+  .timeline .row:first-child{border-top:0}
+  .timeline .year{font-family:"Fraunces",serif;font-weight:700;color:var(--color-primary);width:64px;flex-shrink:0}
+  .timeline .desc{color:var(--color-text-muted);font-size:.92rem}
+  .heritage-badge{display:inline-flex;align-items:baseline;gap:10px;border:1px solid var(--pb-gold-300);background:var(--pb-gold-50);border-radius:999px;padding:8px 18px;margin-bottom:20px}
+  .heritage-badge b{font-family:"Fraunces",serif;color:var(--pb-gold-700);font-size:1.1rem}
+  @media (max-width:900px){.heritage-grid{grid-template-columns:1fr}}
+
+  /* ---- News ---- */
+  .news{background:var(--color-surface-2)}
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .news-card{background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:22px}
+  .news-date{font-size:.76rem;color:var(--color-text-subtle);font-weight:700}
+  .news-card h3{font-size:1rem;margin-top:8px;font-family:var(--font-body);font-weight:700}
+  .news-card p{font-size:.85rem;color:var(--color-text-muted);margin-top:8px}
+  @media (max-width:900px){.news-grid{grid-template-columns:1fr}}
+
+  /* ---- Contact ---- */
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .contact-card{border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:24px;background:#fff}
+  .contact-card .icon{width:40px;height:40px;border-radius:10px;background:var(--color-surface-2);display:grid;place-items:center;margin-bottom:14px;color:var(--color-primary)}
+  .contact-card h3{font-size:1rem;font-family:var(--font-body)}
+  .contact-card p{font-size:.86rem;color:var(--color-text-muted);margin-top:6px}
+  .contact-card a.tel{font-family:"Fraunces",serif;font-size:1.3rem;color:var(--color-primary);text-decoration:none;display:inline-block;margin-top:8px}
+
+  /* ---- Footer ---- */
+  footer.site{background:var(--pb-ink-950);color:rgba(255,255,255,.72);padding-top:60px}
+  .footer-top{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:32px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .footer-brand img{height:30px;margin-bottom:14px}
+  .footer-brand p{font-size:.84rem;color:rgba(255,255,255,.5);max-width:32ch}
+  .footer-social{display:flex;gap:10px;margin-top:18px}
+  .footer-social a{width:34px;height:34px;border-radius:999px;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;text-decoration:none}
+  .footer-col h4{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.5);font-weight:700;margin-bottom:16px}
+  .footer-col ul{display:flex;flex-direction:column;gap:10px}
+  .footer-col a{font-size:.88rem;text-decoration:none;color:rgba(255,255,255,.78)}
+  .footer-col a:hover{color:#fff}
+  .footer-col a.more{color:var(--pb-gold-300);font-weight:700}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;flex-wrap:wrap;font-size:.8rem}
+  .footer-legal{display:flex;gap:20px;flex-wrap:wrap}
+  .footer-legal a{text-decoration:none;color:rgba(255,255,255,.55)}
+  .footer-legal a:hover{color:#fff}
+  .fzd{display:flex;align-items:center;gap:10px}
+  .fzd img{height:26px;border-radius:4px;background:#fff;padding:2px}
+  @media (max-width:1000px){.footer-top{grid-template-columns:1fr 1fr}}
+  @media (max-width:600px){.footer-top{grid-template-columns:1fr}}
+
+  /* ---- Mobile drawer ---- */
+  .mobile-drawer{position:fixed;inset:0;background:#fff;z-index:200;display:none;overflow-y:auto}
+  .mobile-drawer.open{display:block}
+  .mobile-drawer .wrap{padding-top:20px;padding-bottom:40px}
+  .mobile-drawer .top{display:flex;justify-content:space-between;align-items:center;padding:10px 0 20px}
+  .mobile-drawer details{border-bottom:1px solid var(--color-border);padding:14px 0}
+  .mobile-drawer summary{font-weight:700;font-size:1rem;cursor:pointer}
+  .mobile-drawer details ul{margin-top:12px;display:flex;flex-direction:column;gap:10px;padding-left:6px}
+  .mobile-drawer details a{font-size:.92rem;color:var(--color-text-muted);text-decoration:none}
+  .mobile-cta{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+
+  /* ---- Demo banner ---- */
+  .demo-banner{background:var(--pb-gold-700);color:#fff;text-align:center;font-size:.8rem;padding:8px 14px;font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="demo-banner">BETA_1 — interni demo pravca naslovne stranice, nije finalni sadržaj ni dizajn. Sav tekst je ilustrativan osim gdje je naznačeno kao stvaran podatak.</div>
+<a class="skip-link" href="#main">Preskoči na sadržaj</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="#" id="search-trigger"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg> Pretraga</a>
+    <a href="#kontakt">Karijera</a>
+    <a href="#kontakt">Kontakt · 19891</a>
+    <div class="lang">
+      <button class="active">ME</button>/<button>EN</button>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap header-row">
+    <a href="#" class="logo"><img src="assets/brand/logo-color.svg" alt="Prva banka Crne Gore"></a>
+
+    <nav class="mega" aria-label="Glavna navigacija">
+      <ul>
+        <li>
+          <button aria-expanded="false" aria-controls="m-racuni">Računi <span class="caret"></span></button>
+          <div class="mega-panel" id="m-racuni">
+            <span class="col-title">Stanovništvo</span>
+            <a href="#">Transakcioni račun</a>
+            <a href="#">Devizni račun</a>
+            <a href="#">Dozvoljeni minus</a>
+            <span class="col-title">Privreda</span>
+            <a href="#">Poslovni račun</a>
+            <a href="#">Depoziti</a>
+          </div>
+        </li>
+        <li>
+          <button aria-expanded="false" aria-controls="m-krediti">Krediti <span class="caret"></span></button>
+          <div class="mega-panel" id="m-krediti">
+            <span class="col-title">Najtraženiji</span>
+            <a href="#">Gotovinski kredit</a>
+            <a href="#">Stambeni kredit</a>
+            <a href="#">Auto kredit</a>
+            <span class="col-title">Ostalo</span>
+            <a href="#">Kredit za penzionere</a>
+            <a href="#">Zeleni kredit</a>
+            <a href="#">Svi krediti →</a>
+          </div>
+        </li>
+        <li>
+          <button aria-expanded="false" aria-controls="m-kartice">Kartice <span class="caret"></span></button>
+          <div class="mega-panel" id="m-kartice">
+            <span class="col-title">Kartice</span>
+            <a href="#">Monte Rata</a>
+            <a href="#">Revolving</a>
+            <a href="#">Charge</a>
+            <a href="#">Debitna</a>
+          </div>
+        </li>
+        <li><a href="#digitalno">Digitalno bankarstvo</a></li>
+        <li><a href="#">Platni promet</a></li>
+        <li><a href="#">Štednja</a></li>
+        <li><a href="#">Investiciono bankarstvo</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="search-trigger-2" aria-label="Pretraga"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg></button>
+      <a href="#" class="btn btn-primary"><span class="label">Online banking</span><span aria-hidden="true">→</span></a>
+      <button class="icon-btn hamburger" id="drawer-open" aria-label="Otvori meni" aria-expanded="false" aria-controls="mobile-drawer"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="wrap">
+    <div class="top">
+      <img src="assets/brand/logo-color.svg" alt="Prva banka" style="height:28px">
+      <button class="icon-btn" id="drawer-close" aria-label="Zatvori meni"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    </div>
+    <details open><summary>Računi</summary><ul><li><a href="#">Transakcioni račun</a></li><li><a href="#">Devizni račun</a></li><li><a href="#">Dozvoljeni minus</a></li></ul></details>
+    <details><summary>Krediti</summary><ul><li><a href="#">Gotovinski kredit</a></li><li><a href="#">Stambeni kredit</a></li><li><a href="#">Auto kredit</a></li></ul></details>
+    <details><summary>Kartice</summary><ul><li><a href="#">Monte Rata</a></li><li><a href="#">Revolving</a></li><li><a href="#">Debitna</a></li></ul></details>
+    <details><summary>Digitalno bankarstvo</summary><ul><li><a href="#">eBanking</a></li><li><a href="#">mBanking</a></li></ul></details>
+    <details><summary>Platni promet</summary><ul><li><a href="#">Domaći</a></li><li><a href="#">Međunarodni</a></li></ul></details>
+    <details><summary>Štednja</summary><ul><li><a href="#">Oročena štednja</a></li></ul></details>
+    <details><summary>Investiciono bankarstvo</summary><ul><li><a href="#">Pregled</a></li></ul></details>
+    <div class="mobile-cta">
+      <a href="#" class="btn btn-primary" style="justify-content:center">Online banking</a>
+      <a href="#kontakt" class="btn btn-ghost" style="justify-content:center">Kontakt · 19891</a>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg active" data-bg="0" style="background-image:url('assets/images/hero-kredit.png')"></div>
+    <div class="hero-bg" data-bg="1" style="background-image:url('assets/images/hero-kartica.png')"></div>
+    <div class="hero-bg" data-bg="2" style="background-image:url('assets/images/hero-racun.png')"></div>
+    <div class="hero-photo-overlay" aria-hidden="true"></div>
+    <svg class="ridge" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+      <polyline points="0,180 0,120 120,70 240,110 360,40 480,95 620,20 760,85 900,50 1040,100 1180,35 1320,90 1440,60 1440,180" fill="rgba(184,164,113,0.10)" stroke="rgba(184,164,113,0.35)" stroke-width="2"/>
+    </svg>
+    <div class="wrap hero-inner">
+      <div class="hero-left">
+        <div class="hero-slider" role="region" aria-roledescription="slajder" aria-label="Istaknute usluge" id="hero-slider">
+          <div class="hero-slide-content" id="hero-slide-content" aria-live="polite">
+            <span class="eyebrow" id="slide-eyebrow">Prva banka Crne Gore · od 1901</span>
+            <h1 id="slide-h1">Gotovinski <span class="accent">kredit</span> bez komplikacija</h1>
+            <p class="lead" id="slide-lead">Do 50.000 € gotovine za sve što ti treba, uz kamatnu stopu od 7.9% i brzu odluku banke.</p>
+            <div class="hero-ctas">
+              <a href="#kalkulator" class="btn btn-primary" id="slide-cta">Izračunaj ratu →</a>
+              <a href="#" class="btn btn-outline-invert">Otvori račun online</a>
+            </div>
+          </div>
+
+          <div class="hero-slider-nav">
+            <button class="slider-arrow" id="slide-prev" aria-label="Prethodni slajd">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <div class="slider-tabs" role="tablist" aria-label="Istaknute usluge">
+              <button role="tab" aria-selected="true" data-slide="0">Gotovinski kredit</button>
+              <button role="tab" aria-selected="false" data-slide="1">Debitna kartica</button>
+              <button role="tab" aria-selected="false" data-slide="2">Otvaranje računa</button>
+            </div>
+            <button class="slider-arrow" id="slide-next" aria-label="Sljedeći slajd">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="segment" role="tablist" aria-label="Kome se obraćamo">
+          <button role="tab" aria-selected="true" data-seg="gradjanin">Ti si Građanin</button>
+          <button role="tab" aria-selected="false" data-seg="firma">Ti si Firma</button>
+          <button role="tab" aria-selected="false" data-seg="mlad">Ti si Mlad</button>
+          <button role="tab" aria-selected="false" data-seg="dijaspora">Ti si Dijaspora</button>
+        </div>
+        <p class="segment-msg" id="segment-msg" aria-live="polite">Otvori tekući račun za par minuta i preuzmi debitnu karticu iz prve poslovnice.</p>
+        <div class="segment-chips" id="segment-chips">
+          <span>Gotovinski kredit</span><span>Debitna kartica</span><span>mBanking</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-title">Kursna lista · danas</div>
+        <div class="stat-row"><span class="stat-label">EUR / USD</span><span class="stat-value up">1.0862 ▲</span></div>
+        <div class="stat-row"><span class="stat-label">EUR / GBP</span><span class="stat-value down">0.8391 ▼</span></div>
+        <div class="stat-row"><span class="stat-label">EUR / CHF</span><span class="stat-value up">0.9364 ▲</span></div>
+        <div class="stat-row"><span class="stat-label">Gotovinski kredit od</span><span class="stat-value">7.9% NKS</span></div>
+        <a href="#kontakt" class="hero-card-link">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+          Poslovna mreža — pronađi filijalu ili bankomat
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK ACCESS -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Brz pristup</span>
+        <h2>Sve što ti treba, na dohvat ruke</h2>
+      </div>
+      <div class="qa-grid">
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg></div><h3>Fizička lica</h3><p>Računi, kartice, krediti za tebe</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="7" height="11"/><rect x="13" y="4" width="7" height="16"/><path d="M7 12h1M7 15h1M16 8h1M16 11h1M16 14h1"/></svg></div><h3>Pravna lica</h3><p>Rješenja za tvoj biznis</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.2"/><circle cx="15" cy="15" r="5.2"/></svg></div><h3>Krediti</h3><p>Gotovinski, stambeni, auto...</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></div><h3>Kartice</h3><p>Monte Rata, Revolving, Debitna</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V11a8 8 0 0 1 16 0v9"/><path d="M4 20h16M9 20v-5h6v5"/></svg></div><h3>Štednja</h3><p>Oročena, po viđenju, rentna</p></a>
+        <a class="qa-card" href="#digitalno"><div class="qa-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg></div><h3>Digitalno bankarstvo</h3><p>eBanking i mBanking</p></a>
+        <a class="qa-card" href="#kursna"><div class="qa-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l5-5 4 4 8-9"/><path d="M15 7h5v5"/></svg></div><h3>Kursna lista</h3><p>Ažurirano svaki dan</p></a>
+        <a class="qa-card" href="#kalkulator"><div class="qa-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/></svg></div><h3>Kalkulatori</h3><p>Izračunaj ratu ili prinos štednje</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div><h3>Filijale i bankomati</h3><p>Pronađi najbližu lokaciju</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="calc-section" id="kalkulator">
+    <div class="wrap calc-grid">
+      <div class="calc-card">
+        <span class="kicker">TOP konverzija</span>
+        <h2 style="font-size:1.5rem">Kreditni kalkulator</h2>
+        <p style="color:var(--color-text-muted);font-size:.9rem;margin-top:8px">Ilustrativan izračun — konačni uslovi zavise od kreditne sposobnosti i formula koje dostavlja banka.</p>
+
+        <div class="calc-field" style="margin-top:26px">
+          <label>Iznos kredita <output id="out-amount">10.000 €</output></label>
+          <input type="range" id="amount" min="500" max="50000" step="100" value="10000">
+        </div>
+        <div class="calc-field">
+          <label>Period otplate <output id="out-period">48 mj.</output></label>
+          <input type="range" id="period" min="6" max="120" step="6" value="48">
+        </div>
+        <div class="calc-field">
+          <label>Nominalna kamatna stopa <output id="out-rate">7.9%</output></label>
+          <input type="range" id="rate" min="5.9" max="14.9" step="0.1" value="7.9">
+        </div>
+
+        <div class="calc-results">
+          <div class="calc-result"><div class="label">Mjesečna rata</div><div class="value" id="res-monthly">—</div></div>
+          <div class="calc-result"><div class="label">Ukupno kamata + glavnica</div><div class="value" id="res-total">—</div></div>
+        </div>
+        <a href="#" class="btn btn-primary" style="margin-top:22px">Pošalji mi ponudu</a>
+        <p class="calc-note">Demo formula (anuitetska otplata), NE zvanična formula banke — čeka se specifikacija od klijenta (vidi docs/open-questions.md).</p>
+      </div>
+
+      <div>
+        <span class="kicker">Najtraženije</span>
+        <h2 style="font-size:1.5rem;margin-bottom:18px">Krediti za stanovništvo</h2>
+        <div class="product-list">
+          <a class="product-pill" href="#"><span class="name">Gotovinski kredit</span><span class="tag">od 7.9% NKS</span></a>
+          <a class="product-pill" href="#"><span class="name">Stambeni kredit</span><span class="tag">kupovina / adaptacija</span></a>
+          <a class="product-pill" href="#"><span class="name">Auto kredit</span><span class="tag">novo i polovno vozilo</span></a>
+          <a class="product-pill" href="#"><span class="name">Kredit za penzionere</span><span class="tag">sa i bez polise</span></a>
+          <a class="product-pill" href="#"><span class="name">Zeleni kredit</span><span class="tag">energetska efikasnost</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIGITAL BANKING -->
+  <section class="digital" id="digitalno">
+    <div class="wrap digital-grid">
+      <div>
+        <span class="kicker" style="color:var(--pb-gold-300)">Digitalno bankarstvo</span>
+        <h2>Cijela banka, sada u tvom džepu</h2>
+        <p style="margin-top:14px">eBanking i mBanking ti omogućavaju da upravljaš računima, plaćaš račune i pratiš potrošnju — bilo gdje, bilo kada.</p>
+        <ul class="feature-list">
+          <li><span class="dot"></span>Pregled stanja i prometa u realnom vremenu</li>
+          <li><span class="dot"></span>Plaćanje računa i trajni nalozi</li>
+          <li><span class="dot"></span>Prijava i blokada kartice iz aplikacije</li>
+          <li><span class="dot"></span>Push obavještenja o svakoj transakciji</li>
+        </ul>
+        <div class="hero-ctas" style="margin-top:26px">
+          <a href="#" class="btn btn-primary">Aktiviraj mBanking</a>
+          <a href="#" class="btn btn-outline-invert">Saznaj više</a>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-balance">Raspoloživo stanje<strong>2.418,52 €</strong></div>
+          <div class="phone-actions"><div></div><div></div><div></div><div></div></div>
+          <div class="phone-tx"><span>Merkator</span><span>−24,90 €</span></div>
+          <div class="phone-tx"><span>Uplata zarade</span><span>+890,00 €</span></div>
+          <div class="phone-tx"><span>EPCG</span><span>−41,20 €</span></div>
+          <div class="phone-tx"><span>Petrol</span><span>−30,00 €</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KURSNA LISTA / RIDGE -->
+  <section id="kursna">
+    <div class="wrap rates-grid">
+      <div class="ridge-card">
+        <span class="kicker">Kursna lista i kamatne stope</span>
+        <h2 style="font-size:1.4rem;margin-bottom:18px">Crna Gora, iz mjeseca u mjesec</h2>
+        <svg viewBox="0 0 600 160" aria-hidden="true">
+          <polyline points="0,140 40,110 80,120 120,70 160,90 200,45 240,75 280,30 320,60 360,20 400,55 440,35 480,65 520,25 560,50 600,15"
+            fill="none" stroke="var(--pb-ink-300)" stroke-width="2"/>
+          <polygon points="0,140 40,110 80,120 120,70 160,90 200,45 240,75 280,30 320,60 360,20 400,55 440,35 480,65 520,25 560,50 600,15 600,160 0,160"
+            fill="url(#ridgeFill)"/>
+          <circle cx="360" cy="20" r="5" fill="var(--color-primary)"/>
+          <defs>
+            <linearGradient id="ridgeFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(184,164,113,0.35)"/>
+              <stop offset="100%" stop-color="rgba(184,164,113,0)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <p class="updated">Ažurirano danas u 09:00 · izvor: kursna lista ECB (ilustrativno)</p>
+      </div>
+      <div>
+        <table class="rate-table">
+          <thead><tr><th>Valuta</th><th>Kurs</th></tr></thead>
+          <tbody>
+            <tr><td class="curr">USD</td><td>1.0862</td></tr>
+            <tr><td class="curr">GBP</td><td>0.8391</td></tr>
+            <tr><td class="curr">CHF</td><td>0.9364</td></tr>
+            <tr><td class="curr">JPY</td><td>168.42</td></tr>
+          </tbody>
+        </table>
+        <a href="#" class="btn btn-ghost" style="margin-top:20px">Konvertor valuta →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPUSTI -->
+  <section class="popusti">
+    <div class="wrap popusti-grid">
+      <div>
+        <span class="kicker">Popusti</span>
+        <h2>Kartice Prve banke CG štede za tebe</h2>
+        <p style="margin-top:14px;color:var(--color-text-muted)">Do 30% popusta kod preko 130 partnera širom Crne Gore. Uz Monte Rata karticu, plaćaj i na rate do 36 mjeseci bez kamate.</p>
+        <div class="popusti-stats">
+          <div><div class="n">130+</div><div class="l">partnera</div></div>
+          <div><div class="n">12</div><div class="l">kategorija</div></div>
+          <div><div class="n">36</div><div class="l">rata bez kamate</div></div>
+        </div>
+        <a href="#" class="btn btn-primary" style="margin-top:26px">Pogledaj sve popuste →</a>
+      </div>
+      <div class="partner-grid">
+        <div class="partner-tile">MODA</div><div class="partner-tile">TEHNIKA</div><div class="partner-tile">HOTELI</div><div class="partner-tile">SPORT</div>
+        <div class="partner-tile">DOM</div><div class="partner-tile">LJEPOTA</div><div class="partner-tile">AUTO</div><div class="partner-tile">+122</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMPAIGNS -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Istaknuto</span>
+        <h2>Aktuelne ponude i kampanje</h2>
+      </div>
+      <div class="campaign-grid">
+        <div class="campaign-card"><div class="campaign-media" style="background-image:url('assets/images/hero-kredit.png')"></div><div class="campaign-body"><span class="tag">Krediti</span><h3>Gotovinski kredit bez naknade za obradu</h3><p>Ograničena ponuda za nove klijente.</p></div></div>
+        <div class="campaign-card"><div class="campaign-media" style="background-image:url('assets/images/hero-kartica.png')"></div><div class="campaign-body"><span class="tag">Kartice</span><h3>Monte Rata — do 36 rata bez kamate</h3><p>Kod svih partnera na Popusti listi.</p></div></div>
+        <div class="campaign-card"><div class="campaign-media" style="background-image:url('assets/images/hero-racun.png')"></div><div class="campaign-body"><span class="tag">Digitalno</span><h3>Aktiviraj mBanking za 5 minuta</h3><p>Bez odlaska u filijalu.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELEKTRONSKO BANKARSTVO -->
+  <section class="ebank-banner" id="elektronsko-bankarstvo">
+    <div class="wrap ebank-inner">
+      <div class="ebank-card">
+        <span class="kicker" style="color:var(--pb-gold-300)">Digitalno bankarstvo</span>
+        <h2>Elektronsko bankarstvo za fizička lica</h2>
+        <p>Upravljaj svojim finansijama bez odlaska u filijalu! Elektronsko bankarstvo omogućava brz, siguran i jednostavan pristup bankarskim uslugama putem računara, tableta i mobilnog uređaja. Korisnici mogu izvršavati plaćanja, prenose sredstava i pratiti stanje računa u svakom trenutku, bez potrebe za odlaskom u poslovnicu. Intuitivan interfejs i dostupnost usluga 24/7 doprinose većoj efikasnosti i jednostavnijem svakodnevnom upravljanju finansijama.</p>
+        <a href="#" class="btn btn-primary">Podnesi zahtjev</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERITAGE -->
+  <section class="heritage">
+    <div class="wrap heritage-grid">
+      <div>
+        <div class="heritage-badge">Od <b>1901</b> · 125 godina povjerenja</div>
+        <h2 style="font-size:1.9rem">Prva banka svih generacija Crne Gore</h2>
+        <p style="margin-top:14px;color:var(--color-text-muted)">Najdugovječnija banka u zemlji — vodimo se principima sigurnosti, dostupnosti i ličnog pristupa, uz najsavremeniju digitalnu ponudu.</p>
+        <a href="#" class="btn btn-ghost" style="margin-top:22px">Saznaj više o nama →</a>
+      </div>
+      <div class="timeline">
+        <div class="row"><div class="year">1901</div><div class="desc">Osnovana Prva banka Crne Gore — najstarija banka u zemlji.</div></div>
+        <div class="row"><div class="year">2010+</div><div class="desc">Modernizacija poslovne mreže i uvođenje digitalnih servisa.</div></div>
+        <div class="row"><div class="year">2020+</div><div class="desc">eBanking i mBanking postaju centralni kanal za klijente.</div></div>
+        <div class="row"><div class="year">2026</div><div class="desc">Nova digitalna platforma — banka u tvom džepu.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="news">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Novosti</span>
+        <h2>Vijesti i edukativni sadržaj</h2>
+      </div>
+      <div class="news-grid">
+        <div class="news-card"><div class="news-date">24. jul 2026.</div><h3>Šta je efektivna kamatna stopa (EKS)?</h3><p>Finansijski vodič za stanovništvo — objašnjeno jednostavno.</p></div>
+        <div class="news-card"><div class="news-date">18. jul 2026.</div><h3>Kako prepoznati phishing email</h3><p>Sigurnost i zaštita od prevara — praktični savjeti.</p></div>
+        <div class="news-card"><div class="news-date">10. jul 2026.</div><h3>Nova poslovnica u Podgorici</h3><p>Proširujemo poslovnu mrežu radi bolje dostupnosti.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="kontakt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Podrška</span>
+        <h2>Tu smo za tebe</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card"><div class="icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8.3 6.7 15 15 15l2-4-5-2-2 2c-2.3-1-4-2.7-5-5l2-2-2-5-4 1"/></svg></div><h3>Kontakt centar</h3><p>Dostupni smo svakog radnog dana</p><a class="tel" href="tel:19891">19891</a></div>
+        <div class="contact-card"><div class="icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div><h3>Filijale i bankomati</h3><p>30+ filijala/šaltera, 100+ bankomata širom Crne Gore</p><a href="#" class="btn btn-ghost" style="margin-top:10px">Pronađi lokaciju</a></div>
+        <div class="contact-card"><div class="icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H8l-4 4V5z"/><path d="M8 10h8M8 13h5"/></svg></div><h3>Pitanja i odgovori</h3><p>Najčešća pitanja o kreditima, karticama i digitalnom bankarstvu</p><a href="#" class="btn btn-ghost" style="margin-top:10px">Pogledaj FAQ</a></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <img src="assets/brand/logo-white.svg" alt="Prva banka Crne Gore">
+      <p>Prva banka Crne Gore A.D. — osnovana 1901. Podgorica, Crna Gora.</p>
+      <div class="footer-social" aria-label="Društvene mreže">
+        <a href="https://www.facebook.com/prvabankacg/" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/prvabankacg1901/" aria-label="Instagram">ig</a>
+        <a href="https://www.linkedin.com/company/prva-banka-crne-gore/" aria-label="LinkedIn">in</a>
+        <a href="https://www.youtube.com/channel/UCjhX6QcF4V6TLWNuDYFk8FQ" aria-label="YouTube">yt</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Stanovništvo</h4>
+      <ul>
+        <li><a href="#">Računi</a></li>
+        <li><a href="#">Krediti</a></li>
+        <li><a href="#">Kartice</a></li>
+        <li><a href="#">Štednja</a></li>
+        <li><a href="#">Digitalno bankarstvo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Privreda</h4>
+      <ul>
+        <li><a href="#">Krediti za privredu</a></li>
+        <li><a href="#">Business kartice</a></li>
+        <li><a href="#">Depoziti</a></li>
+        <li><a href="#">Platni promet</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Popusti &amp; Nekretnine</h4>
+      <ul>
+        <li><a href="#">Svi partneri</a></li>
+        <li><a href="#">Nekretnine na prodaju</a></li>
+        <li><a href="#">Finansijski vodiči</a></li>
+        <li><a href="#">Vijesti i analize</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>O banci</h4>
+      <ul>
+        <li><a href="#">O nama</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#">Karijera</a></li>
+        <li><a href="#">Poslovna mreža</a></li>
+        <li><a href="/mapa-sajta.html" class="more">Mapa sajta →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <div class="footer-legal">
+      <span>© 2026 Prva banka Crne Gore A.D.</span>
+      <a href="#">Politika privatnosti</a>
+      <a href="#">Uslovi korišćenja</a>
+      <a href="#">Bezbjednost</a>
+      <a href="/mapa-sajta.html">Mapa sajta</a>
+    </div>
+    <div class="fzd">
+      <img src="assets/brand/fzd-logo.jpg" alt="Fond za zaštitu depozita">
+      <a href="http://www.fzdcg.org/" style="font-size:.78rem">fzdcg.org</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mega menu keyboard/click toggle
+  document.querySelectorAll('nav.mega > ul > li > button[aria-expanded]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('nav.mega button[aria-expanded]').forEach(b => b.setAttribute('aria-expanded','false'));
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if(!e.target.closest('nav.mega')){
+      document.querySelectorAll('nav.mega button[aria-expanded]').forEach(b => b.setAttribute('aria-expanded','false'));
+    }
+  });
+
+  // Mobile drawer
+  const drawer = document.getElementById('mobile-drawer');
+  document.getElementById('drawer-open').addEventListener('click', () => { drawer.classList.add('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','true'); });
+  document.getElementById('drawer-close').addEventListener('click', () => { drawer.classList.remove('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','false'); });
+
+  // Hero slider — 3 top konverzije
+  const HERO_SLIDES = [
+    { eyebrow: "Krediti za fizička lica", h1: 'Gotovinski <span class="accent">kredit</span> bez komplikacija', lead: "Do 50.000 € gotovine za sve što ti treba, uz kamatnu stopu od 7.9% i brzu odluku banke.", cta: "Izračunaj ratu →", href: "#kalkulator" },
+    { eyebrow: "Kartice za fizička lica", h1: 'Tvoja <span class="accent">debitna</span> kartica, svuda uz tebe', lead: "Plaćaj beskontaktno, podigni gotovinu na 100+ bankomata i ostvari popust do 30% kod partnera.", cta: "Naruči karticu →", href: "#" },
+    { eyebrow: "Paket proizvoda", h1: 'Otvori <span class="accent">račun</span> za par minuta', lead: "Tekući račun, debitna kartica i mBanking u jednom paketu — bez odlaska u filijalu.", cta: "Otvori račun online →", href: "#" }
+  ];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let slideIndex = 0, slideTimer;
+  const slideContent = document.getElementById('hero-slide-content');
+  const slideTabs = document.querySelectorAll('.slider-tabs button');
+  const slideBgs = document.querySelectorAll('.hero-bg');
+
+  function renderSlide(i){
+    const s = HERO_SLIDES[i];
+    document.getElementById('slide-eyebrow').textContent = s.eyebrow;
+    document.getElementById('slide-h1').innerHTML = s.h1;
+    document.getElementById('slide-lead').textContent = s.lead;
+    const cta = document.getElementById('slide-cta');
+    cta.textContent = s.cta; cta.href = s.href;
+    slideTabs.forEach((t,idx) => t.setAttribute('aria-selected', String(idx === i)));
+    slideBgs.forEach((bg,idx) => bg.classList.toggle('active', idx === i));
+    if(!reduceMotion){
+      slideContent.classList.remove('fade');
+      void slideContent.offsetWidth;
+      slideContent.classList.add('fade');
+    }
+    slideIndex = i;
+  }
+  function goTo(i){ renderSlide((i + HERO_SLIDES.length) % HERO_SLIDES.length); resetTimer(); }
+  function resetTimer(){
+    clearInterval(slideTimer);
+    if(!reduceMotion) slideTimer = setInterval(() => renderSlide((slideIndex + 1) % HERO_SLIDES.length), 6000);
+  }
+  slideTabs.forEach((t,idx) => t.addEventListener('click', () => goTo(idx)));
+  document.getElementById('slide-prev').addEventListener('click', () => goTo(slideIndex - 1));
+  document.getElementById('slide-next').addEventListener('click', () => goTo(slideIndex + 1));
+  const heroSliderEl = document.getElementById('hero-slider');
+  heroSliderEl.addEventListener('mouseenter', () => clearInterval(slideTimer));
+  heroSliderEl.addEventListener('mouseleave', resetTimer);
+  heroSliderEl.addEventListener('focusin', () => clearInterval(slideTimer));
+  heroSliderEl.addEventListener('focusout', resetTimer);
+  resetTimer();
+
+  // Equalize hero slide height so switching slides never shifts page layout.
+  // The probe MUST live inside the real .hero markup (not document.body) so that
+  // ancestor-scoped rules like ".hero h1" / ".hero p.lead" (font-size, max-width:14ch)
+  // actually apply — otherwise the measurement silently falls back to generic
+  // h1/p sizing and comes out far too small.
+  function equalizeSlideHeight(){
+    const probe = slideContent.cloneNode(false);
+    probe.removeAttribute('id');
+    probe.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;top:0;left:0;right:0;min-height:0;height:auto;';
+    slideContent.parentNode.insertBefore(probe, slideContent);
+    let maxH = 0;
+    HERO_SLIDES.forEach(s => {
+      probe.innerHTML = `<span class="eyebrow">${s.eyebrow}</span><h1>${s.h1}</h1><p class="lead">${s.lead}</p><div class="hero-ctas"><a href="#" class="btn btn-primary">${s.cta}</a><a href="#" class="btn btn-outline-invert">Otvori račun online</a></div>`;
+      maxH = Math.max(maxH, probe.scrollHeight);
+    });
+    probe.remove();
+    slideContent.style.minHeight = maxH + 'px';
+  }
+  equalizeSlideHeight();
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(equalizeSlideHeight); }
+  let resizeT;
+  window.addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(equalizeSlideHeight, 150); });
+
+  // Segment chooser
+  const segments = {
+    gradjanin: { msg: "Otvori tekući račun za par minuta i preuzmi debitnu karticu iz prve poslovnice.", chips: ["Gotovinski kredit","Debitna kartica","Otvaranje računa"] },
+    firma: { msg: "Poslovni računi, garancije i krediti za rast tvog biznisa.", chips: ["Kratkoročni krediti","Business kartice","eBanking za firme"] },
+    mlad: { msg: "Digitalno bankarstvo koje prati tvoj tempo, bez nepotrebnog papirologije.", chips: ["mBanking","Debitna kartica","Popusti do 30%"] },
+    dijaspora: { msg: "Upravljaj računom u Crnoj Gori odakle god da si — jednostavno i sigurno.", chips: ["Devizni račun","Međunarodni platni promet","mBanking"] }
+  };
+  document.querySelectorAll('.segment button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.segment button').forEach(b => b.setAttribute('aria-selected','false'));
+      btn.setAttribute('aria-selected','true');
+      const data = segments[btn.dataset.seg];
+      document.getElementById('segment-msg').textContent = data.msg;
+      document.getElementById('segment-chips').innerHTML = data.chips.map(c => `<span>${c}</span>`).join('');
+    });
+  });
+
+  // Credit calculator (demo annuity formula)
+  const amountEl = document.getElementById('amount'), periodEl = document.getElementById('period'), rateEl = document.getElementById('rate');
+  function fmt(n){ return n.toLocaleString('sr-Latn-ME', {maximumFractionDigits:0}) + ' €'; }
+  function calc(){
+    const amount = parseFloat(amountEl.value), period = parseInt(periodEl.value), annualRate = parseFloat(rateEl.value);
+    document.getElementById('out-amount').textContent = fmt(amount);
+    document.getElementById('out-period').textContent = period + ' mj.';
+    document.getElementById('out-rate').textContent = annualRate.toFixed(1) + '%';
+    const r = annualRate / 100 / 12;
+    const monthly = r === 0 ? amount / period : (amount * r) / (1 - Math.pow(1 + r, -period));
+    document.getElementById('res-monthly').textContent = fmt(monthly);
+    document.getElementById('res-total').textContent = fmt(monthly * period);
+  }
+  [amountEl, periodEl, rateEl].forEach(el => el.addEventListener('input', calc));
+  calc();
+</script>
+</body>
+</html>

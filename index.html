@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prva banka CG — Beta_1 (verzije)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--red:#D2232A;--ink:#16181D;--muted:#4B5059;--border:#E3E1DC;--surface:#F6F4EF;--gold:#B8A471;--font-d:"Fraunces",Georgia,serif;--font-b:"Inter",system-ui,sans-serif}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--font-b);color:var(--ink);background:var(--surface)}
+  header{background:#fff;border-bottom:1px solid var(--border);padding:20px 24px}
+  header h1{font-family:var(--font-d);font-size:1.2rem;margin:0;font-weight:600}
+  main{max-width:960px;margin:0 auto;padding:40px 24px 80px}
+  .intro{background:#fff;border:1px solid var(--border);border-radius:18px;padding:26px 30px;margin-bottom:28px}
+  .intro p{color:var(--muted);margin:.4rem 0;line-height:1.6}
+  .grid{display:grid;grid-template-columns:1fr;gap:18px}
+  .version{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:20px;text-decoration:none;color:var(--ink)}
+  .version:hover{border-color:var(--red)}
+  .version .tag{background:var(--ink);color:#fff;font-weight:700;font-family:var(--font-d);border-radius:999px;width:46px;height:46px;display:grid;place-items:center;flex-shrink:0}
+  .version.latest .tag{background:var(--red)}
+  .version .body{flex:1}
+  .version h2{font-family:var(--font-d);margin:0 0 4px;font-size:1.1rem}
+  .version p{margin:0;color:var(--muted);font-size:.88rem}
+  .badge{font-size:.7rem;font-weight:700;background:var(--gold);color:#fff;padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+  .open{font-weight:700;color:var(--red);font-size:.85rem}
+</style>
+</head>
+<body>
+<header><h1>Prva banka CG · Beta_1 — istorija verzija</h1></header>
+<main>
+  <div class="intro">
+    <p>Svaka nova iteracija demo naslovne stranice čuva se kao posebna verzija (v1, v2, v3...) — prethodne se ne prepisuju, tako da ceo pravac razvoja ostaje vidljiv i uporediv.</p>
+  </div>
+  <div class="grid">
+    <a class="version latest" href="v10/index.html">
+      <span class="tag">v10</span>
+      <span class="body">
+        <h2>v10 — Digitalno bankarstvo podijeljen na 2 usluge, kompaktniji kalkulator/kursna <span class="badge">Najnovije</span></h2>
+        <p>"Digitalno bankarstvo" sekcija podijeljena na dvije odvojene usluge (Elektronsko bankarstvo / Mobilno bankarstvo za fizička lica) jednake organizacije, lijevo i desno, svaka sa "Podnesi zahtjev" CTA dugmetom — pravi tekst dostavio klijent. Kalkulator + Kursna lista banner sekcija skraćena po visini (kompaktniji razmaci), obje kartice sada vizuelno izjednačene (Kursna lista dobila mini-listu ostalih valuta da popuni prostor), brojke i tekst značajno uvećani. Stara samostalna "Elektronsko bankarstvo" foto-baner sekcija (ispod Istaknuto) uklonjena kao redundantna.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v9/index.html">
+      <span class="tag">v9</span>
+      <span class="body">
+        <h2>v9 — Infografik brojke, hero puna širina, orbit ulazna animacija</h2>
+        <p>Popusti statistike (130+/12/36) dodatno uvećane na infografik-razmjeru (do 5.6rem) sa "pop" hover animacijom. Hero sekcija sada puna širina prozora sa jednakim 28px odbijanjem sa sve 4 strane (umjesto uskog centriranog boxa) — rounded box jasno vidljiv. "O nama" orbitalni dijagram dobio scroll-triggered ulaznu animaciju — centralni krug i 4 prekretnice sekvencijalno "ulijeću" u pogled kad sekcija uđe u viewport. Scroll-reveal animacije proširene na Popusti i Digitalno bankarstvo sekcije.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v8/index.html">
+      <span class="tag">v8</span>
+      <span class="body">
+        <h2>v8 — Interaktivni grafici, hero u boxu, parallax scrolling</h2>
+        <p>Popusti sekcija: kategorije i statistike zamijenile mjesta — kategorije sada outline CTA dugmad (interaktivan filter toggle) na mjestu brojki, brojke (130+/12/36) uvećane 60% na mjestu bivših kategorija. "Kursna lista i kamatne stope" dobila potpuno interaktivan grafik (tab po valuti, hover tooltip po mjesecu, live vrijednost+promjena, klik na tabelu). "O nama" orbitalni dijagram sad reaguje na hover/fokus — centralni krug prikazuje detalje prekretnice. Hero sekcija sada u zaobljenom boxu sa marginama kao ostali boxevi (Kartice), ista visina. Cijela stranica dobila parallax scroll efekat (foto-baneri + scroll-reveal animacije sekcija).</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v7/index.html">
+      <span class="tag">v7</span>
+      <span class="body">
+        <h2>v7 — Popusti sekcija: ujednačen font, glossy CTA kategorije</h2>
+        <p>Naslov Popusti sekcije usklađen na standardnu veličinu (`--fs-3xl`, ranije bio nestilizovan/premali). Statistike (130+/12/36) usklađene sa stilom brojeva iz "O nama" sekcije. Kategorije (Moda, Tehnika, Hoteli, Sport...) redizajnirane iz praznih bijelih kartica u glossy crvene CTA-pill dugmad sa bijelim outline-om i mekom senkom, organizovane kao prirodan "pill cloud" raspored umjesto krutog grid-a.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v6/index.html">
+      <span class="tag">v6</span>
+      <span class="body">
+        <h2>v6 — Prava world-map slika na karticama, uklonjena crvena linija u hero-u</h2>
+        <p>Ručno iscrtan SVG world-map u Kartice sekciji zamijenjen pravom `worldmap_kartica.png` slikom (dostavio korisnik). Uklonjena crvena gradient linija na dnu hero sekcije. "O nama - od 1901" sekcija dobila istu pozadinsku boju (#DCDAD5) preko cijele širine kao Kartice box, radi vizuelne dosljednosti.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v5/index.html">
+      <span class="tag">v5</span>
+      <span class="body">
+        <h2>v5 — Playfair Display naslovi, redizajn "O nama", world-map na karticama</h2>
+        <p>Naslovi (h1-h4) promijenjeni sa Barmeno/Fraunces na Playfair Display Semibold; opisni tekst sajta na PT Sans (privremena zamjena za Myriad Pro, čiji fajl nije dobijen — vidi open-questions). "125 godina povjerenja" sekcija redizajnirana po referenci O nama.png (orbitalni dijagram sa 4 prekretnice oko centralnog kruga). Kartice sekcija dobila linijski crtež mape svijeta u pozadini (25% providnost, preko cijelog boxa).</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v4/index.html">
+      <span class="tag">v4</span>
+      <span class="body">
+        <h2>v4 — Zvanični Barmeno font na naslovima</h2>
+        <p>Pravi brend font (Barmeno Medium, iz zvaničnog Font foldera) primijenjen isključivo na naslove svake sekcije (h1-h4) — ostatak sajta (tekst, dugmad, kartice) ostaje nepromijenjen. Prvi put da sajt koristi stvarni brend font umjesto Fraunces zamjene.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v3/index.html">
+      <span class="tag">v3</span>
+      <span class="body">
+        <h2>v3 — Flat/glossy ikonice, ujednačen tekst</h2>
+        <p>Ikonice u "Brz pristup" sekciji redizajnirane u flat stilu sa glossy sjajem i malim drop shadow-om (bez embosovanog 3D izgleda). Ujednačene veličine fonta za naslove/tekst kartica i eyebrow oznake kroz sve sekcije, ispravljena 2 nedosledna hardkodirana naslova.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v2/index.html">
+      <span class="tag">v2</span>
+      <span class="body">
+        <h2>v2 — Homepage_draft.png stilizacija</h2>
+        <p>Krediti tab-widget, kalkulator + kursna lista jedno pored drugog na world-map baneru, Kartice sekcija sa card-stack grafikom, uvećan tekst po uzoru na draft, kursna lista uklonjena iz hero-a.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v1/index.html">
+      <span class="tag">v1</span>
+      <span class="body">
+        <h2>v1 — Prva demo verzija</h2>
+        <p>Hero foto-slider (3 kategorije), kursna lista u hero-u, radni kreditni kalkulator na tamnoj world-map sekciji, Elektronsko bankarstvo baner, puna mapa sajta.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+  </div>
+</main>
+</body>
+</html>

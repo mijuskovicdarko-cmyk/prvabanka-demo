@@ -34,11 +34,19 @@
     <p>Svaka nova iteracija demo naslovne stranice čuva se kao posebna verzija (v1, v2, v3...) — prethodne se ne prepisuju, tako da ceo pravac razvoja ostaje vidljiv i uporediv.</p>
   </div>
   <div class="grid">
-    <a class="version latest" href="v19/index.html">
+    <a class="version latest" href="v20/index.html">
+      <span class="tag">v20</span>
+      <span class="body">
+        <h2>v20 — Mobilna "app" verzija: donja tab navigacija umjesto menija <span class="badge">Najnovije</span></h2>
+        <p>Nova verzija koncipirana kao mobilna aplikacija (app-shell), ne responsive prikaz desktop sajta. Gornji header pojednostavljen na samo logo + pretraga/obavještenja ikonice (uklonjen topbar, mega meni, "Online banking" dugme, hamburger). Dodata fiksna donja tab traka (Početna / Kartice / Prenos / Više) sa ikonicama, safe-area padding za iOS notch/home-indicator uređaje — standardan obrazac mobilnog bankarstva. "Više" tab otvara postojeći meni-drawer (sada kao "more" sheet) sa punim spiskom kategorija. Početna/Kartice/Prenos skroluju do odgovarajuće sekcije na strani; aktivan tab se ističe crvenom bojom na klik.</p>
+      </span>
+      <span class="open">Otvori →</span>
+    </a>
+    <a class="version" href="v19/index.html">
       <span class="tag">v19</span>
       <span class="body">
-        <h2>v19 — Mobilna optimizacija: ispravke layout bugova, ujednačene margine <span class="badge">Najnovije</span></h2>
-        <p>Punog obima mobilni audit (390px širina, headless Chrome preko iframe tehnike) otkrio i ispravio 3 stvarna bug-a: (1) naslov "4 naše kartice su" se lomio nezgodno ("su" samo na svom redu) — dodat manji font-size za `h2.two-tone` na ≤480px; (2) tačke-prekretnice orbitalnog dijagrama ("2026.", "1906.") izlazile van viewport-a na uskim ekranima (`transform:scale()` samo vizuelno smanjuje, ne i layout footprint) — zamijenjeno eksplicitnim manjim dimenzijama; (3) hero sekcija imala drugačiju ivičnu marginu (28px desktop/14px mobile) od svih ostalih sekcija (24px `.wrap` gutter) — sad ujednačeno na 24px svuda ("izjednačene margine svih boxeva"). "Karijera" uklonjena iz topbar menija (nepotrebna, po zahtjevu). Provjereno: hamburger meni već je bio u desnom uglu headera i header je već sticky — oba zahtjeva potvrđena bez izmjene.</p>
+        <h2>v19 — Mobilna optimizacija: ispravke layout bugova, ujednačene margine</h2>
+        <p>Mobilni audit otkrio i ispravio 3 bug-a: naslov koji se lomio nezgodno, tačke orbitalnog dijagrama koje su izlazile van viewport-a, hero margina drugačija od ostalih sekcija (sad ujednačeno na 24px). "Karijera" uklonjena iz topbar menija.</p>
       </span>
       <span class="open">Otvori →</span>
     </a>

@@ -1,0 +1,136 @@
+/* =========================================================================
+   PRVA BANKA CRNE GORE — DESIGN TOKENS
+   Izvučeno iz: Knjiga grafičkih standarda_PRVA BANKA CG.pdf
+   ---------------------------------------------------------------------------
+   Primarna paleta (KS str. 6):  Red 193C, Cool Gray 9, Cool Gray 5
+   Sekundarna paleta (KS str. 7): Gold 110C, Brown 4695, Cream 482C,
+                                  Black, Silver 877C, Orange 1585C
+   Tipografija (KS str. 12–13): Barmeno (primarni), Myriad Pro/Arial/Agenda (sek.)
+   Napomena: možemo koristiti neutralne boje/gradijente van palete, ali
+   ostajemo što bliže brend tonovima. Emocija brenda: 7/10.
+   ========================================================================= */
+
+:root {
+  /* --- BREND: primarna crvena (Pantone 193C) --------------------------- */
+  /* Zvanično #D2232A (iz oficijalnog SVG logotipa); KS tekst navodi RGB 217/0/0
+     (#D90000) kao spec, ali koristimo #D2232A (potvrđeno swatchem i logotipom).  */
+  --pb-red-50:  #FDF2F2;
+  --pb-red-100: #FBE0E1;
+  --pb-red-200: #F5BFC1;
+  --pb-red-300: #EB9195;
+  --pb-red-400: #DF5A60;
+  --pb-red-500: #D2232A;   /* BREND CRVENA */
+  --pb-red-600: #B81C23;   /* hover / pressed */
+  --pb-red-700: #97141A;
+  --pb-red-800: #7A1216;
+  --pb-red-900: #5E1114;
+
+  /* --- Neutralno (KS Cool Gray 9 #7F7F7F, Cool Gray 5 #BFBFBF) --------- */
+  --pb-ink-950: #0F1114;
+  --pb-ink-900: #16181D;   /* primarni tekst */
+  --pb-ink-800: #24272E;
+  --pb-ink-700: #363A43;
+  --pb-ink-600: #4B5059;   /* sekundarni tekst */
+  --pb-ink-500: #6B7079;
+  --pb-ink-400: #9AA0A8;
+  --pb-ink-300: #BFC3C9;   /* ~Cool Gray 5 */
+  --pb-ink-200: #E1E4E8;   /* borderi */
+  --pb-ink-100: #F1F3F5;   /* suptilne pozadine */
+  --pb-ink-50:  #F8F9FA;   /* app pozadina */
+
+  /* --- Sekundarno: zlatna (Pantone 110C) — premium akcent -------------- */
+  --pb-gold-50:  #FAF7EF;
+  --pb-gold-100: #F2EBDA;
+  --pb-gold-200: #E4D6B6;
+  --pb-gold-300: #D4C094;
+  --pb-gold-500: #B8A471;   /* BREND ZLATNA */
+  --pb-gold-700: #8E7B4C;
+
+  /* --- Sekundarno: dodatne KS boje ------------------------------------ */
+  --pb-cream:    #EADED1;   /* Pantone 482C — topla površina */
+  --pb-brown:    #3B0B01;   /* Pantone 4695 — luksuzni kontrast */
+  --pb-orange:   #D5652C;   /* Pantone 1585C — energija / popusti / sek. CTA */
+  --pb-silver:   #999999;   /* Pantone 877C */
+  --pb-black:    #000000;   /* Process Black */
+
+  /* --- Semantički tokeni ---------------------------------------------- */
+  --color-primary:        var(--pb-red-500);
+  --color-primary-hover:  var(--pb-red-600);
+  --color-primary-contrast:#FFFFFF;
+  --color-accent:         var(--pb-gold-500);
+  --color-energy:         var(--pb-orange);
+
+  --color-text:           var(--pb-ink-900);
+  --color-text-muted:     var(--pb-ink-600);
+  --color-text-subtle:    var(--pb-ink-400);
+  --color-text-inverse:   #FFFFFF;
+
+  --color-surface:        #FFFFFF;
+  --color-surface-2:      var(--pb-ink-50);
+  --color-surface-warm:   var(--pb-cream);
+  --color-surface-ink:    var(--pb-ink-900);
+  --color-border:         var(--pb-ink-200);
+  --color-border-strong:  var(--pb-ink-300);
+
+  --color-success: #167C4A;
+  --color-warning: #C77700;
+  --color-danger:  var(--pb-red-600);
+  --color-info:    #1E5F9E;
+
+  /* --- Gradijenti (dozvoljeni neutralni/brend prelazi) ----------------- */
+  --grad-red:    linear-gradient(135deg, #E23139 0%, #B81C23 100%);
+  --grad-ink:    linear-gradient(160deg, #24272E 0%, #0F1114 100%);
+  --grad-premium:linear-gradient(135deg, #3B0B01 0%, #7A1216 60%, #B81C23 100%);
+  --grad-gold:   linear-gradient(135deg, #D4C094 0%, #B8A471 100%);
+  --grad-warm:   linear-gradient(180deg, #FFFFFF 0%, #EADED1 100%);
+
+  /* --- Tipografija ----------------------------------------------------- */
+  /* Barmeno je proprietarni (URW). Web stand-in: Fredoka (display, zaobljeni,
+     odgovara Barmeno karakteru) + Nunito Sans (body, humanist, čitljiv).
+     ZA PRODUKCIJU: licencirati Barmeno webfont za tačan brend match. */
+  --font-display: "Fredoka", "Nunito Sans", system-ui, -apple-system, sans-serif;
+  --font-body:    "Nunito Sans", "Inter", system-ui, -apple-system, sans-serif;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold:600;
+  --fw-bold:    700;
+
+  /* Tip skala (fluid, clamp) */
+  --fs-xs:   0.78rem;
+  --fs-sm:   0.875rem;
+  --fs-base: 1rem;
+  --fs-lg:   1.125rem;
+  --fs-xl:   1.375rem;
+  --fs-2xl:  clamp(1.6rem, 1.2rem + 1.6vw, 2.1rem);
+  --fs-3xl:  clamp(2.0rem, 1.4rem + 2.6vw, 3.0rem);
+  --fs-4xl:  clamp(2.6rem, 1.6rem + 4.2vw, 4.2rem);
+  --lh-tight: 1.08;
+  --lh-snug:  1.28;
+  --lh-normal:1.55;
+
+  /* --- Spacing (4px baza) --------------------------------------------- */
+  --sp-1: 0.25rem; --sp-2: 0.5rem;  --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-5: 1.5rem;  --sp-6: 2rem;    --sp-8: 3rem;    --sp-10: 4rem;
+  --sp-12: 6rem;   --sp-16: 8rem;
+
+  /* --- Radijusi (zaobljeni — Barmeno karakter, emocija 7) ------------- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* --- Sjene (meke, premium) ------------------------------------------ */
+  --shadow-sm:  0 1px 2px rgba(15,17,20,.06), 0 1px 3px rgba(15,17,20,.08);
+  --shadow-md:  0 4px 12px rgba(15,17,20,.08), 0 2px 6px rgba(15,17,20,.06);
+  --shadow-lg:  0 12px 32px rgba(15,17,20,.12), 0 4px 12px rgba(15,17,20,.08);
+  --shadow-red: 0 10px 28px rgba(210,35,42,.28);
+
+  /* --- Layout ---------------------------------------------------------- */
+  --container: 1200px;
+  --container-wide: 1360px;
+  --header-h: 76px;
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+}

@@ -608,7 +608,7 @@
 
   <div class="hero-frame">
     <section class="hero" style="min-height:320px">
-      <div class="hero-bg" data-parallax="0.18" style="background-image:url('../../assets/images/istorija-stedionica-danas.jpg')"></div>
+      <div class="hero-bg" style="background-image:url('../../assets/images/istorija-stedionica-danas.jpg')"></div>
       <div class="hero-photo-overlay" aria-hidden="true"></div>
       <div class="wrap hero-inner page-hero-inner">
         <span class="kicker" style="color:#fff">O nama</span>
@@ -635,7 +635,7 @@
             <div class="era-name">Štedionica</div>
             <div class="era-body">
               <div class="era-media">
-                <div class="era-photo"><div class="era-photo-bg" data-parallax="0.12" data-parallax-max="34" style="background-image:url('../../assets/images/istorija-prvi-upravni-odbor.jpg')"></div></div>
+                <div class="era-photo"><div class="era-photo-bg" style="background-image:url('../../assets/images/istorija-prvi-upravni-odbor.jpg')"></div></div>
                 <p class="era-caption">Jedan od prvih Upravnih odbora Štedionice — okupljao je ugledne trgovce, zanatlije i društvene prvake toga vremena, sa ciljem razvoja štednje i podrške privrednom napretku zemlje.</p>
               </div>
               <div class="era-text">
@@ -658,7 +658,7 @@
             <div class="era-name">Nikšićka banka</div>
             <div class="era-body">
               <div class="era-media">
-                <div class="era-photo"><div class="era-photo-bg" data-parallax="0.12" data-parallax-max="34" style="background-image:url('../../assets/images/istorija-akcija-banke.jpg')"></div></div>
+                <div class="era-photo"><div class="era-photo-bg" style="background-image:url('../../assets/images/istorija-akcija-banke.jpg')"></div></div>
                 <p class="era-caption">Jedna akcija crnogorske banke — akcije su predstavljale osnov za prikupljanje kapitala i razvoj bankarskog poslovanja, svjedočanstvo tradicije i kontinuiteta finansijskih institucija u Crnoj Gori.</p>
               </div>
               <div class="era-text">
@@ -679,7 +679,7 @@
             <div class="era-name">Prva banka Crne Gore</div>
             <div class="era-body">
               <div class="era-media">
-                <div class="era-photo"><div class="era-photo-bg" data-parallax="0.12" data-parallax-max="34" style="background-image:url('../../assets/images/istorija-stedionica-danas.jpg')"></div></div>
+                <div class="era-photo"><div class="era-photo-bg" style="background-image:url('../../assets/images/istorija-stedionica-danas.jpg')"></div></div>
                 <p class="era-caption">Zgrada Nikšićke štedionice danas — osnovana 1901. godine kao prva banka u tadašnjoj Knjaževini Crnoj Gori, njeno osnivanje označilo je početak razvoja modernog bankarstva u Crnoj Gori.</p>
               </div>
               <div class="era-text">
@@ -808,27 +808,6 @@
   const drawer = document.getElementById('mobile-drawer');
   document.getElementById('drawer-open').addEventListener('click', () => { drawer.classList.add('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','true'); });
   document.getElementById('drawer-close').addEventListener('click', () => { drawer.classList.remove('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','false'); });
-
-  // Parallax (hero + era photos)
-  const parallaxEls = document.querySelectorAll('[data-parallax]');
-  function updateParallax(){
-    parallaxEls.forEach(el => {
-      const speed = parseFloat(el.dataset.parallax) || 0.2;
-      const maxOffset = parseFloat(el.dataset.parallaxMax) || 9999;
-      const parent = el.parentElement;
-      const rect = parent.getBoundingClientRect();
-      const offset = Math.max(-maxOffset, Math.min(maxOffset, rect.top * speed));
-      el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
-    });
-  }
-  let parallaxTicking = false;
-  window.addEventListener('scroll', () => {
-    if(!parallaxTicking){
-      requestAnimationFrame(() => { updateParallax(); parallaxTicking = false; });
-      parallaxTicking = true;
-    }
-  }, {passive:true});
-  updateParallax();
 
   // Scroll-reveal
   const revealEls = document.querySelectorAll('.section-head, .era-dates, .era-name, .era-media, .era-text');

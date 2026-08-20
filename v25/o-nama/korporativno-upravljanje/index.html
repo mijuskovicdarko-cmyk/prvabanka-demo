@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Istorija banke — O nama — Prva banka Crne Gore</title>
-<meta name="description" content="Istorija banke — od Nikšićke štedionice (1901) do Prve banke Crne Gore. 125 godina kontinuiteta bankarstva u Crnoj Gori.">
+<title>Korporativno upravljanje — O nama — Prva banka Crne Gore</title>
+<meta name="description" content="Korporativno upravljanje — organi upravljanja Prve banke Crne Gore: Nadzorni odbor, Upravni odbor, Odbor za imenovanja, Odbor za rizike, Odbor za primanja, Revizorski odbor.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Playfair+Display:wght@500;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/tokens.css">
@@ -474,35 +474,32 @@
   .page-hero-inner h1{color:#fff;max-width:20ch;font-size:var(--fs-3xl)}
   .page-hero-inner .lead{margin-top:16px;color:rgba(255,255,255,.85);max-width:60ch;font-size:var(--fs-lg)}
 
-  .timeline{display:flex;flex-direction:column}
-  .era{display:grid;grid-template-columns:64px 1fr;gap:32px;position:relative}
-  .era + .era{margin-top:8px}
-  .era-rail{position:relative;display:flex;justify-content:center}
-  .era-rail::before{content:"";position:absolute;top:6px;bottom:-64px;left:50%;width:2px;background:var(--color-border);transform:translateX(-50%)}
-  .era:last-child .era-rail::before{display:none}
-  .era-dot{width:16px;height:16px;border-radius:50%;background:var(--color-primary);box-shadow:0 0 0 5px var(--color-surface, #fff);position:relative;z-index:1;margin-top:6px}
-  .era-content{padding-bottom:64px}
-  .era:last-child .era-content{padding-bottom:0}
-  .era-dates{font-family:var(--font-display);font-size:var(--fs-2xl);color:var(--color-primary);letter-spacing:-.01em}
-  .era-name{margin-top:2px;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-muted)}
-  .era-body{display:grid;grid-template-columns:1fr 1.35fr;gap:40px;align-items:start;margin-top:28px}
-  .era:nth-child(even) .era-body{grid-template-columns:1.35fr 1fr}
-  .era:nth-child(even) .era-media{order:2}
-  .era-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow-md);background:var(--color-surface-2)}
-  .era-photo-bg{position:absolute;inset:0;background-size:cover;background-position:center}
-  .era-caption{margin-top:12px;font-size:.82rem;color:var(--color-text-subtle);line-height:1.6}
-  .era-text p{color:var(--color-text);line-height:1.8;font-size:1rem}
-  .era-text p + p{margin-top:18px}
-  .era-quote{margin:22px 0;padding-left:22px;border-left:3px solid var(--color-primary);font-family:var(--font-display);font-size:1.25rem;font-style:italic;line-height:1.5;color:var(--color-text)}
-  @media (max-width:900px){
-    .era-body{grid-template-columns:1fr !important}
-    .era:nth-child(even) .era-media{order:0}
-  }
-  @media (max-width:600px){
-    .era{grid-template-columns:36px 1fr;gap:18px}
-    .era-dot{width:12px;height:12px;margin-top:4px}
-    .era-rail::before{top:4px}
-  }
+  .gov-intro{max-width:74ch;color:var(--color-text-muted);font-size:1.02rem;line-height:1.7;margin-bottom:36px}
+  .gov-accordion{display:flex;flex-direction:column;border-top:1px solid var(--color-border)}
+  .gov-item{border-bottom:1px solid var(--color-border)}
+  .gov-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 4px;-webkit-tap-highlight-color:transparent}
+  .gov-item summary::-webkit-details-marker{display:none}
+  .gov-summary-left{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .gov-name{font-family:var(--font-display);font-size:1.3rem;color:var(--color-text)}
+  .gov-president{font-size:.86rem;color:var(--color-text-muted)}
+  .gov-chevron{width:28px;height:28px;border-radius:50%;border:1px solid var(--color-border);display:grid;place-items:center;color:var(--color-primary);flex-shrink:0;transition:transform .2s ease}
+  .gov-item[open] .gov-chevron{transform:rotate(45deg)}
+  .gov-body{padding:0 4px 30px;display:grid;grid-template-columns:1fr 1.6fr;gap:40px}
+  .gov-members h4, .gov-duties h4{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--color-primary);margin:0 0 14px}
+  .gov-members ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .gov-members li{font-size:.94rem;color:var(--color-text)}
+  .gov-members li span{display:block;color:var(--color-text-muted);font-size:.84rem;margin-top:2px}
+  .gov-duties ol, .gov-duties ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px}
+  .gov-duties ol ol, .gov-duties ol ul{margin-top:8px;padding-left:20px}
+  .gov-duties li{font-size:.92rem;color:var(--color-text-muted);line-height:1.65}
+  .gov-duties li::marker{color:var(--color-primary);font-weight:700}
+  @media (max-width:800px){.gov-body{grid-template-columns:1fr;gap:24px}}
+
+  .gov-extra{display:flex;flex-wrap:wrap;gap:20px;margin-top:44px}
+  .gov-extra-card{flex:1;min-width:240px;background:var(--color-surface-2);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:26px}
+  .gov-extra-card h4{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--color-primary);margin:0 0 10px}
+  .gov-extra-card p{font-size:1rem;color:var(--color-text);margin:0}
+  .gov-extra-card a{margin-top:12px;display:inline-flex}
 </style>
 
 </head>
@@ -602,16 +599,14 @@
 
 <main id="main">
 
-  <div class="wrap breadcrumb"><a href="../../index.html">Početna</a><span class="sep">/</span><a href="../../o-nama/index.html">O nama</a><span class="sep">/</span><span>Istorija banke</span></div>
+  <div class="wrap breadcrumb"><a href="../../index.html">Početna</a><span class="sep">/</span><a href="../../o-nama/index.html">O nama</a><span class="sep">/</span><span>Korporativno upravljanje</span></div>
 
   <div class="hero-frame">
     <section class="hero" style="min-height:320px">
-      <div class="hero-bg" style="background-image:url('../../assets/images/istorija-stedionica-danas.jpg')"></div>
-      <div class="hero-photo-overlay" aria-hidden="true"></div>
       <div class="wrap hero-inner page-hero-inner">
         <span class="kicker" style="color:#fff">O nama</span>
-        <h1>Istorija banke</h1>
-        <p class="lead">125 godina od Nikšićke štedionice (1901) do Prve banke Crne Gore — kontinuitet, tradicija i razvoj bankarstva u Crnoj Gori.</p>
+        <h1>Korporativno upravljanje</h1>
+        <p class="lead">Organi upravljanja, njihov sastav i nadležnosti — transparentna struktura odlučivanja Prve banke Crne Gore.</p>
       </div>
     </section>
   </div>
@@ -619,75 +614,84 @@
   <section>
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">125 godina kontinuiteta</span>
-        <h2>Tri poglavlja jedne banke</h2>
-        <p>Od Nikšićke štedionice osnovane 1901. godine, preko Nikšićke banke, do Prve banke Crne Gore danas — priča o kontinuitetu, tradiciji i razvoju bankarstva u Crnoj Gori.</p>
+        <span class="kicker">O nama</span>
+        <h2>Organi upravljanja</h2>
+        <p class="gov-intro">Prva banka Crne Gore ima šest odbora u okviru sistema korporativnog upravljanja — Nadzorni odbor, Upravni odbor, Odbor za imenovanja, Odbor za rizike, Odbor za primanja i Revizorski odbor. Klikni na naziv odbora za članove i nadležnost.</p>
       </div>
 
-      <div class="timeline">
+<div class="gov-accordion">
+  <details class="gov-item" open>
+    <summary>
+      <span class="gov-summary-left"><span class="gov-name">Nadzorni odbor</span><span class="gov-president">Predsjednik/ca: Dr Dragan Bogojević</span></span>
+      <span class="gov-chevron">+</span>
+    </summary>
+    <div class="gov-body">
+      <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Dr Dragan Bogojević</strong> — Predsjednik</li><li><strong>Mr Milan Perović</strong> — Član</li><li><strong>Miro Vračar</strong> — Član</li><li><strong>Srđan Kovačević</strong> — Član</li><li><strong>Dr Milan Nikolić</strong> — Član</li></ul></div>
+      <div class="gov-duties"><h4>Nadležnost</h4><ol><li>daje saglasnost Upravnom odboru na:<ul><li>ciljeve i opštu strategiju Banke</li><li>poslovnu politiku Banke</li><li>finansijski plan Banke</li><li>strategije i postupke procjenjivanja adekvatnosti internog kapitala Banke</li><li>politike i procedure za izbor i procjenu ispunjenosti uslova za članove upravnog odbora i druga lica odgovorna za vođenje poslova u okviru pojedinih područja poslovanja kreditne institucije</li><li>politiku primanja u Banci</li><li>akt o internoj reviziji i godišnji plan rada interne revizije</li></ul></li><li>nadzire:<ul><li>postupak sprovođenja i efikasnost i efektivnost sistema upravljanja Bankom</li><li>sprovođenje poslovne politike Banke, strateških ciljeva i strategije i politike preuzimanja rizika</li><li>sprovođenje politike primanja u Banci</li><li>proces objelodanjivanja i komunikacija</li><li>adekvatnost postupaka i efikasnosti interne revizije</li></ul></li><li>predlaže spoljnog revizora</li><li>usvaja godišnji plan interne revizije i izvještaje interne revizije</li><li>donosi i periodično provjerava opšta načela politike primanja u Banci</li><li>saziva sjednice Skupštine akcionara, utvrđuje predlog dnevnog reda i predloge odluka za Skupštinu akcionara i kontroliše njihovo sprovođenje</li><li>bira i razrješava predsjednika nadzornog odbora</li><li>imenuje i razrješava članove upravnog odbora uključujući i predsjednika</li><li>imenuje i razrješava članove Revizorskog odbora</li><li>razmatra godišnji izvještaj o radu Revizorskog odbora</li><li>imenuje i razrješava članove Odbora za primanja, Odbora za rizike, Odbora za imenovanja i druge odbore osnovane u cilju pružanja stručne pomoći u vršenju nadzora poslovanja Banke</li><li>razmatra i zauzima stavove o nalazima iz izvještaja Centralne banke i izvještaja drugih nadzornih organa o izvršenoj kontroli, u roku od 30 dana od dana dostavljanja izvještaja o kontroli</li><li>obavlja i druge poslove utvrđene zakonom, propisima donesenim na osnovu zakona i Statuta Banke</li></ol></div>
+    </div>
+  </details>
+  <details class="gov-item">
+    <summary>
+      <span class="gov-summary-left"><span class="gov-name">Upravni odbor</span><span class="gov-president">Predsjednik/ca: Mr Daniela Golubović</span></span>
+      <span class="gov-chevron">+</span>
+    </summary>
+    <div class="gov-body">
+      <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Mr Daniela Golubović</strong> — Predsjednica<span>Rukovodi poslovnim područjem Finansije, rizici, nekvalitetni plasmani i upravljanje imovinom</span></li><li><strong>Matija Mašković</strong> — Član<span>Rukovodi poslovnim područjem Operacije, razvoj, ljudski resursi, marketing i komunikacije</span></li><li><strong>Danijela Perović</strong> — Član<span>Rukovodi poslovnim područjem Prodaja i Treasury</span></li></ul></div>
+      <div class="gov-duties"><h4>Nadležnost</h4><ol><li>utvrđuje ciljeve i opštu strategije Banke</li><li>usvaja poslovnu politiku Banke</li><li>redovno preispituje strateške ciljeve, strategije i politike upravljanja rizicima, uključujući i upravljanje rizicima koji proizlaze iz makroekonomskog okruženja u kojem Banka posluje, kao i stanje poslovnog ciklusa Banke</li><li>uspostavlja osnove za funkcionisanje sistema interne kontrole, adekvatne veličini Banke, složenosti poslova i nivou preuzetog rizika</li><li>usvaja politiku primanja u Banci</li><li>obezbijeđuje integritet računovodstvenog sistema i sistema finansijskog izvještavanja i finansijske i operativne kontrole</li><li>obezbjeđuje nadzor višeg rukovodstva i uspostavlja tačno utvrđene, jasne i dosljedne interne odnose u vezi sa odgovornošću, koji obezbjeđuju jasno razgraničavanje ovlašćenja i odgovornosti i sprečavaju nastanak sukoba interesa</li><li>utvrđuje unutrašnju organizaciju Banke, uz saglasnost nadzornog odbora</li><li>donosi opšte akte Banke, osim akata koje donose drugi organi Banke</li><li>bira i razrješava više rukovodstvo Banke i druga lica u skladu sa Zakonom o kreditnim institucijama i Statutom Banke i određuje im zaradu</li><li>donosi etičke standarde ponašanja zaposlenih u Banci</li><li>odobrava uvođenje novih proizvoda i usluga u poslovanje Banke</li><li>obavlja i druge poslove utvrđene Zakonom o kreditnim institucijama, Zakonom o privrednim društvima, Statutom Banke i internim aktima Banke</li></ol></div>
+    </div>
+  </details>
+  <details class="gov-item">
+    <summary>
+      <span class="gov-summary-left"><span class="gov-name">Odbor za imenovanja</span><span class="gov-president">Predsjednik/ca: Dr Dragan Bogojević</span></span>
+      <span class="gov-chevron">+</span>
+    </summary>
+    <div class="gov-body">
+      <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Dr Dragan Bogojević</strong> — Predsjednik</li><li><strong>Miro Vračar</strong> — Član</li><li><strong>Srđan Kovačević</strong> — Član</li></ul></div>
+      <div class="gov-duties"><h4>Nadležnost</h4><ul><li>određuje i predlaže kandidate za izbor članova nadzornog i upravnog odbora kreditne institucije, ocjenjuje ravnotežu između znanja, vještina, raznovrsnosti u sastavu i iskustva organa upravljanja, priprema opis ovlašćenja i potrebnih kvalifikacija za određenu funkciju i ocjenjuje očekivano potrebno vrijeme za obavljanje te funkcije</li><li>utvrđuje ciljanu zastupljenost pola koji nije dovoljno zastupljen u nadzornom ili upravnom odboru i priprema politiku o načinu povećavanja broja manje zastupljenog pola u tim organima, kako bi se postigla ciljana zastupljenost</li><li>redovno, a najmanje jednom godišnje, procjenjuje i po potrebi predlaže nadzornom i upravnom odboru kreditne institucije promjene u strukturi, veličini, sastavu i djelovanju tih organa</li><li>redovno, a najmanje jednom godišnje, procjenjuje znanje, sposobnosti i iskustvo pojedinih članova nadzornog i upravnog odbora, kao i tih organa kao cjeline, i o toj procjeni obavještava organe i lica na koje se ta procjena odnosi</li><li>redovno preispituje politike za izbor i imenovanje višeg rukovodstva i po potrebi daje preporuke upravnom odboru za unaprjeđenje tih politika</li><li>kontinuirano, u mjeri u kojoj je to moguće, vodi računa o izbjegavanju postojanja dominantnog uticaja pojedinaca ili male grupe pojedinaca pri odlučivanju upravnog i nadzornog odbora, u cilju zaštite interesa kreditne institucije u cjelini</li><li>obavlja druge poslove određene propisima donesenim u skladu sa zakonom</li></ul></div>
+    </div>
+  </details>
+  <details class="gov-item">
+    <summary>
+      <span class="gov-summary-left"><span class="gov-name">Odbor za rizike</span><span class="gov-president">Predsjednik/ca: Mr Milan Perović</span></span>
+      <span class="gov-chevron">+</span>
+    </summary>
+    <div class="gov-body">
+      <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Mr Milan Perović</strong> — Predsjednik</li><li><strong>Dr Dragan Bogojević</strong> — Član</li><li><strong>Dr Milan Nikolić</strong> — Član</li></ul></div>
+      <div class="gov-duties"><h4>Nadležnost</h4><ul><li>savjetuje nadzorni odbor o cjelokupnoj trenutnoj i budućoj sklonosti Banke ka preuzimanju rizika i strategiji i pomaže u nadzoru nad sprovođenjem strategije od strane višeg rukovodstva, pri tom ne dovodeći u pitanje odgovornost Upravnog i Nadzornog odbora u cjelokupnom upravljanju rizicima i nadziranju Banke</li><li>preispituje da li su pri određivanju cijena potraživanja i obaveza prema klijentima uzimani u obzir model poslovanja Banke i strategija rizika i ako ta cijena ne odražava rizik preuzet u odnosu na model poslovanja i strategiju rizika, predlaže Upravnom odboru plan za otklanjanje nedostataka</li><li>nezavisno od poslova Odbora za primanja, sa ciljem uspostavljanja i sprovođenja odgovarajućih politika primanja, preispituje da li su pri određivanju podsticaja predviđenih sistemom primanja uzeti u obzir rizik, kapital, likvidnost i vjerovatnoća i očekivani period ostvarivanja dobiti</li><li>daje preporuke Nadzornom odboru za prilagođavanje strategije upravljanja rizicima koje proizilaze, naročito iz izmjena modela poslovanja Banke, tržišnih kretanja ili preporuka funkcije kontrole rizika</li><li>pruža podršku u nadzoru sprovođenja strategije za upravljanje rizicima, a naročito rizikom likvidnosti, tržišnim rizikom, kreditnim rizikom i operativnim rizikom, radi njihove procjene u odnosu na odobrenu sklonost preuzimanju rizika i strategiju upravljanja rizicima</li><li>daje savjete nadzornom odboru u vezi sa izborom eksternih stručnjaka koje nadzorni odbor namjerava da angažuje</li><li>analizira niz mogućih scenarija, uključujući testiranje otpornosti na stres, kako bi procijenio kakav će efekat taj scenario imati na rizični profil Banke</li><li>analizira preporuke interne revizije i spoljnog revizora i prati sprovođenje preduzetih mjera</li><li>obavlja druge poslove određene propisima donesenim u skladu sa ovim zakonom</li></ul></div>
+    </div>
+  </details>
+  <details class="gov-item">
+    <summary>
+      <span class="gov-summary-left"><span class="gov-name">Odbor za primanja</span><span class="gov-president">Predsjednik/ca: Miro Vračar</span></span>
+      <span class="gov-chevron">+</span>
+    </summary>
+    <div class="gov-body">
+      <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Miro Vračar</strong> — Predsjednik</li><li><strong>Mr Milan Perović</strong> — Član</li><li><strong>Srđan Kovačević</strong> — Član</li></ul></div>
+      <div class="gov-duties"><h4>Nadležnost</h4><ul><li>priprema odluke nadzornog odbora u vezi sa primanjima zaposlenih, uključujući odluke koje imaju uticaj na izloženost Banke rizicima i na upravljanje rizicima</li><li>pruža podršku i daje savjete nadzornom odboru u vezi sa politikom primanja, praksom i procesima koji se odnose na primanja</li><li>provjerava da li je postojeća politika primanja adekvatna i, ako je potrebno, daje predloge za promjenu tih politika sa predlogom plana za otklanjanje utvrđenih nedostataka</li><li>predlaže eksterne stručnjake za primanja koje nadzorni odbor namjerava da angažuje za savjete ili podršku</li><li>obezbjeđuje akcionarima informacije o politikama i praksama primanja, a naročito o predloženom većem maksimalnom odnosu varijabilnog i fiksnog dijela ukupnih primanja</li><li>procjenjuje mehanizme i sisteme usvojene radi obezbjeđivanja da politika primanja pravilno uzima u obzir rizični profil i strukturu kapitala, da je ukupna politika primanja usklađena sa opštom strategijom, ciljevima, korporativnom kulturom i dugoročnim interesima Banke i da promoviše zdravo i efikasno upravljanje rizicima</li><li>procjenjuje ostvarivanje ciljeva politike primanja i potrebe naknadnog prilagođavanja, uključujući primjenu malusa i povraćaja primanja</li><li>analizira moguća scenarija u cilju utvrđivanja uticaja eksternih i internih događaja na politike i prakse primanja</li><li>testira kriterijume za dodjelu varijabilnih primanja prije njihovog utvrđivanja i dodjele</li><li>nadgleda i prati primanja lica koja rukovode kontrolnim funkcijama</li><li>obavlja druge poslove određene propisima donesenim u skladu sa ovim zakonom</li></ul></div>
+    </div>
+  </details>
+  <details class="gov-item">
+    <summary>
+      <span class="gov-summary-left"><span class="gov-name">Revizorski odbor</span><span class="gov-president">Predsjednik/ca: Branislav Pejović</span></span>
+      <span class="gov-chevron">+</span>
+    </summary>
+    <div class="gov-body">
+      <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Branislav Pejović</strong> — Predsjednik</li><li><strong>Vesna Bogdanović</strong> — Član</li><li><strong>Blažo Đukanović</strong> — Član</li></ul></div>
+      <div class="gov-duties"><h4>Nadležnost</h4><ul><li>prati postupak finansijskog izvještavanja</li><li>prati efektivnost interne kontrole Banke i interne revizije</li><li>daje mišljenje na predlog godišnjeg plana interne revizije</li><li>daje mišljenje na izvještaj o radu funkcije interne revizije (tromjesečni, polugodišnji i godišnji izvještaj)</li><li>prati zakonom propisanu reviziju godišnjih i konsolidovanih finansijskih iskaza</li><li>prati nezavisnost angažovanih ovlašćenih revizora ili društava za reviziju, koji obavljaju reviziju, kao i ugovore o korišćenju dodatnih usluga u skladu sa zakonom</li><li>daje preporuke Skupštini akcionara Banke o izboru društva za reviziju ili ovlašćenog revizora</li><li>razmatra planove i godišnje izvještaje unutrašnje kontrole</li><li>podnosi godišnji izvještaj o svom radu Nadzornom odboru</li><li>razmatra i druga pitanja koja se odnose na finansijsko izvještavanje i reviziju u skladu sa važećim propisima i internim aktima Banke</li></ul></div>
+    </div>
+  </details>
+</div>
 
-        <div class="era">
-          <div class="era-rail"><span class="era-dot"></span></div>
-          <div class="era-content">
-            <div class="era-dates">1901–1961</div>
-            <div class="era-name">Štedionica</div>
-            <div class="era-body">
-              <div class="era-media">
-                <div class="era-photo"><div class="era-photo-bg" style="background-image:url('../../assets/images/istorija-prvi-upravni-odbor.jpg')"></div></div>
-                <p class="era-caption">Jedan od prvih Upravnih odbora Štedionice — okupljao je ugledne trgovce, zanatlije i društvene prvake toga vremena, sa ciljem razvoja štednje i podrške privrednom napretku zemlje.</p>
-              </div>
-              <div class="era-text">
-                <p>Prije 125 godina, 1901. godine osnovana je Nikšićka štedionica, prva banka u tadašnjoj Knjaževini Crnoj Gori. Dobila je ime po gradu u kojem je osnovana, a koji je u to doba uveliko pisao nove i drugačije strane istorije.</p>
-                <p>Nastanak jednog naprednijeg društva i grada služio je kao podstrek i razvoju privrede, pa je osnivanje crnogorske pivare „Onogošt" (1896.) i Prve nikšićke štedionice (1901.) dovelo do stvaranja industrijskog i bankovnog kapitala. To je ujedno prelomni trenutak koji otvara novi period u daljem razvoju privrede i društvenih odnosa u Nikšiću.</p>
-                <p>Zagovornik osnivanja Prve Nikšićke štedionice (u početku nazvane Prva nikšićka novčana zadruga), a u stvari prve banke u Knjaževini, bio je Joco Petrović, poznati finansijski stručnjak. Na Osnivačkoj skupštini, 6. januara 1901. godine privremeni upravni odbor Štedionice je okupio trgovce, zanatlije i neke glavare koji su usvojili dokument „Pravila Štedionice".</p>
-                <div class="era-quote">„Cilj je Štedionice da u narodu razvija i potpomaže štednju i da povoljnijem kreditom unapređuje trgovinu i rad u zemlji."</div>
-                <p>O tome koliko je namjera osnivanja Štedionice bila duboko ozbiljna govori i postojanje više upravnih tijela: Glavna skupština, Upravni odbor sa ravnateljstvom i Nadzorni odbor. Ravnateljstvo je predstavljalo poslovodni dio Upravnog odbora, a sačinjavalo ga je pet osoba (poslovođa, blagajnik, kontrolor i dva zamjenika).</p>
-                <p>Već 5. marta 1901. godine, gospodar Crne Gore Nikola I Petrović dao je svoju zvaničnu podršku osnivanju Prve nikšićke štedionice, pa je tadašnji predsjednik Državnog savjeta, Božo Petrović, potpisao rješenje kojim su odobrena „Pravila".</p>
-                <p>Nakon prestanka rada tokom Drugog svjetskog rata, bankarske aktivnosti su se nastavile krajem 1944. godine i to u okviru sistema Narodne banke Jugoslavije. Razdvajanjem Narodne banke Jugoslavije i Službe društvenog knjigovodstva u Nikšiću je formirana nova štedionica.</p>
-              </div>
-            </div>
-          </div>
+      <div class="gov-extra">
+        <div class="gov-extra-card">
+          <h4>Sekretar banke</h4>
+          <p>Vesna Milinković</p>
         </div>
-
-        <div class="era">
-          <div class="era-rail"><span class="era-dot"></span></div>
-          <div class="era-content">
-            <div class="era-dates">1961–2007</div>
-            <div class="era-name">Nikšićka banka</div>
-            <div class="era-body">
-              <div class="era-media">
-                <div class="era-photo"><div class="era-photo-bg" style="background-image:url('../../assets/images/istorija-akcija-banke.jpg')"></div></div>
-                <p class="era-caption">Jedna akcija crnogorske banke — akcije su predstavljale osnov za prikupljanje kapitala i razvoj bankarskog poslovanja, svjedočanstvo tradicije i kontinuiteta finansijskih institucija u Crnoj Gori.</p>
-              </div>
-              <div class="era-text">
-                <p>Kao podrška regionalnom razvoju Crne Gore, 1961. godine formirana je Komunalna banka za opštine Nikšić, Šavnik i Plužine. Nakon njene transformacije, od 1966. godine, banka je poslovala pod nazivom Komercijalna banka Nikšić.</p>
-                <p>Godine 1967. izvršena je cjelovita integracija bankarskog sistema Crne Gore u jedinstveni sistem Investicione banke Titograd (IBT). Komercijalna banka – Nikšić u taj sistem je ušla sa statusom filijale i takav status zadržala sve do 1978. godine.</p>
-                <p>Te godine, a u skladu sa novom transformacijom bankarskog sistema, formirana je Nikšićka osnovna banka, ali u okviru Investicione banke Titograd, kao glavne poslovne banke u Crnoj Gori. Nikšićka banka u svom radu je dobila značajnu samostalnost u poslovanju: konstituisala je svoje organe upravljanja, i značajno učestvovala u ukupnim investicionim i drugim aktivnostima privrede regiona.</p>
-                <p>U 1990. godini opet dolazi do čvršćeg objedinjavanja skoro svih osnovnih banaka u Crnoj Gori u jedinstveni sistem Montenegrobanke Titograd. Tom prilikom Nikšićka banka gubi značajnu samostalnost u poslovanju, iako je zadržala status Glavne filijale. Sve je to dovelo do zaostajanja u razvoju same banke.</p>
-                <p>Nakon dugotrajne transformacije bankarskog sistema, 28. februara 1992. godine, odlukom Skupštine osnivača banka se izdvaja iz sistema Montenegrobanke u samostalnu banku pod nazivom Nikšićka banka d.d. Nikšić – da bi kasnije, juna mjeseca 1995. godine, odlukom osnivača – akcionara, banka bila transformisana u akcionarsko društvo pod nazivom Nikšićka banka a.d. Nikšić.</p>
-              </div>
-            </div>
-          </div>
+        <div class="gov-extra-card">
+          <h4>Organizaciona šema</h4>
+          <p>Pregled pune organizacione strukture banke.</p>
+          <a href="#" class="btn btn-ghost">Pogledaj šemu <span aria-hidden="true">→</span></a>
         </div>
-
-        <div class="era">
-          <div class="era-rail"><span class="era-dot"></span></div>
-          <div class="era-content">
-            <div class="era-dates">2007–danas</div>
-            <div class="era-name">Prva banka Crne Gore</div>
-            <div class="era-body">
-              <div class="era-media">
-                <div class="era-photo"><div class="era-photo-bg" style="background-image:url('../../assets/images/istorija-stedionica-danas.jpg')"></div></div>
-                <p class="era-caption">Zgrada Nikšićke štedionice danas — osnovana 1901. godine kao prva banka u tadašnjoj Knjaževini Crnoj Gori, njeno osnivanje označilo je početak razvoja modernog bankarstva u Crnoj Gori.</p>
-              </div>
-              <div class="era-text">
-                <p>Sam naziv Nikšićka banka a.d. asocirao je na banku lokalnog karaktera pa je usljed toga 2007. godine izvršena potpuna promjena vizuelnog identiteta i naziv je promijenjen u Prva banka Crne Gore – osnovana 1901.</p>
-                <p>Ovim izmjenama željela se sačuvati tradicija koju banka ima, ali i afirmisati njena aktivnost na čitavoj teritoriji Crne Gore. Uporedo sa tim, promijenjeno je i sjedište banke, sa novom lokacijom u Podgorici.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -698,8 +702,8 @@
         <span class="kicker">Povezane stranice</span>
       </div>
       <div class="related-links">
-        <a href="banka-danas/index.html" class="btn btn-ghost">Banka danas</a>
-        <a href="../korporativno-upravljanje/index.html" class="btn btn-ghost">Korporativno upravljanje</a>
+        <a href="../banka-danas/index.html" class="btn btn-ghost">Banka danas</a>
+        <a href="#" class="btn btn-ghost">Opšti uslovi poslovanja</a>
         <a href="../../index.html#kontakt" class="btn btn-ghost">Kontakt</a>
       </div>
     </div>
@@ -765,7 +769,7 @@
 <details class="fs-group"><summary>PRIVREDA (20)</summary><ul class="fs-tree"><li class="fs-heading"><a href="/stanovnistvo/racuni">Racuni</a></li><li class="fs-leaf"><a href="/privreda/racuni">Transakcioni račun za izvršavanje nacionalnih platnih transakcija</a></li><li class="fs-leaf"><a href="/privreda/racuni/naziv-racuna">Transakcioni račun za izvršavanje međunarodnih platnih transakcija</a></li><li class="fs-heading"><a href="/privreda/krediti">Krediti</a></li><li class="fs-leaf"><a href="/privreda/krediti/kratkorocni-krediti">Kratkoročni krediti</a></li><li class="fs-leaf"><a href="/privreda/krediti/dugorocni-krediti">Dugoročni krediti</a></li><li class="fs-leaf"><a href="/privreda/krediti/garancije">Garancije</a></li><li class="fs-leaf"><a href="/privreda/krediti/krediti-pokriveni-depozitom">Krediti pokriveni depozitom</a></li><li class="fs-heading"><a href="/privreda/kartice">Business kartice</a></li><li class="fs-leaf"><a href="/privreda/kartice/business-debitne-kartice">Business debitne kartice</a></li><li class="fs-leaf"><a href="/privreda/kartice/business-kreditne-kartice">Business kreditne kartice</a></li><li class="fs-heading"><a href="/privreda/digitalno-bankarstvo">Digitalno bankarstvo</a></li><li class="fs-leaf"><a href="/privreda/digitalno-bankarstvo/elektronsko-bankarstvo">Elektronsko bankarstvo</a></li><li class="fs-leaf"><a href="/privreda/depoziti">Depoziti</a></li><li class="fs-leaf"><a href="/privreda/depoziti">Depoziti po viđenju</a></li><li class="fs-leaf"><a href="/privreda/depoziti/depoziti-po-vidjenju">Oročeni novčani depoziti</a></li><li class="fs-heading"><a href="/privreda/depoziti/standardni-tip">Platni promet</a></li><li class="fs-leaf"><a href="/privreda/platni-promet/domaci-platni-promet">Domaći platni promet</a></li><li class="fs-leaf"><a href="/privreda/platni-promet/medjunarodni-platni-promet">Međunarodni platni promet</a></li><li class="fs-leaf"><a href="/privreda/investiciono-bankarstvo">Investiciono bankarstvo</a></li></ul></details>
 <details class="fs-group"><summary>Popusti (159)</summary><div class="fs-flat"><a href="/popusti/kategorija/naziv-trgovca">Poliklinike Hipokrat</a><a href="/popusti/kategorija/naziv-trgovca">Pacha Surf Beach</a><a href="/popusti/kategorija/naziv-trgovca">Resto Bar Taraca</a><a href="/popusti/kategorija/naziv-trgovca">Andromeda</a><a href="/popusti/kategorija/naziv-trgovca">La Mirage</a><a href="/popusti/kategorija/naziv-trgovca">Kid&#x27;s dreams</a><a href="/popusti/kategorija/naziv-trgovca">Mazor</a><a href="/popusti/kategorija/naziv-trgovca">The Royal Beach, Velika plaza</a><a href="/popusti/kategorija/naziv-trgovca">Elektro frigo</a><a href="/popusti/kategorija/naziv-trgovca">Prodavnica Grmec</a><a href="/popusti/kategorija/naziv-trgovca">Imperijal Trgovina</a><a href="/popusti/kategorija/naziv-trgovca">Imperijal Caffe &amp; Restoran</a><a href="/popusti/kategorija/naziv-trgovca">Elektron</a><a href="/popusti/kategorija/naziv-trgovca">Tenero Fashion</a><a href="/popusti/kategorija/naziv-trgovca">Hoteli Hoti</a><a href="/popusti/kategorija/naziv-trgovca">Hoteli Edita</a><a href="/popusti/kategorija/naziv-trgovca">Dadi Export</a><a href="/popusti/kategorija/naziv-trgovca">Merkator</a><a href="/popusti/kategorija/naziv-trgovca">Hotel Berane</a><a href="/popusti/kategorija/naziv-trgovca">Onix</a><a href="/popusti/kategorija/naziv-trgovca">Market Obala</a><a href="/popusti/kategorija/naziv-trgovca">Enza Home Montenegro</a><a href="/popusti/kategorija/naziv-trgovca">Anastasia Hair Beauty</a><a href="/popusti/kategorija/naziv-trgovca">Forza Porto</a><a href="/popusti/kategorija/naziv-trgovca">Forza Kuk</a><a href="/popusti/kategorija/naziv-trgovca">Central Point</a><a href="/popusti/kategorija/naziv-trgovca">Auto Pro</a><a href="/popusti/kategorija/naziv-trgovca">Happy Land</a><a href="/popusti/kategorija/naziv-trgovca">Vivere Beauty</a><a href="/popusti/kategorija/naziv-trgovca">Optika Montesun</a><a href="/popusti/kategorija/naziv-trgovca">The Capital Fitness Center</a><a href="/popusti/kategorija/naziv-trgovca">Bogner</a><a href="/popusti/kategorija/naziv-trgovca">Na Moracu</a><a href="/popusti/kategorija/naziv-trgovca">Art Taverna</a><a href="/popusti/kategorija/naziv-trgovca">Morea</a><a href="/popusti/kategorija/naziv-trgovca">Restoran Zanjice</a><a href="/popusti/kategorija/naziv-trgovca">Hotel Subra Atrium</a><a href="/popusti/kategorija/naziv-trgovca">Ekspres Restoran Menza</a><a href="/popusti/kategorija/naziv-trgovca">Patisserie by Wine House</a><a href="/popusti/kategorija/naziv-trgovca">Restoran Perla</a><a href="/popusti/kategorija/naziv-trgovca">Tutto Bene</a><a href="/popusti/kategorija/naziv-trgovca">Mr. Chef</a><a href="/popusti/kategorija/naziv-trgovca">Ohana Kite Beach</a><a href="/popusti/kategorija/naziv-trgovca">AbA Medica</a><a href="/popusti/kategorija/naziv-trgovca">Cole Mobile</a><a href="/popusti/kategorija/naziv-trgovca">Restoran San Marino</a><a href="/popusti/kategorija/naziv-trgovca">Stanica wine bar (Kotor Cable Car)</a><a href="/popusti/kategorija/naziv-trgovca">Booka Gelato (Kotor Cable Car)</a><a href="/popusti/kategorija/naziv-trgovca">La Parisienne (Kotor Cable Car)</a><a href="/popusti/kategorija/naziv-trgovca">ViewPoint (Kotor Cable Car)</a><a href="/popusti/kategorija/naziv-trgovca">One Rug</a><a href="/popusti/kategorija/naziv-trgovca">Hotel Bogumila</a><a href="/popusti/kategorija/naziv-trgovca">Pasaž lounge bar</a><a href="/popusti/kategorija/naziv-trgovca">Caffe Vuk</a><a href="/popusti/kategorija/naziv-trgovca">Konoba Nisavic</a><a href="/popusti/kategorija/naziv-trgovca">Sef co</a><a href="/popusti/kategorija/naziv-trgovca">OrthoExpertPhysio</a><a href="/popusti/kategorija/naziv-trgovca">Rexha Remodeling</a><a href="/popusti/kategorija/naziv-trgovca">Fast Food D&#x27;Italian</a><a href="/popusti/kategorija/naziv-trgovca">Emendi</a><a href="/popusti/kategorija/naziv-trgovca">Restoran TSC Jezero Krupac</a><a href="/popusti/kategorija/naziv-trgovca">Restoran Pelikan</a><a href="/popusti/kategorija/naziv-trgovca">Butik 18. septembar</a><a href="/popusti/kategorija/naziv-trgovca">Optika Ivanovic</a><a href="/popusti/kategorija/naziv-trgovca">BB Auto</a><a href="/popusti/kategorija/naziv-trgovca">Drum A.C.</a><a href="/popusti/kategorija/naziv-trgovca">Posteljine i ves Arilje</a><a href="/popusti/kategorija/naziv-trgovca">City Caffe</a><a href="/popusti/kategorija/naziv-trgovca">Snaga Prirode</a><a href="/popusti/kategorija/naziv-trgovca">Caffe Restaurant Panorama</a><a href="/popusti/kategorija/naziv-trgovca">Sincommerce</a><a href="/popusti/kategorija/naziv-trgovca">RIbnica Ukusi Mora</a><a href="/popusti/kategorija/naziv-trgovca">Tempo</a><a href="/popusti/kategorija/naziv-trgovca">Pretty Ballerinas Montenegro</a><a href="/popusti/kategorija/naziv-trgovca">Tudors</a><a href="/popusti/kategorija/naziv-trgovca">Multibrand Samms</a><a href="/popusti/kategorija/naziv-trgovca">MaxMara</a><a href="/popusti/kategorija/naziv-trgovca">Liu Jo</a><a href="/popusti/kategorija/naziv-trgovca">Paul &amp; Shark</a><a href="/popusti/kategorija/naziv-trgovca">MaM</a><a href="/popusti/kategorija/naziv-trgovca">Twinset</a><a href="/popusti/kategorija/naziv-trgovca">Pinko</a><a href="/popusti/kategorija/naziv-trgovca">Gerry Weber</a><a href="/popusti/kategorija/naziv-trgovca">Weekend</a><a href="/popusti/kategorija/naziv-trgovca">Max&amp;Co</a><a href="/popusti/kategorija/naziv-trgovca">Boss store</a><a href="/popusti/kategorija/naziv-trgovca">Petit Bateau</a><a href="/popusti/kategorija/naziv-trgovca">Boggi Milano</a><a href="/popusti/kategorija/naziv-trgovca">Luisa Spagnoli</a><a href="/popusti/kategorija/naziv-trgovca">Relax Apartmani Sutomore</a><a href="/popusti/kategorija/naziv-trgovca">Cerovo</a><a href="/popusti/kategorija/naziv-trgovca">Element Caffe Bar</a><a href="/popusti/kategorija/naziv-trgovca">Trattoria di Radenko</a><a href="/popusti/kategorija/naziv-trgovca">Bemax Arena Gym</a><a href="/popusti/kategorija/naziv-trgovca">Elisabetta Franchi</a><a href="/popusti/kategorija/naziv-trgovca">Hotel Del Medio</a><a href="/popusti/kategorija/naziv-trgovca">Insomnia</a><a href="/popusti/kategorija/naziv-trgovca">Tortuga</a><a href="/popusti/kategorija/naziv-trgovca">Rooms &amp; Spa Bjelasica</a><a href="/popusti/kategorija/naziv-trgovca">ToCaffe</a><a href="/popusti/kategorija/naziv-trgovca">The Meeting Point</a><a href="/popusti/kategorija/naziv-trgovca">Profa &amp; co auto djelovi</a><a href="/popusti/kategorija/naziv-trgovca">Butik firma Hit</a><a href="/popusti/kategorija/naziv-trgovca">Furla</a><a href="/popusti/kategorija/naziv-trgovca">Hogan</a><a href="/popusti/kategorija/naziv-trgovca">KidsLand</a><a href="/popusti/kategorija/naziv-trgovca">OVS</a><a href="/popusti/kategorija/naziv-trgovca">OVS Kids</a><a href="/popusti/kategorija/naziv-trgovca">Samsonite</a><a href="/popusti/kategorija/naziv-trgovca">Coincasa</a><a href="/popusti/kategorija/naziv-trgovca">Fashion Land</a><a href="/popusti/kategorija/naziv-trgovca">Plaza Perazica Do</a><a href="/popusti/kategorija/naziv-trgovca">BeachHouse, Perazica do</a><a href="/popusti/kategorija/naziv-trgovca">Fashion Paradise</a><a href="/popusti/kategorija/naziv-trgovca">Konoba starcevo</a><a href="/popusti/kategorija/naziv-trgovca">Obuca Minja</a><a href="/popusti/kategorija/naziv-trgovca">Restoran Mornar</a><a href="/popusti/kategorija/naziv-trgovca">Hotel Porto Sole</a><a href="/popusti/kategorija/naziv-trgovca">Red Caffe</a><a href="/popusti/kategorija/naziv-trgovca">Mil Pop</a><a href="/popusti/kategorija/naziv-trgovca">Moda Italiana</a><a href="/popusti/kategorija/naziv-trgovca">Alma ras</a><a href="/popusti/kategorija/naziv-trgovca">Apoteka 36.6</a><a href="/popusti/kategorija/naziv-trgovca">Al centro caffe Pizzerija</a><a href="/popusti/kategorija/naziv-trgovca">Hair Studio Exclusive</a><a href="/popusti/kategorija/naziv-trgovca">Butik Andjela Tina</a><a href="/popusti/kategorija/naziv-trgovca">Montenegro Shorex</a><a href="/popusti/kategorija/naziv-trgovca">Osmanagic Co</a><a href="/popusti/kategorija/naziv-trgovca">Banjalucki Cevap</a><a href="/popusti/kategorija/naziv-trgovca">Konoba Akustik</a><a href="/popusti/kategorija/naziv-trgovca">Restoran Soho, Velika Plaza</a><a href="/popusti/kategorija/naziv-trgovca">Amavi</a><a href="/popusti/kategorija/naziv-trgovca">Sport Caffe Avanti</a><a href="/popusti/kategorija/naziv-trgovca">Macao</a><a href="/popusti/kategorija/naziv-trgovca">Sapore di mare</a><a href="/popusti/kategorija/naziv-trgovca">Sanis bazeni</a><a href="/popusti/kategorija/naziv-trgovca">Amante beach bar</a><a href="/popusti/kategorija/naziv-trgovca">Medical Centar Budva</a><a href="/popusti/kategorija/naziv-trgovca">De Plus</a><a href="/popusti/kategorija/naziv-trgovca">Toni Grill</a><a href="/popusti/kategorija/naziv-trgovca">Knjizara Ginko</a><a href="/popusti/kategorija/naziv-trgovca">RoyalVet</a><a href="/popusti/kategorija/naziv-trgovca">MTL car</a><a href="/popusti/kategorija/naziv-trgovca">TehnoLara Pro</a><a href="/popusti/kategorija/naziv-trgovca">Drwex</a><a href="/popusti/kategorija/naziv-trgovca">Webtech</a><a href="/popusti/kategorija/naziv-trgovca">Caffe bar Karma</a><a href="/popusti/kategorija/naziv-trgovca">Parfimerija Life</a><a href="/popusti/kategorija/naziv-trgovca">Veterinarska Ambulanta Popovic</a><a href="/popusti/kategorija/naziv-trgovca">JYSK</a><a href="/popusti/kategorija/naziv-trgovca">Konoba Vidikovac</a><a href="/popusti/kategorija/naziv-trgovca">Senzo Rivolli</a><a href="/popusti/kategorija/naziv-trgovca">Mesara Radovic</a><a href="/popusti/kategorija/naziv-trgovca">Marella</a><a href="/popusti/kategorija/naziv-trgovca">Marina Rinaldi</a><a href="/popusti/kategorija/naziv-trgovca">iBlues</a><a href="/popusti/kategorija/naziv-trgovca">Villa Botanicus Petrovac</a><a href="/popusti/kategorija/naziv-trgovca">Art Mobili</a><a href="/popusti/kategorija/naziv-trgovca">Castellana</a></div></details>
 <details class="fs-group"><summary>Nekretnine (75)</summary><div class="fs-flat"><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/vrhunska-ponuda">Sve nekretnine</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/stanovi">Stanovi</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/poslovni-prostor">Poslovni prostori</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/poslovni-prostor/podgorica-poslovni-prostor">Poslovni prostori u Podgorici</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/poslovni-prostor/niksic-poslovni-prostor">Poslovni prostori u Niksicu</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista">Zemljista</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/cetinje-zemljista">Prodaja zemljista na Cetinju</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/podgorica-zemljista">Prodaja zemljista u Podgorici</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/budva-zemljista">Prodaja zemljista u Budvi</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/herceg-novi-zemljista">Prodaja zemljista u Herceg Novom</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/tivat-zemljista">Prodaja zemljista u Tivtu</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/ulcinj-zemljista">Prodaja zemljista u Ulcinju</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/kolasin">Prodaja zemljista u Kolasinu</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c40-podgorica">Prodaja zemljista Goljemadi - Podgorica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c53-podgorica">Prodaja zemljista Gornji Kokoti - Podgorica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c36-podgorica">Prodaja zemljista u Podgorici - Luznica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c34-podgorica">Prodaja zemljista u Podgorici - Plavnica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c2-podgorica">Prodaja zemljista u Podgorici - Drač</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c49-niksic">Prodaja zemljista Sipcano - Niksic</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c51-bogetici">Prodaja zemljista Bogetici - Niksic</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c52-niksic">Prodaja zemljista Milocni - Niksic</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c46-niksic">Prodaja zemljista u Niksicu - Glibovac</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c37-niksic">Prodaja zemljista u Niksicu - Nudo</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c12-budva">Prodaja zemljista u Budvi - Lazi</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c13-budva">Prodaja zemljista u Budvi - Košljun</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c32-budva">Podaja zemljista Sveti Stefan - Budva</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c22-1-budva">Prodaja zemljista Petrovac - Budva</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c22-budva">Prodaja zemljista u Petrovcu - Budva</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c16-budva">Prodaja zemlje u Petrovcu - Budva</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c14-budva-copy">Prodaja zemljista u Buljarici - Budva</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c14-budva">Prodaja zemljista u Budvi - Podkošljun</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c10-budva">Prodaja zemljista u Budvi - Kruševica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c8-budva">Prodaja zemljista u Budvi - Kuljače</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c47-bar">Prodaja zemljista u Baru - Celuga</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c48-kolasin">Podaja zemljista u Kolasinu - Bakovici</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c31-kolasin">Podaja zemljista Kolasin - Bakovici</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c45-herceg-novi">Prodaja zemljista u Herceg Novom - Baosici</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c29-herceg-novi">Prodaja zemljista u Herceg Novom - Igalo, Sutorina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c4-tivat">Prodaja zemljista u Tivtu - Donja Lastva, Pijavica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c44-tivat">Prodaja zemljista u Tivtu - Bogisici</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c41-tivat">Prodaja zemljista u Tivtu - Gornji Kaliman</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c5-tivat">Prodaja zemljista u Tivtu - Gornje Seljanovo</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c18-1-ulcinj">Prodaja zemljista u Ulcinju - Reč</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c21-ulcinj">Prodaja zemljista Ulcinj - Reč</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c20-ulcinj">Prodaja zemljista Ulcinj - Gornji Štoj</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c19-ulcinj">Prodaja zemljista u Ulcinju - Gornji Štoj</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c18-ulcinj">Prodaja zemljista Reč - Ulcinj</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c3-ulcinj">Prodaja zemljista u Ulcinju - Donji Štoj</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b18-niksic">Prodaja proslovnog prostora u Niksicu - Strasevina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b17-niksic">Prodaja proslovnog prostora u Niksicu - Rudo Polje</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b15-niksic">Prodaja proslovnog prostora u centru Niksicu</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b11-niksic">Prodaja proslovnog prostora u Niksicu - Rastoci</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b1-niksic">Prodaja proslovnog prostora u Niksicu - Ulica Milovana Pekovica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b9-podgorica">Prodaja proslovnog prostora u Podgorici - Zabjelo</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b16-podgorica">Prodaja proslovnog prostora u Podgorici - Zagoric</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b14-podgorica">Prodaja proslovnog prostora u Zabjelu - Podgorica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b10-podgorica">Prodaja proslovnog prostora u Podgorici - Stari Aerodrom</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b7-podgorica">Prodaja proslovnog prostora u centru Podgorice</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b6-podgorica">Prodaja proslovnog prostora u Podgorici - Krusevac</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b13-budva">Prodaja proslovnog prostora u Budvi - Dubovica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a23-rozaje">Prodaja stana u Rozaju</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/prodaj-stana-sa-garaznim-mjestom-a1-budva">Prodaja stana u Budvi - Gospostina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a24-budva">Prodaja stana u Budvi - Podkosljun</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a2-budva">Prodaja stana u Budvi - Komosevina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a7-herceg-novi">Prodaja stana u Herceg Novom - Igalo, Sutorina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a6-herceg-novi">Prodaja stana u Herceg Novom - Sutorina, Igalo</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a5-herceg-novi">Prodaja stana u Igalu, Sutorina - Herceg Novi</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a4-herceg-novi">Prodaja stanova u Igalu - Herceg Novi</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a3-herceg-novi">Prodaja stanova u Herceg Novom - Igalo, Sutorina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a30-podgorica">Prodaja stana u Podgorici - Momisici</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a29-podgorica">Prodaja stana u Podgorici - Preko Morace</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a13-podgorica">Prodaja stana u Podgorici - Ibricevina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a28-kolasin">Prodaja stana u Kolasinu - Zirci</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a26-kotor">Prodaja stana u Kotoru - Dobrota</a><a href="https://secure.emon24.net/PrvaBanka/retail/Account/LoginSms?Language=sr-Latn-ME">Online Banking</a></div></details>
-<details class="fs-group"><summary>O nama (13)</summary><ul class="fs-tree"><li class="fs-leaf"><a href="../../o-nama/banka-danas/index.html">Banka danas</a></li><li class="fs-leaf"><a href="../../o-nama/istorija-banke/index.html">Istorija banke</a></li><li class="fs-leaf"><a href="../korporativno-upravljanje/index.html">Korporativno upravljanje</a></li><li class="fs-leaf"><a href="/o-nama/opsti-uslovi-poslovanja">Opšti uslovi poslovanja</a></li><li class="fs-leaf"><a href="/o-nama/poslovna-mreza">Poslovna mreža (mapa filijala)</a></li><li class="fs-leaf"><a href="/o-nama/kontakt">Kontakt</a></li><li class="fs-leaf"><a href="/o-nama/prigovori">Prigovori</a></li><li class="fs-leaf"><a href="/o-nama/drustvena-odgovornost">Društvena odgovornost</a></li><li class="fs-leaf"><a href="/o-nama/saopstenja">Saopštenja</a></li><li class="fs-leaf"><a href="/o-nama/finansijski-izvjestaj">Finansijski izvještaji</a></li><li class="fs-leaf"><a href="/o-nama/akcionari">Akcionari banke</a></li><li class="fs-leaf"><a href="/o-nama/karijera">Karijera</a></li><li class="fs-leaf"><a href="/o-nama/press-centar">Media / Press centar</a></li></ul></details>
+<details class="fs-group"><summary>O nama (13)</summary><ul class="fs-tree"><li class="fs-leaf"><a href="../../o-nama/banka-danas/index.html">Banka danas</a></li><li class="fs-leaf"><a href="/o-nama/istorija-banke">Istorija banke</a></li><li class="fs-leaf"><a href="../../o-nama/korporativno-upravljanje/index.html">Korporativno upravljanje</a></li><li class="fs-leaf"><a href="/o-nama/opsti-uslovi-poslovanja">Opšti uslovi poslovanja</a></li><li class="fs-leaf"><a href="/o-nama/poslovna-mreza">Poslovna mreža (mapa filijala)</a></li><li class="fs-leaf"><a href="/o-nama/kontakt">Kontakt</a></li><li class="fs-leaf"><a href="/o-nama/prigovori">Prigovori</a></li><li class="fs-leaf"><a href="/o-nama/drustvena-odgovornost">Društvena odgovornost</a></li><li class="fs-leaf"><a href="/o-nama/saopstenja">Saopštenja</a></li><li class="fs-leaf"><a href="/o-nama/finansijski-izvjestaj">Finansijski izvještaji</a></li><li class="fs-leaf"><a href="/o-nama/akcionari">Akcionari banke</a></li><li class="fs-leaf"><a href="/o-nama/karijera">Karijera</a></li><li class="fs-leaf"><a href="/o-nama/press-centar">Media / Press centar</a></li></ul></details>
 <details class="fs-group"><summary>Finansijski vodiči</summary><ul class="fs-tree"><li class="fs-leaf"><a href="/finansijski-vodici/stanovnistvo">Vodiči za stanovništvo</a></li><li class="fs-leaf"><a href="/finansijski-vodici/preduzetnici">Vodiči za preduzetnike</a></li><li class="fs-leaf"><a href="/finansijski-vodici/sigurnost">Sigurnost i prevare</a></li></ul></details>
 <details class="fs-group"><summary>Podrška klijentima — hub</summary><ul class="fs-tree"><li class="fs-leaf"><a href="/podrska/faq">FAQ — Sva pitanja</a></li><li class="fs-leaf"><a href="/podrska/faq/krediti">FAQ — Krediti</a></li><li class="fs-leaf"><a href="/podrska/faq/kartice">FAQ — Kartice</a></li><li class="fs-leaf"><a href="/podrska/faq/digitalno-bankarstvo">FAQ — Digitalno bankarstvo</a></li></ul></details>
 <details class="fs-group"><summary>Resursi — hub</summary><ul class="fs-tree"><li class="fs-leaf"><a href="/resursi/obrasci">Obrasci</a></li><li class="fs-leaf"><a href="/resursi/dokumentacija">Dokumentacija</a></li><li class="fs-leaf"><a href="/resursi/kreditni-zahtjevi">Zahtjevi</a></li><li class="fs-leaf"><a href="/resursi/tarife">Tarife i naknade</a></li><li class="fs-leaf"><a href="/resursi/download">Download centar</a></li></ul></details>
@@ -806,7 +810,6 @@
   const drawer = document.getElementById('mobile-drawer');
   document.getElementById('drawer-open').addEventListener('click', () => { drawer.classList.add('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','true'); });
   document.getElementById('drawer-close').addEventListener('click', () => { drawer.classList.remove('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','false'); });
-
 </script>
 </body>
 </html>

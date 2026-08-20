@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Prva banka Crne Gore — Beta 1 (demo naslovna)</title>
-<meta name="description" content="Demo naslovna stranica — Prva banka Crne Gore. Interni pregled pravca, ne finalni dizajn.">
+<title>O nama — Prva banka Crne Gore</title>
+<meta name="description" content="O nama — Prva banka Crne Gore. Istorija, upravljanje, poslovna mreža, karijera i sve informacije o banci.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Playfair+Display:wght@500;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="../assets/tokens.css">
 <style>
   /* v5: headline font -> Playfair Display Semibold; opisni/body tekst -> Myriad (stand-in: PT Sans, nemamo Myriad Pro fajl — vidi docs/open-questions.md).
      Napomena: Barmeno (v4) @font-face namjerno uklonjen iz ove verzije jer headline sada koristi Playfair Display; brojčani/stat prikazi (cijene, godine, telefon) i dalje koriste Fraunces kao ranije — nisu "headline" ni "opisni tekst" pa nisu dirani. */
@@ -464,6 +464,32 @@
   .demo-banner{background:var(--pb-gold-700);color:#fff;text-align:center;font-size:.8rem;padding:8px 14px;font-weight:600}
 
 </style>
+
+<style>
+  .breadcrumb{font-size:.85rem;color:var(--color-text-muted);padding:18px 0 0}
+  .breadcrumb a{color:var(--color-text-muted);text-decoration:none}
+  .breadcrumb a:hover{color:var(--color-primary)}
+  .breadcrumb .sep{margin:0 6px;opacity:.5}
+  .page-hero-inner{padding:56px 0}
+  .page-hero-inner h1{color:#fff;max-width:20ch;font-size:var(--fs-3xl)}
+  .page-hero-inner .lead{margin-top:16px;color:rgba(255,255,255,.85);max-width:60ch;font-size:var(--fs-lg)}
+  .bd-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .bd-stat{background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:30px 24px;text-align:center;position:relative;overflow:hidden}
+  .bd-stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--color-primary)}
+  .bd-stat .n{display:block;font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-primary)}
+  .bd-stat .l{display:block;margin-top:8px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-muted)}
+  @media (max-width:700px){.bd-stats{grid-template-columns:1fr}}
+  .bd-copy p + p{margin-top:20px}
+  .bd-copy p{font-size:1.05rem;line-height:1.75;color:var(--color-text)}
+  .vm-split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .vm-card{background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:36px;position:relative}
+  .vm-card::before{content:"";position:absolute;top:0;left:36px;width:40px;height:3px;background:var(--color-primary)}
+  .vm-card h3{font-size:var(--fs-xl);margin-top:14px}
+  .vm-card p{margin-top:14px;color:var(--color-text-muted);line-height:1.7}
+  @media (max-width:800px){.vm-split{grid-template-columns:1fr}}
+  .related-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+</style>
+
 </head>
 <body>
 
@@ -473,7 +499,7 @@
 <div class="topbar">
   <div class="wrap">
     <a href="#" id="search-trigger"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg> Pretraga</a>
-    <a href="#kontakt">Kontakt · 19891</a>
+    <a href="../index.html#kontakt">Kontakt · 19891</a>
     <div class="lang">
       <button class="active">ME</button>/<button>EN</button>
     </div>
@@ -482,7 +508,7 @@
 
 <header class="site">
   <div class="wrap header-row">
-    <a href="#" class="logo"><img src="assets/brand/logo-color.svg" alt="Prva banka Crne Gore"></a>
+    <a href="../index.html" class="logo"><img src="../assets/brand/logo-color.svg" alt="Prva banka Crne Gore"></a>
 
     <nav class="mega" aria-label="Glavna navigacija">
       <ul>
@@ -521,11 +547,11 @@
             <a href="#">Debitna</a>
           </div>
         </li>
-        <li><a href="#digitalno">Digitalno bankarstvo</a></li>
+        <li><a href="../index.html#digitalno">Digitalno bankarstvo</a></li>
         <li><a href="#">Platni promet</a></li>
         <li><a href="#">Štednja</a></li>
         <li><a href="#">Investiciono bankarstvo</a></li>
-        <li><a href="o-nama/index.html">O nama</a></li>
+        <li><a href="../o-nama/index.html">O nama</a></li>
       </ul>
     </nav>
 
@@ -540,7 +566,7 @@
 <div class="mobile-drawer" id="mobile-drawer">
   <div class="wrap">
     <div class="top">
-      <img src="assets/brand/logo-color.svg" alt="Prva banka" style="height:28px">
+      <img src="../assets/brand/logo-color.svg" alt="Prva banka" style="height:28px">
       <button class="icon-btn" id="drawer-close" aria-label="Zatvori meni"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
     </div>
     <details open><summary>Računi</summary><ul><li><a href="#">Transakcioni račun</a></li><li><a href="#">Devizni račun</a></li><li><a href="#">Dozvoljeni minus</a></li></ul></details>
@@ -550,334 +576,50 @@
     <details><summary>Platni promet</summary><ul><li><a href="#">Domaći</a></li><li><a href="#">Međunarodni</a></li></ul></details>
     <details><summary>Štednja</summary><ul><li><a href="#">Oročena štednja</a></li></ul></details>
     <details><summary>Investiciono bankarstvo</summary><ul><li><a href="#">Pregled</a></li></ul></details>
-    <details><summary>O nama</summary><ul><li><a href="o-nama/index.html">Pregled</a></li><li><a href="o-nama/banka-danas/index.html">Banka danas</a></li><li><a href="#">Istorija banke</a></li></ul></details>
+    <details><summary>O nama</summary><ul><li><a href="../o-nama/index.html">Pregled</a></li><li><a href="../o-nama/banka-danas/index.html">Banka danas</a></li><li><a href="#">Istorija banke</a></li></ul></details>
     <div class="mobile-cta">
       <a href="#" class="btn btn-primary" style="justify-content:center">Online banking</a>
-      <a href="#kontakt" class="btn btn-ghost" style="justify-content:center">Kontakt · 19891</a>
+      <a href="../index.html#kontakt" class="btn btn-ghost" style="justify-content:center">Kontakt · 19891</a>
     </div>
   </div>
 </div>
 
+
 <main id="main">
 
-  <!-- HERO (po Hero_sekcija.png referenci) — puna širina sa jednakim odbijanjem sa sve 4 strane
-       Slajder sa 3 usluge (dodato u v24/v25): Otvori račun, Kartice, Otvaranje računa. -->
+  <div class="wrap breadcrumb"><a href="../index.html">Početna</a><span class="sep">/</span><span>O nama</span></div>
+
   <div class="hero-frame">
-    <section class="hero">
-      <div class="hero-slide active" data-slide="0">
-        <div class="hero-bg" data-parallax="0.18" style="background-image:url('assets/images/hero-kredit.png')"></div>
-        <div class="hero-photo-overlay" aria-hidden="true"></div>
-        <div class="wrap hero-inner">
-          <div class="hero-left">
-            <h1>Otvori račun<br>za par minuta</h1>
-            <p class="lead">Tekući račun, debitna kartica i mBanking u jednom paketu — bez odlaska u filijalu.</p>
-            <div class="hero-ctas">
-              <a href="#" class="btn btn-white">Naruči karticu <span aria-hidden="true">→</span></a>
-              <a href="#" class="btn btn-outline-invert">Otvori račun online</a>
-            </div>
-            <a href="#kontakt" class="hero-network-link">
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
-              Poslovna mreža — pronađi filijalu ili bankomat
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="hero-slide" data-slide="1">
-        <div class="hero-bg" data-parallax="0.18" style="background-image:url('assets/images/hero-kartica.png')"></div>
-        <div class="hero-photo-overlay" aria-hidden="true"></div>
-        <div class="wrap hero-inner">
-          <div class="hero-left">
-            <h1>Kartica za svaki<br>trenutak</h1>
-            <p class="lead">Debitna, Monte Rata ili Revolving — plaćaj kako tebi odgovara, uz popuste kod stotina partnera širom Crne Gore.</p>
-            <div class="hero-ctas">
-              <a href="#kartice" class="btn btn-white">Zatraži karticu <span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-slide" data-slide="2">
-        <div class="hero-bg" data-parallax="0.18" style="background-image:url('assets/images/hero-racun.png')"></div>
-        <div class="hero-photo-overlay" aria-hidden="true"></div>
-        <div class="wrap hero-inner">
-          <div class="hero-left">
-            <h1>Postani naš<br>klijent</h1>
-            <p class="lead">Podnesi zahtjev za otvaranje računa online — bez čekanja u redu, gotovo za par klikova.</p>
-            <div class="hero-ctas">
-              <a href="#" class="btn btn-white">Podnesi zahtjev <span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-dots" role="tablist" aria-label="Slajdovi hero sekcije">
-        <button type="button" class="hero-dot active" data-slide-btn="0" role="tab" aria-selected="true" aria-label="Otvori račun"></button>
-        <button type="button" class="hero-dot" data-slide-btn="1" role="tab" aria-selected="false" aria-label="Kartice"></button>
-        <button type="button" class="hero-dot" data-slide-btn="2" role="tab" aria-selected="false" aria-label="Otvaranje računa"></button>
+    <section class="hero" style="min-height:320px">
+      <div class="wrap hero-inner page-hero-inner">
+        <span class="kicker" style="color:#fff">O nama · od 1901</span>
+        <h1>Upoznajte Prvu banku Crne Gore</h1>
+        <p class="lead">125 godina povjerenja, stabilnosti i podrške klijentima širom Crne Gore — sve informacije o banci, upravljanju i poslovanju na jednom mjestu.</p>
       </div>
     </section>
   </div>
 
-  <!-- CAMPAIGNS -->
-  <section class="tight">
+  <section>
     <div class="wrap">
       <div class="section-head">
-        <span class="kicker">Istaknuto</span>
-        <h2>Aktuelne ponude i kampanje</h2>
-      </div>
-      <div class="campaign-grid">
-        <div class="campaign-card"><div class="campaign-media" style="background-image:url('assets/images/hero-kredit.png')"></div><div class="campaign-body"><span class="tag">Krediti</span><h3>Gotovinski kredit bez naknade za obradu</h3><p>Ograničena ponuda za nove klijente.</p></div></div>
-        <div class="campaign-card"><div class="campaign-media" style="background-image:url('assets/images/hero-kartica.png')"></div><div class="campaign-body"><span class="tag">Kartice</span><h3>Monte Rata — do 36 rata bez kamate</h3><p>Kod svih partnera na Popusti listi.</p></div></div>
-        <div class="campaign-card"><div class="campaign-media" style="background-image:url('assets/images/hero-racun.png')"></div><div class="campaign-body"><span class="tag">Digitalno</span><h3>Aktiviraj mBanking za 5 minuta</h3><p>Bez odlaska u filijalu.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- QUICK ACCESS -->
-  <section class="tight qa-section">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="kicker">Brz pristup</span>
-        <h2>Biraj šta ti treba</h2>
+        <span class="kicker">Sve o banci</span>
+        <h2>Istraži O nama</h2>
+        <p>125 godina povjerenja, stabilnosti i podrške klijentima širom Crne Gore. Ovdje su sve informacije o banci, njenom upravljanju i poslovanju.</p>
       </div>
       <div class="qa-grid">
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg></div><h3>Fizička lica</h3><p>Računi, kartice, krediti za tebe</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="9" width="7" height="11"/><rect x="13" y="4" width="7" height="16"/><path d="M7 12h1M7 15h1M16 8h1M16 11h1M16 14h1"/></svg></div><h3>Pravna lica</h3><p>Rješenja za tvoj biznis</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="5.2"/><circle cx="15" cy="15" r="5.2"/></svg></div><h3>Krediti</h3><p>Gotovinski, stambeni, auto...</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg></div><h3>Kartice</h3><p>Monte Rata, Revolving, Debitna</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V11a8 8 0 0 1 16 0v9"/><path d="M4 20h16M9 20v-5h6v5"/></svg></div><h3>Štednja</h3><p>Oročena, po viđenju, rentna</p></a>
-        <a class="qa-card" href="#digitalno"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg></div><h3>Digitalno bankarstvo</h3><p>eBanking i mBanking</p></a>
-        <a class="qa-card" href="#kalkulator-kursna"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l5-5 4 4 8-9"/><path d="M15 7h5v5"/></svg></div><h3>Kursna lista</h3><p>Ažurirano svaki dan</p></a>
-        <a class="qa-card" href="#kalkulator"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h2M12 12h2M16 12h0M8 16h2M12 16h2M16 16h0"/></svg></div><h3>Kalkulatori</h3><p>Izračunaj ratu ili prinos štednje</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div><h3>Filijale i bankomati</h3><p>Pronađi najbližu lokaciju</p></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- KREDITI TAB-WIDGET (iz Homepage_draft.png) -->
-  <section class="tight">
-    <div class="wrap">
-      <div class="credit-widget">
-        <div class="credit-widget-text">
-          <span class="tag-eyebrow">Krediti</span>
-          <h2 class="two-tone"><span class="muted-line">Sve što želiš,</span>na dohvat ruke</h2>
-          <p class="cw-desc">Bez obzira da li planiraš putovanje na omiljenu destinaciju, kupovinu automobila, renoviranje stana&nbsp;&hellip; brzo i povoljno dođi do sredstava!</p>
-          <p class="cw-promo">Iskoristi posebnu ponudu do 31. avgusta 2026. godine.</p>
-          <div class="hero-ctas">
-            <a href="#" class="btn btn-primary">Privreda</a>
-            <a href="#" class="btn btn-primary">Stanovništvo</a>
-          </div>
-        </div>
-        <div class="credit-widget-tabs">
-          <div class="credit-tabs" role="tablist" aria-label="Tip kredita" id="credit-tabs">
-            <button role="tab" aria-selected="true" data-credit="gotovinski">Gotovinski</button>
-            <button role="tab" aria-selected="false" data-credit="stambeni">Stambeni</button>
-            <button role="tab" aria-selected="false" data-credit="penzionerski">Penzionerski</button>
-            <button role="tab" aria-selected="false" data-credit="zeleni">Zeleni</button>
-            <button role="tab" aria-selected="false" data-credit="pomorci">Za pomorce</button>
-          </div>
-          <div class="credit-result">
-            <div class="credit-result-inner" id="credit-result" aria-live="polite">
-              <h3 id="credit-name">Gotovinski kredit</h3>
-              <p id="credit-desc">Za renoviranje, putovanje ili ono što odavno planiraš</p>
-              <div class="price" id="credit-price">već od <strong>189€</strong> mjesečno</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORLD MAP: KALKULATOR + KURSNA LISTA jedno pored drugog -->
-  <section class="calc-section" id="kalkulator-kursna">
-    <div class="wrap">
-      <div class="worldmap-grid">
-
-        <div class="wm-card" id="kalkulator">
-          <span class="tag-eyebrow">Kalkulator</span>
-          <h3 class="wm-title">Izračunaj svoju ratu</h3>
-          <p class="wm-sub">Ilustrativan izračun — konačni uslovi zavise od kreditne sposobnosti i formula koje dostavlja banka.</p>
-
-          <div class="calc-field" style="margin-top:22px">
-            <label>Iznos kredita <output id="out-amount">10.000 €</output></label>
-            <input type="range" id="amount" min="500" max="50000" step="100" value="10000">
-          </div>
-          <div class="calc-field">
-            <label>Period otplate <output id="out-period">48 mj.</output></label>
-            <input type="range" id="period" min="6" max="120" step="6" value="48">
-          </div>
-          <div class="calc-field">
-            <label>Nominalna kamatna stopa <output id="out-rate">7.9%</output></label>
-            <input type="range" id="rate" min="5.9" max="14.9" step="0.1" value="7.9">
-          </div>
-
-          <div class="credit-result wm-result">
-            <div class="credit-result-inner">
-              <div class="wm-result-row"><span>Mjesečna rata</span><strong id="res-monthly">—</strong></div>
-              <div class="wm-result-row"><span>Ukupno kamata + glavnica</span><strong id="res-total">—</strong></div>
-            </div>
-          </div>
-          <a href="#" class="btn btn-primary" style="margin-top:20px">Pošalji mi ponudu</a>
-          <p class="calc-note">Demo formula (anuitetska otplata), NE zvanična formula banke — čeka se specifikacija od klijenta.</p>
-        </div>
-
-        <div class="wm-card">
-          <span class="tag-eyebrow">Kursna lista</span>
-          <h3 class="wm-title">Kursevi za danas</h3>
-          <p class="wm-sub">Ažurirano danas u 09:00 &middot; izvor: kursna lista ECB (ilustrativno)</p>
-
-          <div class="credit-tabs" role="tablist" aria-label="Valuta" id="fx-tabs" style="margin-top:22px">
-            <button role="tab" aria-selected="true" data-fx="usd">EUR/USD</button>
-            <button role="tab" aria-selected="false" data-fx="gbp">EUR/GBP</button>
-            <button role="tab" aria-selected="false" data-fx="chf">EUR/CHF</button>
-            <button role="tab" aria-selected="false" data-fx="jpy">EUR/JPY</button>
-          </div>
-
-          <div class="credit-result wm-result">
-            <div class="credit-result-inner" id="fx-result" aria-live="polite">
-              <h3 id="fx-pair">EUR / USD</h3>
-              <p id="fx-note">Srednji kurs za danas</p>
-              <div class="price"><strong id="fx-value">1.0862</strong></div>
-            </div>
-          </div>
-          <div class="wm-fx-list" id="fx-others"></div>
-          <a href="#" class="btn btn-primary" style="margin-top:20px">Konvertor valuta →</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- KARTICE (iz Homepage_draft.png) -->
-  <section class="tight">
-    <div class="wrap">
-      <div class="cards-widget">
-        <div class="cw-worldmap" aria-hidden="true"></div>
-        <div class="card-stack" aria-hidden="true">
-          <div class="stack-card c3"></div>
-          <div class="stack-card c2"></div>
-          <div class="stack-card c1">
-            <div class="chip"></div>
-            <div class="stack-number">1234&nbsp;&nbsp;5678&nbsp;&nbsp;9012&nbsp;&nbsp;3456</div>
-            <div class="stack-name">CARDHOLDER NAME</div>
-          </div>
-        </div>
-        <div class="cards-widget-text">
-          <span class="tag-eyebrow">Kartice</span>
-          <h2 class="two-tone"><span class="muted-line">4 naše kartice su</span>sve što ti treba</h2>
-          <p class="cw-desc">Debitna kartica može biti izdata svim fizičkim licima koji imaju otvoren transakcioni račun za nacionalne platne transakcije i ostvaruju prilive preko Banke (plate, penzije, samostalne uplate i dr.).</p>
-          <p class="cw-desc">Za podršku korisnicima kartica Prve banke je <strong>+382&nbsp;20&nbsp;445&nbsp;217</strong></p>
-          <div class="hero-ctas">
-            <a href="#" class="btn btn-primary">Privreda</a>
-            <a href="#" class="btn btn-primary">Stanovništvo</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIGITAL BANKING -->
-  <section class="digital" id="digitalno">
-    <div class="wrap">
-      <span class="kicker" style="color:var(--pb-gold-300)">Digitalno bankarstvo</span>
-      <h2 style="margin-top:10px;margin-bottom:40px">Cijela banka, sada u tvom džepu</h2>
-      <div class="digital-split">
-        <div class="digital-service">
-          <span class="kicker" style="color:var(--pb-gold-300)">Elektronsko bankarstvo</span>
-          <h3>Elektronsko bankarstvo za fizička lica</h3>
-          <p class="ds-lead">Upravljaj svojim finansijama bez odlaska u filijalu!</p>
-          <p class="ds-body">Elektronsko bankarstvo omogućava brz, siguran i jednostavan pristup bankarskim uslugama putem računara, tableta i mobilnog uređaja. Korisnici mogu izvršavati plaćanja, prenose sredstava i pratiti stanje računa u svakom trenutku, bez potrebe za odlaskom u poslovnicu. Intuitivan interfejs i dostupnost usluga 24/7 doprinose većoj efikasnosti i jednostavnijem svakodnevnom upravljanju finansijama.</p>
-          <a href="#" class="btn btn-primary">Podnesi zahtjev</a>
-        </div>
-        <div class="digital-service">
-          <span class="kicker" style="color:var(--pb-gold-300)">Mobilno bankarstvo</span>
-          <h3>Mobilno bankarstvo za fizička lica</h3>
-          <p class="ds-lead">Vaša banka uvijek uz vas!</p>
-          <p class="ds-body">Uz mBanking aplikaciju Prve banke, upravljanje finansijama postaje brže, jednostavnije i sigurnije nego ikada. Aplikacija vam omogućava da u svakom trenutku provjerite stanje računa, izvršite plaćanja i prenose sredstava, pratite promet i upravljate svakodnevnim finansijskim obavezama direktno sa svog mobilnog uređaja.</p>
-          <a href="#" class="btn btn-primary">Podnesi zahtjev</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- POPUSTI -->
-  <section class="popusti">
-    <div class="wrap popusti-grid">
-      <div>
-        <span class="kicker">Popusti</span>
-        <h2>Kartice Prve banke CG štede za tebe</h2>
-        <p style="margin-top:14px;color:rgba(255,255,255,.85)">Do 30% popusta kod preko 130 partnera širom Crne Gore. Uz Monte Rata karticu, plaćaj i na rate do 36 mjeseci bez kamate.</p>
-        <div class="partner-grid" role="group" aria-label="Filtriraj kategorije popusta">
-          <button type="button" class="partner-tile" aria-pressed="false">Moda</button>
-          <button type="button" class="partner-tile" aria-pressed="false">Tehnika</button>
-          <button type="button" class="partner-tile" aria-pressed="false">Hoteli</button>
-          <button type="button" class="partner-tile" aria-pressed="false">Sport</button>
-          <button type="button" class="partner-tile" aria-pressed="false">Dom</button>
-          <button type="button" class="partner-tile" aria-pressed="false">Ljepota</button>
-          <button type="button" class="partner-tile" aria-pressed="false">Auto</button>
-          <button type="button" class="partner-tile" aria-pressed="false">+122</button>
-        </div>
-        <a href="#" class="btn btn-white" style="margin-top:26px">Pogledaj sve popuste →</a>
-      </div>
-      <div class="popusti-stats-lg">
-        <div><div class="n">130+</div><div class="l">partnera</div></div>
-        <div><div class="n">12</div><div class="l">kategorija</div></div>
-        <div><div class="n">36</div><div class="l">rata bez kamate</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HERITAGE / O NAMA (po O nama.png referenci) -->
-  <section class="heritage">
-    <div class="wrap heritage-grid">
-      <div>
-        <span class="tag-eyebrow">O nama · od 1901</span>
-        <h2 style="font-size:var(--fs-3xl)">125 godina u pokretu uz Crnu Goru</h2>
-        <p style="margin-top:14px;color:var(--color-text-muted);max-width:46ch">Od jednog vijeka gradimo povjerenje sa građanima i privredom Crne Gore. Ista snaga, brža nova generacija — banka koja se okreće ka digitalnoj budućnosti bez gubljenja korijena.</p>
-        <div class="heritage-stats">
-          <div class="hs-item"><strong class="accent">1901.</strong><span>Godina osnivanja</span></div>
-          <div class="hs-item"><strong>125</strong><span>Godina rada</span></div>
-          <div class="hs-item"><strong>250K+</strong><span>Zadovoljnih klijenata</span></div>
-        </div>
-        <a href="#" class="btn btn-ghost" style="margin-top:26px">Upoznaj banku</a>
-      </div>
-      <div class="orbit">
-        <div class="orbit-outer"></div>
-        <div class="orbit-ring"></div>
-        <div class="orbit-center" id="orbit-center"><strong id="orbit-center-year">125</strong><span id="orbit-center-label">GODINA</span></div>
-        <div class="orbit-anchor anc-top"><button type="button" class="orbit-point" data-year="1901." data-label="Osnivanje banke"><span class="dot"></span><b>1901.</b><p>Osnivanje banke</p></button></div>
-        <div class="orbit-anchor anc-right"><button type="button" class="orbit-point" data-year="1906." data-label="Prva devizna poslovnica"><span class="dot"></span><b>1906.</b><p>Prva devizna poslovnica</p></button></div>
-        <div class="orbit-anchor anc-bottom"><button type="button" class="orbit-point" data-year="2015." data-label="mBanking aplikacija"><span class="dot"></span><b>2015.</b><p>mBanking aplikacija</p></button></div>
-        <div class="orbit-anchor anc-left"><button type="button" class="orbit-point" data-year="2026." data-label="Digitalna banka"><span class="dot"></span><b>2026.</b><p>Digitalna banka</p></button></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEWS -->
-  <section class="news">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="kicker">Novosti</span>
-        <h2>Vijesti i edukativni sadržaj</h2>
-      </div>
-      <div class="news-grid">
-        <div class="news-card"><div class="news-date">24. jul 2026.</div><h3>Šta je efektivna kamatna stopa (EKS)?</h3><p>Finansijski vodič za stanovništvo — objašnjeno jednostavno.</p></div>
-        <div class="news-card"><div class="news-date">18. jul 2026.</div><h3>Kako prepoznati phishing email</h3><p>Sigurnost i zaštita od prevara — praktični savjeti.</p></div>
-        <div class="news-card"><div class="news-date">10. jul 2026.</div><h3>Nova poslovnica u Podgorici</h3><p>Proširujemo poslovnu mrežu radi bolje dostupnosti.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="kontakt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="kicker">Podrška</span>
-        <h2>Tu smo za tebe</h2>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-card"><div class="icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8.3 6.7 15 15 15l2-4-5-2-2 2c-2.3-1-4-2.7-5-5l2-2-2-5-4 1"/></svg></div><h3>Kontakt centar</h3><p>Dostupni smo svakog radnog dana</p><a class="tel" href="tel:19891">19891</a></div>
-        <div class="contact-card"><div class="icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div><h3>Filijale i bankomati</h3><p>30+ filijala/šaltera, 100+ bankomata širom Crne Gore</p><a href="#" class="btn btn-ghost" style="margin-top:10px">Pronađi lokaciju</a></div>
-        <div class="contact-card"><div class="icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H8l-4 4V5z"/><path d="M8 10h8M8 13h5"/></svg></div><h3>Pitanja i odgovori</h3><p>Najčešća pitanja o kreditima, karticama i digitalnom bankarstvu</p><a href="#" class="btn btn-ghost" style="margin-top:10px">Pogledaj FAQ</a></div>
+        <a class="qa-card" href="banka-danas/index.html"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21h16"/><path d="M6 21V10l6-5 6 5v11"/><path d="M10 21v-6h4v6"/></svg></div><h3>Banka danas</h3><p>Ko smo i čime se bavimo danas</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 2"/></svg></div><h3>Istorija banke</h3><p>125 godina, od 1901. do danas</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 3-3 3-3-3z"/><path d="M4 21h16"/><path d="M6 21l1.5-9h9L18 21"/></svg></div><h3>Korporativno upravljanje</h3><p>Organi upravljanja i struktura banke</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7M9 15.5h7M9 8.5h3"/></svg></div><h3>Opšti uslovi poslovanja</h3><p>Uslovi i pravila poslovanja banke</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div><h3>Poslovna mreža</h3><p>Filijale i šalteri širom Crne Gore</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8.3 6.7 15 15 15l2-4-5-2-2 2c-2.3-1-4-2.7-5-5l2-2-2-5-4 1"/></svg></div><h3>Kontakt</h3><p>Kontakt centar i podružnice</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H8l-4 4V5z"/><path d="M8 10h8M8 13h5"/></svg></div><h3>Prigovori</h3><p>Kako podnijeti prigovor</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7.5-4.6-9.4-9.9C1.6 6.6 3.9 4 7 4c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.1 0 5.4 2.6 4.4 6.1C19.5 15.4 12 20 12 20z"/></svg></div><h3>Društvena odgovornost</h3><p>Projekti u lokalnoj zajednici</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11v2a2 2 0 0 0 2 2h1l3 4V7l-3 4H5a2 2 0 0 0-2 2z"/><path d="M14 8a5 5 0 0 1 0 8"/><path d="M17 5a9 9 0 0 1 0 14"/></svg></div><h3>Saopštenja</h3><p>Vijesti i zvanična saopštenja banke</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V11M10 20V6M16 20v-8M22 20H2"/></svg></div><h3>Finansijski izvještaji</h3><p>Godišnji izvještaji i revizija</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M11 20c0-3.3 2.7-5.5 6-5.5s5 2.2 5 5.5"/></svg></div><h3>Akcionari banke</h3><p>Struktura vlasništva banke</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="16" height="11" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M4 13h16"/></svg></div><h3>Karijera</h3><p>Otvorene pozicije i prijave</p></a>
+        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="14" height="12" rx="1.5"/><path d="M17 9h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7"/><path d="M7 10h6M7 13h6M7 16h4"/></svg></div><h3>Media / Press centar</h3><p>Informacije za medije i novinare</p></a>
       </div>
     </div>
   </section>
@@ -887,7 +629,7 @@
 <footer class="site">
   <div class="wrap footer-top">
     <div class="footer-brand">
-      <img src="assets/brand/logo-white.svg" alt="Prva banka Crne Gore">
+      <img src="../assets/brand/logo-white.svg" alt="Prva banka Crne Gore">
       <p>Prva banka Crne Gore A.D. — osnovana 1901. Podgorica, Crna Gora.</p>
       <div class="footer-social" aria-label="Društvene mreže">
         <a href="https://www.facebook.com/prvabankacg/" aria-label="Facebook">f</a>
@@ -927,8 +669,8 @@
     <div class="footer-col">
       <h4>O banci</h4>
       <ul>
-        <li><a href="o-nama/index.html">O nama</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="../o-nama/index.html">O nama</a></li>
+        <li><a href="../index.html#kontakt">Kontakt</a></li>
         <li><a href="#">Karijera</a></li>
         <li><a href="#">Poslovna mreža</a></li>
         <li><a href="/mapa-sajta.html" class="more">Mapa sajta →</a></li>
@@ -942,7 +684,7 @@
 <details class="fs-group"><summary>PRIVREDA (20)</summary><ul class="fs-tree"><li class="fs-heading"><a href="/stanovnistvo/racuni">Racuni</a></li><li class="fs-leaf"><a href="/privreda/racuni">Transakcioni račun za izvršavanje nacionalnih platnih transakcija</a></li><li class="fs-leaf"><a href="/privreda/racuni/naziv-racuna">Transakcioni račun za izvršavanje međunarodnih platnih transakcija</a></li><li class="fs-heading"><a href="/privreda/krediti">Krediti</a></li><li class="fs-leaf"><a href="/privreda/krediti/kratkorocni-krediti">Kratkoročni krediti</a></li><li class="fs-leaf"><a href="/privreda/krediti/dugorocni-krediti">Dugoročni krediti</a></li><li class="fs-leaf"><a href="/privreda/krediti/garancije">Garancije</a></li><li class="fs-leaf"><a href="/privreda/krediti/krediti-pokriveni-depozitom">Krediti pokriveni depozitom</a></li><li class="fs-heading"><a href="/privreda/kartice">Business kartice</a></li><li class="fs-leaf"><a href="/privreda/kartice/business-debitne-kartice">Business debitne kartice</a></li><li class="fs-leaf"><a href="/privreda/kartice/business-kreditne-kartice">Business kreditne kartice</a></li><li class="fs-heading"><a href="/privreda/digitalno-bankarstvo">Digitalno bankarstvo</a></li><li class="fs-leaf"><a href="/privreda/digitalno-bankarstvo/elektronsko-bankarstvo">Elektronsko bankarstvo</a></li><li class="fs-leaf"><a href="/privreda/depoziti">Depoziti</a></li><li class="fs-leaf"><a href="/privreda/depoziti">Depoziti po viđenju</a></li><li class="fs-leaf"><a href="/privreda/depoziti/depoziti-po-vidjenju">Oročeni novčani depoziti</a></li><li class="fs-heading"><a href="/privreda/depoziti/standardni-tip">Platni promet</a></li><li class="fs-leaf"><a href="/privreda/platni-promet/domaci-platni-promet">Domaći platni promet</a></li><li class="fs-leaf"><a href="/privreda/platni-promet/medjunarodni-platni-promet">Međunarodni platni promet</a></li><li class="fs-leaf"><a href="/privreda/investiciono-bankarstvo">Investiciono bankarstvo</a></li></ul></details>
 <details class="fs-group"><summary>Popusti (159)</summary><div class="fs-flat"><a href="/popusti/kategorija/naziv-trgovca">Poliklinike Hipokrat</a><a href="/popusti/kategorija/naziv-trgovca">Pacha Surf Beach</a><a href="/popusti/kategorija/naziv-trgovca">Resto Bar Taraca</a><a href="/popusti/kategorija/naziv-trgovca">Andromeda</a><a href="/popusti/kategorija/naziv-trgovca">La Mirage</a><a href="/popusti/kategorija/naziv-trgovca">Kid&#x27;s dreams</a><a href="/popusti/kategorija/naziv-trgovca">Mazor</a><a href="/popusti/kategorija/naziv-trgovca">The Royal Beach, Velika plaza</a><a href="/popusti/kategorija/naziv-trgovca">Elektro frigo</a><a href="/popusti/kategorija/naziv-trgovca">Prodavnica Grmec</a><a href="/popusti/kategorija/naziv-trgovca">Imperijal Trgovina</a><a href="/popusti/kategorija/naziv-trgovca">Imperijal Caffe &amp; Restoran</a><a href="/popusti/kategorija/naziv-trgovca">Elektron</a><a href="/popusti/kategorija/naziv-trgovca">Tenero Fashion</a><a href="/popusti/kategorija/naziv-trgovca">Hoteli Hoti</a><a href="/popusti/kategorija/naziv-trgovca">Hoteli Edita</a><a href="/popusti/kategorija/naziv-trgovca">Dadi Export</a><a href="/popusti/kategorija/naziv-trgovca">Merkator</a><a href="/popusti/kategorija/naziv-trgovca">Hotel Berane</a><a href="/popusti/kategorija/naziv-trgovca">Onix</a><a href="/popusti/kategorija/naziv-trgovca">Market Obala</a><a href="/popusti/kategorija/naziv-trgovca">Enza Home Montenegro</a><a href="/popusti/kategorija/naziv-trgovca">Anastasia Hair Beauty</a><a href="/popusti/kategorija/naziv-trgovca">Forza Porto</a><a href="/popusti/kategorija/naziv-trgovca">Forza Kuk</a><a href="/popusti/kategorija/naziv-trgovca">Central Point</a><a href="/popusti/kategorija/naziv-trgovca">Auto Pro</a><a href="/popusti/kategorija/naziv-trgovca">Happy Land</a><a href="/popusti/kategorija/naziv-trgovca">Vivere Beauty</a><a href="/popusti/kategorija/naziv-trgovca">Optika Montesun</a><a href="/popusti/kategorija/naziv-trgovca">The Capital Fitness Center</a><a href="/popusti/kategorija/naziv-trgovca">Bogner</a><a href="/popusti/kategorija/naziv-trgovca">Na Moracu</a><a href="/popusti/kategorija/naziv-trgovca">Art Taverna</a><a href="/popusti/kategorija/naziv-trgovca">Morea</a><a href="/popusti/kategorija/naziv-trgovca">Restoran Zanjice</a><a href="/popusti/kategorija/naziv-trgovca">Hotel Subra Atrium</a><a href="/popusti/kategorija/naziv-trgovca">Ekspres Restoran Menza</a><a href="/popusti/kategorija/naziv-trgovca">Patisserie by Wine House</a><a href="/popusti/kategorija/naziv-trgovca">Restoran Perla</a><a href="/popusti/kategorija/naziv-trgovca">Tutto Bene</a><a href="/popusti/kategorija/naziv-trgovca">Mr. Chef</a><a href="/popusti/kategorija/naziv-trgovca">Ohana Kite Beach</a><a href="/popusti/kategorija/naziv-trgovca">AbA Medica</a><a href="/popusti/kategorija/naziv-trgovca">Cole Mobile</a><a href="/popusti/kategorija/naziv-trgovca">Restoran San Marino</a><a href="/popusti/kategorija/naziv-trgovca">Stanica wine bar (Kotor Cable Car)</a><a href="/popusti/kategorija/naziv-trgovca">Booka Gelato (Kotor Cable Car)</a><a href="/popusti/kategorija/naziv-trgovca">La Parisienne (Kotor Cable Car)</a><a href="/popusti/kategorija/naziv-trgovca">ViewPoint (Kotor Cable Car)</a><a href="/popusti/kategorija/naziv-trgovca">One Rug</a><a href="/popusti/kategorija/naziv-trgovca">Hotel Bogumila</a><a href="/popusti/kategorija/naziv-trgovca">Pasaž lounge bar</a><a href="/popusti/kategorija/naziv-trgovca">Caffe Vuk</a><a href="/popusti/kategorija/naziv-trgovca">Konoba Nisavic</a><a href="/popusti/kategorija/naziv-trgovca">Sef co</a><a href="/popusti/kategorija/naziv-trgovca">OrthoExpertPhysio</a><a href="/popusti/kategorija/naziv-trgovca">Rexha Remodeling</a><a href="/popusti/kategorija/naziv-trgovca">Fast Food D&#x27;Italian</a><a href="/popusti/kategorija/naziv-trgovca">Emendi</a><a href="/popusti/kategorija/naziv-trgovca">Restoran TSC Jezero Krupac</a><a href="/popusti/kategorija/naziv-trgovca">Restoran Pelikan</a><a href="/popusti/kategorija/naziv-trgovca">Butik 18. septembar</a><a href="/popusti/kategorija/naziv-trgovca">Optika Ivanovic</a><a href="/popusti/kategorija/naziv-trgovca">BB Auto</a><a href="/popusti/kategorija/naziv-trgovca">Drum A.C.</a><a href="/popusti/kategorija/naziv-trgovca">Posteljine i ves Arilje</a><a href="/popusti/kategorija/naziv-trgovca">City Caffe</a><a href="/popusti/kategorija/naziv-trgovca">Snaga Prirode</a><a href="/popusti/kategorija/naziv-trgovca">Caffe Restaurant Panorama</a><a href="/popusti/kategorija/naziv-trgovca">Sincommerce</a><a href="/popusti/kategorija/naziv-trgovca">RIbnica Ukusi Mora</a><a href="/popusti/kategorija/naziv-trgovca">Tempo</a><a href="/popusti/kategorija/naziv-trgovca">Pretty Ballerinas Montenegro</a><a href="/popusti/kategorija/naziv-trgovca">Tudors</a><a href="/popusti/kategorija/naziv-trgovca">Multibrand Samms</a><a href="/popusti/kategorija/naziv-trgovca">MaxMara</a><a href="/popusti/kategorija/naziv-trgovca">Liu Jo</a><a href="/popusti/kategorija/naziv-trgovca">Paul &amp; Shark</a><a href="/popusti/kategorija/naziv-trgovca">MaM</a><a href="/popusti/kategorija/naziv-trgovca">Twinset</a><a href="/popusti/kategorija/naziv-trgovca">Pinko</a><a href="/popusti/kategorija/naziv-trgovca">Gerry Weber</a><a href="/popusti/kategorija/naziv-trgovca">Weekend</a><a href="/popusti/kategorija/naziv-trgovca">Max&amp;Co</a><a href="/popusti/kategorija/naziv-trgovca">Boss store</a><a href="/popusti/kategorija/naziv-trgovca">Petit Bateau</a><a href="/popusti/kategorija/naziv-trgovca">Boggi Milano</a><a href="/popusti/kategorija/naziv-trgovca">Luisa Spagnoli</a><a href="/popusti/kategorija/naziv-trgovca">Relax Apartmani Sutomore</a><a href="/popusti/kategorija/naziv-trgovca">Cerovo</a><a href="/popusti/kategorija/naziv-trgovca">Element Caffe Bar</a><a href="/popusti/kategorija/naziv-trgovca">Trattoria di Radenko</a><a href="/popusti/kategorija/naziv-trgovca">Bemax Arena Gym</a><a href="/popusti/kategorija/naziv-trgovca">Elisabetta Franchi</a><a href="/popusti/kategorija/naziv-trgovca">Hotel Del Medio</a><a href="/popusti/kategorija/naziv-trgovca">Insomnia</a><a href="/popusti/kategorija/naziv-trgovca">Tortuga</a><a href="/popusti/kategorija/naziv-trgovca">Rooms &amp; Spa Bjelasica</a><a href="/popusti/kategorija/naziv-trgovca">ToCaffe</a><a href="/popusti/kategorija/naziv-trgovca">The Meeting Point</a><a href="/popusti/kategorija/naziv-trgovca">Profa &amp; co auto djelovi</a><a href="/popusti/kategorija/naziv-trgovca">Butik firma Hit</a><a href="/popusti/kategorija/naziv-trgovca">Furla</a><a href="/popusti/kategorija/naziv-trgovca">Hogan</a><a href="/popusti/kategorija/naziv-trgovca">KidsLand</a><a href="/popusti/kategorija/naziv-trgovca">OVS</a><a href="/popusti/kategorija/naziv-trgovca">OVS Kids</a><a href="/popusti/kategorija/naziv-trgovca">Samsonite</a><a href="/popusti/kategorija/naziv-trgovca">Coincasa</a><a href="/popusti/kategorija/naziv-trgovca">Fashion Land</a><a href="/popusti/kategorija/naziv-trgovca">Plaza Perazica Do</a><a href="/popusti/kategorija/naziv-trgovca">BeachHouse, Perazica do</a><a href="/popusti/kategorija/naziv-trgovca">Fashion Paradise</a><a href="/popusti/kategorija/naziv-trgovca">Konoba starcevo</a><a href="/popusti/kategorija/naziv-trgovca">Obuca Minja</a><a href="/popusti/kategorija/naziv-trgovca">Restoran Mornar</a><a href="/popusti/kategorija/naziv-trgovca">Hotel Porto Sole</a><a href="/popusti/kategorija/naziv-trgovca">Red Caffe</a><a href="/popusti/kategorija/naziv-trgovca">Mil Pop</a><a href="/popusti/kategorija/naziv-trgovca">Moda Italiana</a><a href="/popusti/kategorija/naziv-trgovca">Alma ras</a><a href="/popusti/kategorija/naziv-trgovca">Apoteka 36.6</a><a href="/popusti/kategorija/naziv-trgovca">Al centro caffe Pizzerija</a><a href="/popusti/kategorija/naziv-trgovca">Hair Studio Exclusive</a><a href="/popusti/kategorija/naziv-trgovca">Butik Andjela Tina</a><a href="/popusti/kategorija/naziv-trgovca">Montenegro Shorex</a><a href="/popusti/kategorija/naziv-trgovca">Osmanagic Co</a><a href="/popusti/kategorija/naziv-trgovca">Banjalucki Cevap</a><a href="/popusti/kategorija/naziv-trgovca">Konoba Akustik</a><a href="/popusti/kategorija/naziv-trgovca">Restoran Soho, Velika Plaza</a><a href="/popusti/kategorija/naziv-trgovca">Amavi</a><a href="/popusti/kategorija/naziv-trgovca">Sport Caffe Avanti</a><a href="/popusti/kategorija/naziv-trgovca">Macao</a><a href="/popusti/kategorija/naziv-trgovca">Sapore di mare</a><a href="/popusti/kategorija/naziv-trgovca">Sanis bazeni</a><a href="/popusti/kategorija/naziv-trgovca">Amante beach bar</a><a href="/popusti/kategorija/naziv-trgovca">Medical Centar Budva</a><a href="/popusti/kategorija/naziv-trgovca">De Plus</a><a href="/popusti/kategorija/naziv-trgovca">Toni Grill</a><a href="/popusti/kategorija/naziv-trgovca">Knjizara Ginko</a><a href="/popusti/kategorija/naziv-trgovca">RoyalVet</a><a href="/popusti/kategorija/naziv-trgovca">MTL car</a><a href="/popusti/kategorija/naziv-trgovca">TehnoLara Pro</a><a href="/popusti/kategorija/naziv-trgovca">Drwex</a><a href="/popusti/kategorija/naziv-trgovca">Webtech</a><a href="/popusti/kategorija/naziv-trgovca">Caffe bar Karma</a><a href="/popusti/kategorija/naziv-trgovca">Parfimerija Life</a><a href="/popusti/kategorija/naziv-trgovca">Veterinarska Ambulanta Popovic</a><a href="/popusti/kategorija/naziv-trgovca">JYSK</a><a href="/popusti/kategorija/naziv-trgovca">Konoba Vidikovac</a><a href="/popusti/kategorija/naziv-trgovca">Senzo Rivolli</a><a href="/popusti/kategorija/naziv-trgovca">Mesara Radovic</a><a href="/popusti/kategorija/naziv-trgovca">Marella</a><a href="/popusti/kategorija/naziv-trgovca">Marina Rinaldi</a><a href="/popusti/kategorija/naziv-trgovca">iBlues</a><a href="/popusti/kategorija/naziv-trgovca">Villa Botanicus Petrovac</a><a href="/popusti/kategorija/naziv-trgovca">Art Mobili</a><a href="/popusti/kategorija/naziv-trgovca">Castellana</a></div></details>
 <details class="fs-group"><summary>Nekretnine (75)</summary><div class="fs-flat"><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/vrhunska-ponuda">Sve nekretnine</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/stanovi">Stanovi</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/poslovni-prostor">Poslovni prostori</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/poslovni-prostor/podgorica-poslovni-prostor">Poslovni prostori u Podgorici</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/poslovni-prostor/niksic-poslovni-prostor">Poslovni prostori u Niksicu</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista">Zemljista</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/cetinje-zemljista">Prodaja zemljista na Cetinju</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/podgorica-zemljista">Prodaja zemljista u Podgorici</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/budva-zemljista">Prodaja zemljista u Budvi</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/herceg-novi-zemljista">Prodaja zemljista u Herceg Novom</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/tivat-zemljista">Prodaja zemljista u Tivtu</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/ulcinj-zemljista">Prodaja zemljista u Ulcinju</a><a href="https://nekretnine.prvabankacg.com/tip-nepokretnosti/zemljista/kolasin">Prodaja zemljista u Kolasinu</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c40-podgorica">Prodaja zemljista Goljemadi - Podgorica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c53-podgorica">Prodaja zemljista Gornji Kokoti - Podgorica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c36-podgorica">Prodaja zemljista u Podgorici - Luznica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c34-podgorica">Prodaja zemljista u Podgorici - Plavnica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c2-podgorica">Prodaja zemljista u Podgorici - Drač</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c49-niksic">Prodaja zemljista Sipcano - Niksic</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c51-bogetici">Prodaja zemljista Bogetici - Niksic</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c52-niksic">Prodaja zemljista Milocni - Niksic</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c46-niksic">Prodaja zemljista u Niksicu - Glibovac</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c37-niksic">Prodaja zemljista u Niksicu - Nudo</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c12-budva">Prodaja zemljista u Budvi - Lazi</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c13-budva">Prodaja zemljista u Budvi - Košljun</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c32-budva">Podaja zemljista Sveti Stefan - Budva</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c22-1-budva">Prodaja zemljista Petrovac - Budva</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c22-budva">Prodaja zemljista u Petrovcu - Budva</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c16-budva">Prodaja zemlje u Petrovcu - Budva</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c14-budva-copy">Prodaja zemljista u Buljarici - Budva</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c14-budva">Prodaja zemljista u Budvi - Podkošljun</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c10-budva">Prodaja zemljista u Budvi - Kruševica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c8-budva">Prodaja zemljista u Budvi - Kuljače</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c47-bar">Prodaja zemljista u Baru - Celuga</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c48-kolasin">Podaja zemljista u Kolasinu - Bakovici</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c31-kolasin">Podaja zemljista Kolasin - Bakovici</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c45-herceg-novi">Prodaja zemljista u Herceg Novom - Baosici</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c29-herceg-novi">Prodaja zemljista u Herceg Novom - Igalo, Sutorina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c4-tivat">Prodaja zemljista u Tivtu - Donja Lastva, Pijavica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c44-tivat">Prodaja zemljista u Tivtu - Bogisici</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c41-tivat">Prodaja zemljista u Tivtu - Gornji Kaliman</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c5-tivat">Prodaja zemljista u Tivtu - Gornje Seljanovo</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c18-1-ulcinj">Prodaja zemljista u Ulcinju - Reč</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c21-ulcinj">Prodaja zemljista Ulcinj - Reč</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c20-ulcinj">Prodaja zemljista Ulcinj - Gornji Štoj</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c19-ulcinj">Prodaja zemljista u Ulcinju - Gornji Štoj</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c18-ulcinj">Prodaja zemljista Reč - Ulcinj</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/c3-ulcinj">Prodaja zemljista u Ulcinju - Donji Štoj</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b18-niksic">Prodaja proslovnog prostora u Niksicu - Strasevina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b17-niksic">Prodaja proslovnog prostora u Niksicu - Rudo Polje</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b15-niksic">Prodaja proslovnog prostora u centru Niksicu</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b11-niksic">Prodaja proslovnog prostora u Niksicu - Rastoci</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b1-niksic">Prodaja proslovnog prostora u Niksicu - Ulica Milovana Pekovica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b9-podgorica">Prodaja proslovnog prostora u Podgorici - Zabjelo</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b16-podgorica">Prodaja proslovnog prostora u Podgorici - Zagoric</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b14-podgorica">Prodaja proslovnog prostora u Zabjelu - Podgorica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b10-podgorica">Prodaja proslovnog prostora u Podgorici - Stari Aerodrom</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b7-podgorica">Prodaja proslovnog prostora u centru Podgorice</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b6-podgorica">Prodaja proslovnog prostora u Podgorici - Krusevac</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/b13-budva">Prodaja proslovnog prostora u Budvi - Dubovica</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a23-rozaje">Prodaja stana u Rozaju</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/prodaj-stana-sa-garaznim-mjestom-a1-budva">Prodaja stana u Budvi - Gospostina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a24-budva">Prodaja stana u Budvi - Podkosljun</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a2-budva">Prodaja stana u Budvi - Komosevina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a7-herceg-novi">Prodaja stana u Herceg Novom - Igalo, Sutorina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a6-herceg-novi">Prodaja stana u Herceg Novom - Sutorina, Igalo</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a5-herceg-novi">Prodaja stana u Igalu, Sutorina - Herceg Novi</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a4-herceg-novi">Prodaja stanova u Igalu - Herceg Novi</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a3-herceg-novi">Prodaja stanova u Herceg Novom - Igalo, Sutorina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a30-podgorica">Prodaja stana u Podgorici - Momisici</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a29-podgorica">Prodaja stana u Podgorici - Preko Morace</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a13-podgorica">Prodaja stana u Podgorici - Ibricevina</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a28-kolasin">Prodaja stana u Kolasinu - Zirci</a><a href="https://nekretnine.prvabankacg.com/nepokretnost/a26-kotor">Prodaja stana u Kotoru - Dobrota</a><a href="https://secure.emon24.net/PrvaBanka/retail/Account/LoginSms?Language=sr-Latn-ME">Online Banking</a></div></details>
-<details class="fs-group"><summary>O nama (13)</summary><ul class="fs-tree"><li class="fs-leaf"><a href="o-nama/banka-danas/index.html">Banka danas</a></li><li class="fs-leaf"><a href="/o-nama/istorija-banke">Istorija banke</a></li><li class="fs-leaf"><a href="/o-nama/korporativno-upravljanje">Korporativno upravljanje</a></li><li class="fs-leaf"><a href="/o-nama/opsti-uslovi-poslovanja">Opšti uslovi poslovanja</a></li><li class="fs-leaf"><a href="/o-nama/poslovna-mreza">Poslovna mreža (mapa filijala)</a></li><li class="fs-leaf"><a href="/o-nama/kontakt">Kontakt</a></li><li class="fs-leaf"><a href="/o-nama/prigovori">Prigovori</a></li><li class="fs-leaf"><a href="/o-nama/drustvena-odgovornost">Društvena odgovornost</a></li><li class="fs-leaf"><a href="/o-nama/saopstenja">Saopštenja</a></li><li class="fs-leaf"><a href="/o-nama/finansijski-izvjestaj">Finansijski izvještaji</a></li><li class="fs-leaf"><a href="/o-nama/akcionari">Akcionari banke</a></li><li class="fs-leaf"><a href="/o-nama/karijera">Karijera</a></li><li class="fs-leaf"><a href="/o-nama/press-centar">Media / Press centar</a></li></ul></details>
+<details class="fs-group"><summary>O nama (13)</summary><ul class="fs-tree"><li class="fs-leaf"><a href="../o-nama/banka-danas/index.html">Banka danas</a></li><li class="fs-leaf"><a href="/o-nama/istorija-banke">Istorija banke</a></li><li class="fs-leaf"><a href="/o-nama/korporativno-upravljanje">Korporativno upravljanje</a></li><li class="fs-leaf"><a href="/o-nama/opsti-uslovi-poslovanja">Opšti uslovi poslovanja</a></li><li class="fs-leaf"><a href="/o-nama/poslovna-mreza">Poslovna mreža (mapa filijala)</a></li><li class="fs-leaf"><a href="/o-nama/kontakt">Kontakt</a></li><li class="fs-leaf"><a href="/o-nama/prigovori">Prigovori</a></li><li class="fs-leaf"><a href="/o-nama/drustvena-odgovornost">Društvena odgovornost</a></li><li class="fs-leaf"><a href="/o-nama/saopstenja">Saopštenja</a></li><li class="fs-leaf"><a href="/o-nama/finansijski-izvjestaj">Finansijski izvještaji</a></li><li class="fs-leaf"><a href="/o-nama/akcionari">Akcionari banke</a></li><li class="fs-leaf"><a href="/o-nama/karijera">Karijera</a></li><li class="fs-leaf"><a href="/o-nama/press-centar">Media / Press centar</a></li></ul></details>
 <details class="fs-group"><summary>Finansijski vodiči</summary><ul class="fs-tree"><li class="fs-leaf"><a href="/finansijski-vodici/stanovnistvo">Vodiči za stanovništvo</a></li><li class="fs-leaf"><a href="/finansijski-vodici/preduzetnici">Vodiči za preduzetnike</a></li><li class="fs-leaf"><a href="/finansijski-vodici/sigurnost">Sigurnost i prevare</a></li></ul></details>
 <details class="fs-group"><summary>Podrška klijentima — hub</summary><ul class="fs-tree"><li class="fs-leaf"><a href="/podrska/faq">FAQ — Sva pitanja</a></li><li class="fs-leaf"><a href="/podrska/faq/krediti">FAQ — Krediti</a></li><li class="fs-leaf"><a href="/podrska/faq/kartice">FAQ — Kartice</a></li><li class="fs-leaf"><a href="/podrska/faq/digitalno-bankarstvo">FAQ — Digitalno bankarstvo</a></li></ul></details>
 <details class="fs-group"><summary>Resursi — hub</summary><ul class="fs-tree"><li class="fs-leaf"><a href="/resursi/obrasci">Obrasci</a></li><li class="fs-leaf"><a href="/resursi/dokumentacija">Dokumentacija</a></li><li class="fs-leaf"><a href="/resursi/kreditni-zahtjevi">Zahtjevi</a></li><li class="fs-leaf"><a href="/resursi/tarife">Tarife i naknade</a></li><li class="fs-leaf"><a href="/resursi/download">Download centar</a></li></ul></details>
@@ -957,11 +699,12 @@
       <a href="/mapa-sajta.html">Mapa sajta</a>
     </div>
     <div class="fzd">
-      <img src="assets/brand/fzd-logo.jpg" alt="Fond za zaštitu depozita">
+      <img src="../assets/brand/fzd-logo.jpg" alt="Fond za zaštitu depozita">
       <a href="http://www.fzdcg.org/" style="font-size:.78rem">fzdcg.org</a>
     </div>
   </div>
 </footer>
+
 
 <script>
   // Mega menu keyboard/click toggle
@@ -983,156 +726,8 @@
   document.getElementById('drawer-open').addEventListener('click', () => { drawer.classList.add('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','true'); });
   document.getElementById('drawer-close').addEventListener('click', () => { drawer.classList.remove('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','false'); });
 
-  // Credit calculator (demo annuity formula)
-  const amountEl = document.getElementById('amount'), periodEl = document.getElementById('period'), rateEl = document.getElementById('rate');
-  function fmt(n){ return n.toLocaleString('sr-Latn-ME', {maximumFractionDigits:0}) + ' €'; }
-  function calc(){
-    const amount = parseFloat(amountEl.value), period = parseInt(periodEl.value), annualRate = parseFloat(rateEl.value);
-    document.getElementById('out-amount').textContent = fmt(amount);
-    document.getElementById('out-period').textContent = period + ' mj.';
-    document.getElementById('out-rate').textContent = annualRate.toFixed(1) + '%';
-    const r = annualRate / 100 / 12;
-    const monthly = r === 0 ? amount / period : (amount * r) / (1 - Math.pow(1 + r, -period));
-    document.getElementById('res-monthly').textContent = fmt(monthly);
-    document.getElementById('res-total').textContent = fmt(monthly * period);
-  }
-  [amountEl, periodEl, rateEl].forEach(el => el.addEventListener('input', calc));
-  calc();
-
-  // Krediti tab-widget (Homepage_draft.png)
-  const CREDIT_TYPES = {
-    gotovinski: { name: "Gotovinski kredit", desc: "Za renoviranje, putovanje ili ono što odavno planiraš", price: "189€" },
-    stambeni:   { name: "Stambeni kredit", desc: "Za kupovinu, adaptaciju ili refinansiranje stana", price: "249€" },
-    penzionerski: { name: "Kredit za penzionere", desc: "Brza gotovina uz povoljne uslove za penzionere", price: "79€" },
-    zeleni:     { name: "Zeleni kredit", desc: "Za energetski efikasnu obnovu doma ili opreme", price: "159€" },
-    pomorci:    { name: "Kredit za pomorce", desc: "Prilagođen dinamici prihoda pomoraca", price: "199€" }
-  };
-  document.querySelectorAll('#credit-tabs button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('#credit-tabs button').forEach(b => b.setAttribute('aria-selected','false'));
-      btn.setAttribute('aria-selected','true');
-      const d = CREDIT_TYPES[btn.dataset.credit];
-      document.getElementById('credit-name').textContent = d.name;
-      document.getElementById('credit-desc').textContent = d.desc;
-      document.getElementById('credit-price').innerHTML = `već od <strong>${d.price}</strong> mjesečno`;
-    });
-  });
-
-  // "O nama" orbitalni infografik — scroll-triggered ulazna animacija
-  const orbitEl = document.querySelector('.orbit');
-  if(orbitEl){
-    if('IntersectionObserver' in window){
-      const orbitIO = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            orbitEl.classList.add('is-visible');
-            setTimeout(() => orbitEl.classList.add('anim-done'), 1600);
-            orbitIO.unobserve(orbitEl);
-          }
-        });
-      }, {threshold:0.35});
-      orbitIO.observe(orbitEl);
-    } else {
-      orbitEl.classList.add('is-visible','anim-done');
-    }
-  }
-
-  // "O nama" orbitalni infografik — interaktivno hover/focus na prekretnice
-  const orbitCenter = document.getElementById('orbit-center');
-  const orbitYear = document.getElementById('orbit-center-year');
-  const orbitLabel = document.getElementById('orbit-center-label');
-  document.querySelectorAll('.orbit-point').forEach(pt => {
-    const show = () => {
-      orbitCenter.classList.add('is-swapped');
-      orbitYear.textContent = pt.dataset.year;
-      orbitLabel.textContent = pt.dataset.label;
-      pt.classList.add('is-active');
-    };
-    const hide = () => {
-      orbitCenter.classList.remove('is-swapped');
-      orbitYear.textContent = '125';
-      orbitLabel.textContent = 'GODINA';
-      pt.classList.remove('is-active');
-    };
-    pt.addEventListener('mouseenter', show);
-    pt.addEventListener('focus', show);
-    pt.addEventListener('mouseleave', hide);
-    pt.addEventListener('blur', hide);
-  });
-
-  // Popusti — kategorije kao interaktivni filter toggle
-  document.querySelectorAll('.partner-tile').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const pressed = btn.getAttribute('aria-pressed') === 'true';
-      btn.setAttribute('aria-pressed', String(!pressed));
-    });
-  });
-
-  // Kursna lista tab-widget (dark world-map baner)
-  const FX_RATES = {
-    usd: { pair: "EUR / USD", label: "EUR/USD", value: "1.0862" },
-    gbp: { pair: "EUR / GBP", label: "EUR/GBP", value: "0.8391" },
-    chf: { pair: "EUR / CHF", label: "EUR/CHF", value: "0.9364" },
-    jpy: { pair: "EUR / JPY", label: "EUR/JPY", value: "168.42" }
-  };
-  function renderFxOthers(activeKey){
-    const list = document.getElementById('fx-others');
-    list.innerHTML = Object.keys(FX_RATES).filter(k => k !== activeKey).map(k =>
-      `<div><span>${FX_RATES[k].label}</span><strong>${FX_RATES[k].value}</strong></div>`
-    ).join('');
-  }
-  document.querySelectorAll('#fx-tabs button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('#fx-tabs button').forEach(b => b.setAttribute('aria-selected','false'));
-      btn.setAttribute('aria-selected','true');
-      const d = FX_RATES[btn.dataset.fx];
-      document.getElementById('fx-pair').textContent = d.pair;
-      document.getElementById('fx-value').textContent = d.value;
-      renderFxOthers(btn.dataset.fx);
-    });
-  });
-  renderFxOthers('usd');
-
-  // Parallax pozadina (hero foto-layer, translate3d vezan za scroll poziciju)
-  const parallaxEls = document.querySelectorAll('[data-parallax]');
-  function updateParallax(){
-    parallaxEls.forEach(el => {
-      const speed = parseFloat(el.dataset.parallax) || 0.2;
-      const parent = el.parentElement;
-      const rect = parent.getBoundingClientRect();
-      el.style.transform = `translate3d(0, ${(rect.top * speed).toFixed(1)}px, 0)`;
-    });
-  }
-  let parallaxTicking = false;
-  window.addEventListener('scroll', () => {
-    if(!parallaxTicking){
-      requestAnimationFrame(() => { updateParallax(); parallaxTicking = false; });
-      parallaxTicking = true;
-    }
-  }, {passive:true});
-  updateParallax();
-
-  // Hero slajder — 3 usluge (Otvori račun / Kartice / Otvaranje računa), crossfade + dots
-  const heroSlides = document.querySelectorAll('.hero-slide');
-  const heroDots = document.querySelectorAll('.hero-dot');
-  let heroIndex = 0, heroTimer = null;
-  function showHeroSlide(i){
-    heroIndex = i;
-    heroSlides.forEach((s, idx) => s.classList.toggle('active', idx === i));
-    heroDots.forEach((d, idx) => { d.classList.toggle('active', idx === i); d.setAttribute('aria-selected', String(idx === i)); });
-  }
-  function startHeroAuto(){ stopHeroAuto(); heroTimer = setInterval(() => showHeroSlide((heroIndex + 1) % heroSlides.length), 6500); }
-  function stopHeroAuto(){ if(heroTimer){ clearInterval(heroTimer); heroTimer = null; } }
-  if(heroSlides.length > 1){
-    heroDots.forEach((d, idx) => d.addEventListener('click', () => { showHeroSlide(idx); startHeroAuto(); }));
-    const heroSection = document.querySelector('.hero');
-    heroSection.addEventListener('mouseenter', stopHeroAuto);
-    heroSection.addEventListener('mouseleave', startHeroAuto);
-    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) startHeroAuto();
-  }
-
-  // Scroll-reveal — cijela stranica "budi se" u pokretu dok se skroluje
-  const revealEls = document.querySelectorAll('.section-head, .qa-card, .campaign-card, .news-card, .contact-card, .cards-widget, .ridge-card, #fx-rate-table, .ebank-card, .wm-card, .heritage-grid > div:not(.orbit), .popusti-grid > div, .digital-service, .credit-widget');
+  // Scroll-reveal
+  const revealEls = document.querySelectorAll('.section-head, .qa-card, .bd-stat, .vm-card');
   const revealGroups = new Map();
   revealEls.forEach(el => {
     el.classList.add('reveal');
@@ -1158,35 +753,6 @@
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  // Scroll-triggered count-up — statistike (Popusti, O nama) broje od 0 do svoje vrijednosti
-  const countEls = document.querySelectorAll('.popusti-stats-lg .n, .hs-item strong');
-  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const runCountUp = (el) => {
-    if(reduceMotion) return;
-    const raw = el.textContent.trim();
-    const m = raw.match(/^([\d.,]+)(.*)$/);
-    if(!m) return;
-    const target = parseFloat(m[1].replace(/,/g, ''));
-    const suffix = m[2];
-    const decimals = /^\d+\.$/.test(m[1]) ? 0 : (m[1].split('.')[1] || '').length;
-    const duration = 1300;
-    const start = performance.now();
-    function step(now){
-      const p = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = (decimals ? (target * eased).toFixed(decimals) : Math.round(target * eased)) + suffix;
-      if(p < 1) requestAnimationFrame(step); else el.textContent = raw;
-    }
-    requestAnimationFrame(step);
-  };
-  if('IntersectionObserver' in window){
-    const countIO = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){ runCountUp(entry.target); countIO.unobserve(entry.target); }
-      });
-    }, {threshold:0.4});
-    countEls.forEach(el => countIO.observe(el));
-  }
 </script>
 </body>
 </html>

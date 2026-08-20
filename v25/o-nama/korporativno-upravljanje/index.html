@@ -474,17 +474,17 @@
   .page-hero-inner h1{color:#fff;max-width:20ch;font-size:var(--fs-3xl)}
   .page-hero-inner .lead{margin-top:16px;color:rgba(255,255,255,.85);max-width:60ch;font-size:var(--fs-lg)}
 
-  .gov-intro{max-width:74ch;color:var(--color-text-muted);font-size:1.02rem;line-height:1.7;margin-bottom:36px}
-  .gov-accordion{display:flex;flex-direction:column;border-top:1px solid var(--color-border)}
-  .gov-item{border-bottom:1px solid var(--color-border)}
-  .gov-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 4px;-webkit-tap-highlight-color:transparent}
-  .gov-item summary::-webkit-details-marker{display:none}
-  .gov-summary-left{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-  .gov-name{font-family:var(--font-display);font-size:1.3rem;color:var(--color-text)}
-  .gov-president{font-size:.86rem;color:var(--color-text-muted)}
-  .gov-chevron{width:28px;height:28px;border-radius:50%;border:1px solid var(--color-border);display:grid;place-items:center;color:var(--color-primary);flex-shrink:0;transition:transform .2s ease}
-  .gov-item[open] .gov-chevron{transform:rotate(45deg)}
-  .gov-body{padding:0 4px 30px;display:grid;grid-template-columns:1fr 1.6fr;gap:40px}
+  .gov-intro{max-width:74ch;color:var(--color-text-muted);font-size:1.02rem;line-height:1.7;margin-bottom:28px}
+  .gov-tabs{display:flex;gap:4px;flex-wrap:wrap;background:var(--color-surface-2);padding:4px;border-radius:var(--radius-lg)}
+  .gov-tab{padding:10px 16px;border:0;border-radius:9px;background:transparent;color:var(--color-text-muted);font-size:.86rem;font-weight:600;white-space:nowrap}
+  .gov-tab.active{background:#fff;color:var(--color-primary);box-shadow:0 1px 3px rgba(22,24,29,.1)}
+  .gov-tab:not(.active):hover{color:var(--color-text)}
+  .gov-panel{display:none;background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:32px;margin-top:20px}
+  .gov-panel.active{display:block}
+  .gov-panel-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:18px;margin-bottom:22px;border-bottom:1px solid var(--color-border)}
+  .gov-panel-head h3{font-size:1.4rem}
+  .gov-panel-head span{font-size:.86rem;color:var(--color-text-muted)}
+  .gov-body{display:grid;grid-template-columns:1fr 1.6fr;gap:40px}
   .gov-members h4, .gov-duties h4{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--color-primary);margin:0 0 14px}
   .gov-members ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
   .gov-members li{font-size:.94rem;color:var(--color-text)}
@@ -616,71 +616,60 @@
       <div class="section-head">
         <span class="kicker">O nama</span>
         <h2>Organi upravljanja</h2>
-        <p class="gov-intro">Prva banka Crne Gore ima šest odbora u okviru sistema korporativnog upravljanja — Nadzorni odbor, Upravni odbor, Odbor za imenovanja, Odbor za rizike, Odbor za primanja i Revizorski odbor. Klikni na naziv odbora za članove i nadležnost.</p>
+        <p class="gov-intro">Prva banka Crne Gore ima šest odbora u okviru sistema korporativnog upravljanja — Nadzorni odbor, Upravni odbor, Odbor za imenovanja, Odbor za rizike, Odbor za primanja i Revizorski odbor. Izaberi odbor za članove i nadležnost.</p>
       </div>
 
-<div class="gov-accordion">
-  <details class="gov-item" open>
-    <summary>
-      <span class="gov-summary-left"><span class="gov-name">Nadzorni odbor</span><span class="gov-president">Predsjednik/ca: Dr Dragan Bogojević</span></span>
-      <span class="gov-chevron">+</span>
-    </summary>
+<div class="gov-tabs" role="tablist" aria-label="Odbori">
+  <button class="gov-tab active" data-gov-tab="0" role="tab" aria-selected="true">Nadzorni odbor</button>
+  <button class="gov-tab" data-gov-tab="1" role="tab" aria-selected="false">Upravni odbor</button>
+  <button class="gov-tab" data-gov-tab="2" role="tab" aria-selected="false">Odbor za imenovanja</button>
+  <button class="gov-tab" data-gov-tab="3" role="tab" aria-selected="false">Odbor za rizike</button>
+  <button class="gov-tab" data-gov-tab="4" role="tab" aria-selected="false">Odbor za primanja</button>
+  <button class="gov-tab" data-gov-tab="5" role="tab" aria-selected="false">Revizorski odbor</button>
+</div>
+  <div class="gov-panel active" data-gov-panel="0">
+    <div class="gov-panel-head"><h3>Nadzorni odbor</h3><span>Predsjednik/ca: Dr Dragan Bogojević</span></div>
     <div class="gov-body">
       <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Dr Dragan Bogojević</strong> — Predsjednik</li><li><strong>Mr Milan Perović</strong> — Član</li><li><strong>Miro Vračar</strong> — Član</li><li><strong>Srđan Kovačević</strong> — Član</li><li><strong>Dr Milan Nikolić</strong> — Član</li></ul></div>
       <div class="gov-duties"><h4>Nadležnost</h4><ol><li>daje saglasnost Upravnom odboru na:<ul><li>ciljeve i opštu strategiju Banke</li><li>poslovnu politiku Banke</li><li>finansijski plan Banke</li><li>strategije i postupke procjenjivanja adekvatnosti internog kapitala Banke</li><li>politike i procedure za izbor i procjenu ispunjenosti uslova za članove upravnog odbora i druga lica odgovorna za vođenje poslova u okviru pojedinih područja poslovanja kreditne institucije</li><li>politiku primanja u Banci</li><li>akt o internoj reviziji i godišnji plan rada interne revizije</li></ul></li><li>nadzire:<ul><li>postupak sprovođenja i efikasnost i efektivnost sistema upravljanja Bankom</li><li>sprovođenje poslovne politike Banke, strateških ciljeva i strategije i politike preuzimanja rizika</li><li>sprovođenje politike primanja u Banci</li><li>proces objelodanjivanja i komunikacija</li><li>adekvatnost postupaka i efikasnosti interne revizije</li></ul></li><li>predlaže spoljnog revizora</li><li>usvaja godišnji plan interne revizije i izvještaje interne revizije</li><li>donosi i periodično provjerava opšta načela politike primanja u Banci</li><li>saziva sjednice Skupštine akcionara, utvrđuje predlog dnevnog reda i predloge odluka za Skupštinu akcionara i kontroliše njihovo sprovođenje</li><li>bira i razrješava predsjednika nadzornog odbora</li><li>imenuje i razrješava članove upravnog odbora uključujući i predsjednika</li><li>imenuje i razrješava članove Revizorskog odbora</li><li>razmatra godišnji izvještaj o radu Revizorskog odbora</li><li>imenuje i razrješava članove Odbora za primanja, Odbora za rizike, Odbora za imenovanja i druge odbore osnovane u cilju pružanja stručne pomoći u vršenju nadzora poslovanja Banke</li><li>razmatra i zauzima stavove o nalazima iz izvještaja Centralne banke i izvještaja drugih nadzornih organa o izvršenoj kontroli, u roku od 30 dana od dana dostavljanja izvještaja o kontroli</li><li>obavlja i druge poslove utvrđene zakonom, propisima donesenim na osnovu zakona i Statuta Banke</li></ol></div>
     </div>
-  </details>
-  <details class="gov-item">
-    <summary>
-      <span class="gov-summary-left"><span class="gov-name">Upravni odbor</span><span class="gov-president">Predsjednik/ca: Mr Daniela Golubović</span></span>
-      <span class="gov-chevron">+</span>
-    </summary>
+  </div>
+  <div class="gov-panel" data-gov-panel="1">
+    <div class="gov-panel-head"><h3>Upravni odbor</h3><span>Predsjednik/ca: Mr Daniela Golubović</span></div>
     <div class="gov-body">
       <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Mr Daniela Golubović</strong> — Predsjednica<span>Rukovodi poslovnim područjem Finansije, rizici, nekvalitetni plasmani i upravljanje imovinom</span></li><li><strong>Matija Mašković</strong> — Član<span>Rukovodi poslovnim područjem Operacije, razvoj, ljudski resursi, marketing i komunikacije</span></li><li><strong>Danijela Perović</strong> — Član<span>Rukovodi poslovnim područjem Prodaja i Treasury</span></li></ul></div>
       <div class="gov-duties"><h4>Nadležnost</h4><ol><li>utvrđuje ciljeve i opštu strategije Banke</li><li>usvaja poslovnu politiku Banke</li><li>redovno preispituje strateške ciljeve, strategije i politike upravljanja rizicima, uključujući i upravljanje rizicima koji proizlaze iz makroekonomskog okruženja u kojem Banka posluje, kao i stanje poslovnog ciklusa Banke</li><li>uspostavlja osnove za funkcionisanje sistema interne kontrole, adekvatne veličini Banke, složenosti poslova i nivou preuzetog rizika</li><li>usvaja politiku primanja u Banci</li><li>obezbijeđuje integritet računovodstvenog sistema i sistema finansijskog izvještavanja i finansijske i operativne kontrole</li><li>obezbjeđuje nadzor višeg rukovodstva i uspostavlja tačno utvrđene, jasne i dosljedne interne odnose u vezi sa odgovornošću, koji obezbjeđuju jasno razgraničavanje ovlašćenja i odgovornosti i sprečavaju nastanak sukoba interesa</li><li>utvrđuje unutrašnju organizaciju Banke, uz saglasnost nadzornog odbora</li><li>donosi opšte akte Banke, osim akata koje donose drugi organi Banke</li><li>bira i razrješava više rukovodstvo Banke i druga lica u skladu sa Zakonom o kreditnim institucijama i Statutom Banke i određuje im zaradu</li><li>donosi etičke standarde ponašanja zaposlenih u Banci</li><li>odobrava uvođenje novih proizvoda i usluga u poslovanje Banke</li><li>obavlja i druge poslove utvrđene Zakonom o kreditnim institucijama, Zakonom o privrednim društvima, Statutom Banke i internim aktima Banke</li></ol></div>
     </div>
-  </details>
-  <details class="gov-item">
-    <summary>
-      <span class="gov-summary-left"><span class="gov-name">Odbor za imenovanja</span><span class="gov-president">Predsjednik/ca: Dr Dragan Bogojević</span></span>
-      <span class="gov-chevron">+</span>
-    </summary>
+  </div>
+  <div class="gov-panel" data-gov-panel="2">
+    <div class="gov-panel-head"><h3>Odbor za imenovanja</h3><span>Predsjednik/ca: Dr Dragan Bogojević</span></div>
     <div class="gov-body">
       <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Dr Dragan Bogojević</strong> — Predsjednik</li><li><strong>Miro Vračar</strong> — Član</li><li><strong>Srđan Kovačević</strong> — Član</li></ul></div>
       <div class="gov-duties"><h4>Nadležnost</h4><ul><li>određuje i predlaže kandidate za izbor članova nadzornog i upravnog odbora kreditne institucije, ocjenjuje ravnotežu između znanja, vještina, raznovrsnosti u sastavu i iskustva organa upravljanja, priprema opis ovlašćenja i potrebnih kvalifikacija za određenu funkciju i ocjenjuje očekivano potrebno vrijeme za obavljanje te funkcije</li><li>utvrđuje ciljanu zastupljenost pola koji nije dovoljno zastupljen u nadzornom ili upravnom odboru i priprema politiku o načinu povećavanja broja manje zastupljenog pola u tim organima, kako bi se postigla ciljana zastupljenost</li><li>redovno, a najmanje jednom godišnje, procjenjuje i po potrebi predlaže nadzornom i upravnom odboru kreditne institucije promjene u strukturi, veličini, sastavu i djelovanju tih organa</li><li>redovno, a najmanje jednom godišnje, procjenjuje znanje, sposobnosti i iskustvo pojedinih članova nadzornog i upravnog odbora, kao i tih organa kao cjeline, i o toj procjeni obavještava organe i lica na koje se ta procjena odnosi</li><li>redovno preispituje politike za izbor i imenovanje višeg rukovodstva i po potrebi daje preporuke upravnom odboru za unaprjeđenje tih politika</li><li>kontinuirano, u mjeri u kojoj je to moguće, vodi računa o izbjegavanju postojanja dominantnog uticaja pojedinaca ili male grupe pojedinaca pri odlučivanju upravnog i nadzornog odbora, u cilju zaštite interesa kreditne institucije u cjelini</li><li>obavlja druge poslove određene propisima donesenim u skladu sa zakonom</li></ul></div>
     </div>
-  </details>
-  <details class="gov-item">
-    <summary>
-      <span class="gov-summary-left"><span class="gov-name">Odbor za rizike</span><span class="gov-president">Predsjednik/ca: Mr Milan Perović</span></span>
-      <span class="gov-chevron">+</span>
-    </summary>
+  </div>
+  <div class="gov-panel" data-gov-panel="3">
+    <div class="gov-panel-head"><h3>Odbor za rizike</h3><span>Predsjednik/ca: Mr Milan Perović</span></div>
     <div class="gov-body">
       <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Mr Milan Perović</strong> — Predsjednik</li><li><strong>Dr Dragan Bogojević</strong> — Član</li><li><strong>Dr Milan Nikolić</strong> — Član</li></ul></div>
       <div class="gov-duties"><h4>Nadležnost</h4><ul><li>savjetuje nadzorni odbor o cjelokupnoj trenutnoj i budućoj sklonosti Banke ka preuzimanju rizika i strategiji i pomaže u nadzoru nad sprovođenjem strategije od strane višeg rukovodstva, pri tom ne dovodeći u pitanje odgovornost Upravnog i Nadzornog odbora u cjelokupnom upravljanju rizicima i nadziranju Banke</li><li>preispituje da li su pri određivanju cijena potraživanja i obaveza prema klijentima uzimani u obzir model poslovanja Banke i strategija rizika i ako ta cijena ne odražava rizik preuzet u odnosu na model poslovanja i strategiju rizika, predlaže Upravnom odboru plan za otklanjanje nedostataka</li><li>nezavisno od poslova Odbora za primanja, sa ciljem uspostavljanja i sprovođenja odgovarajućih politika primanja, preispituje da li su pri određivanju podsticaja predviđenih sistemom primanja uzeti u obzir rizik, kapital, likvidnost i vjerovatnoća i očekivani period ostvarivanja dobiti</li><li>daje preporuke Nadzornom odboru za prilagođavanje strategije upravljanja rizicima koje proizilaze, naročito iz izmjena modela poslovanja Banke, tržišnih kretanja ili preporuka funkcije kontrole rizika</li><li>pruža podršku u nadzoru sprovođenja strategije za upravljanje rizicima, a naročito rizikom likvidnosti, tržišnim rizikom, kreditnim rizikom i operativnim rizikom, radi njihove procjene u odnosu na odobrenu sklonost preuzimanju rizika i strategiju upravljanja rizicima</li><li>daje savjete nadzornom odboru u vezi sa izborom eksternih stručnjaka koje nadzorni odbor namjerava da angažuje</li><li>analizira niz mogućih scenarija, uključujući testiranje otpornosti na stres, kako bi procijenio kakav će efekat taj scenario imati na rizični profil Banke</li><li>analizira preporuke interne revizije i spoljnog revizora i prati sprovođenje preduzetih mjera</li><li>obavlja druge poslove određene propisima donesenim u skladu sa ovim zakonom</li></ul></div>
     </div>
-  </details>
-  <details class="gov-item">
-    <summary>
-      <span class="gov-summary-left"><span class="gov-name">Odbor za primanja</span><span class="gov-president">Predsjednik/ca: Miro Vračar</span></span>
-      <span class="gov-chevron">+</span>
-    </summary>
+  </div>
+  <div class="gov-panel" data-gov-panel="4">
+    <div class="gov-panel-head"><h3>Odbor za primanja</h3><span>Predsjednik/ca: Miro Vračar</span></div>
     <div class="gov-body">
       <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Miro Vračar</strong> — Predsjednik</li><li><strong>Mr Milan Perović</strong> — Član</li><li><strong>Srđan Kovačević</strong> — Član</li></ul></div>
       <div class="gov-duties"><h4>Nadležnost</h4><ul><li>priprema odluke nadzornog odbora u vezi sa primanjima zaposlenih, uključujući odluke koje imaju uticaj na izloženost Banke rizicima i na upravljanje rizicima</li><li>pruža podršku i daje savjete nadzornom odboru u vezi sa politikom primanja, praksom i procesima koji se odnose na primanja</li><li>provjerava da li je postojeća politika primanja adekvatna i, ako je potrebno, daje predloge za promjenu tih politika sa predlogom plana za otklanjanje utvrđenih nedostataka</li><li>predlaže eksterne stručnjake za primanja koje nadzorni odbor namjerava da angažuje za savjete ili podršku</li><li>obezbjeđuje akcionarima informacije o politikama i praksama primanja, a naročito o predloženom većem maksimalnom odnosu varijabilnog i fiksnog dijela ukupnih primanja</li><li>procjenjuje mehanizme i sisteme usvojene radi obezbjeđivanja da politika primanja pravilno uzima u obzir rizični profil i strukturu kapitala, da je ukupna politika primanja usklađena sa opštom strategijom, ciljevima, korporativnom kulturom i dugoročnim interesima Banke i da promoviše zdravo i efikasno upravljanje rizicima</li><li>procjenjuje ostvarivanje ciljeva politike primanja i potrebe naknadnog prilagođavanja, uključujući primjenu malusa i povraćaja primanja</li><li>analizira moguća scenarija u cilju utvrđivanja uticaja eksternih i internih događaja na politike i prakse primanja</li><li>testira kriterijume za dodjelu varijabilnih primanja prije njihovog utvrđivanja i dodjele</li><li>nadgleda i prati primanja lica koja rukovode kontrolnim funkcijama</li><li>obavlja druge poslove određene propisima donesenim u skladu sa ovim zakonom</li></ul></div>
     </div>
-  </details>
-  <details class="gov-item">
-    <summary>
-      <span class="gov-summary-left"><span class="gov-name">Revizorski odbor</span><span class="gov-president">Predsjednik/ca: Branislav Pejović</span></span>
-      <span class="gov-chevron">+</span>
-    </summary>
+  </div>
+  <div class="gov-panel" data-gov-panel="5">
+    <div class="gov-panel-head"><h3>Revizorski odbor</h3><span>Predsjednik/ca: Branislav Pejović</span></div>
     <div class="gov-body">
       <div class="gov-members"><h4>Članovi</h4><ul><li><strong>Branislav Pejović</strong> — Predsjednik</li><li><strong>Vesna Bogdanović</strong> — Član</li><li><strong>Blažo Đukanović</strong> — Član</li></ul></div>
       <div class="gov-duties"><h4>Nadležnost</h4><ul><li>prati postupak finansijskog izvještavanja</li><li>prati efektivnost interne kontrole Banke i interne revizije</li><li>daje mišljenje na predlog godišnjeg plana interne revizije</li><li>daje mišljenje na izvještaj o radu funkcije interne revizije (tromjesečni, polugodišnji i godišnji izvještaj)</li><li>prati zakonom propisanu reviziju godišnjih i konsolidovanih finansijskih iskaza</li><li>prati nezavisnost angažovanih ovlašćenih revizora ili društava za reviziju, koji obavljaju reviziju, kao i ugovore o korišćenju dodatnih usluga u skladu sa zakonom</li><li>daje preporuke Skupštini akcionara Banke o izboru društva za reviziju ili ovlašćenog revizora</li><li>razmatra planove i godišnje izvještaje unutrašnje kontrole</li><li>podnosi godišnji izvještaj o svom radu Nadzornom odboru</li><li>razmatra i druga pitanja koja se odnose na finansijsko izvještavanje i reviziju u skladu sa važećim propisima i internim aktima Banke</li></ul></div>
     </div>
-  </details>
-</div>
+  </div>
+
 
       <div class="gov-extra">
         <div class="gov-extra-card">
@@ -810,6 +799,17 @@
   const drawer = document.getElementById('mobile-drawer');
   document.getElementById('drawer-open').addEventListener('click', () => { drawer.classList.add('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','true'); });
   document.getElementById('drawer-close').addEventListener('click', () => { drawer.classList.remove('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','false'); });
+
+  // Odbor tabs
+  document.querySelectorAll('.gov-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gov-tab').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.gov-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      document.querySelector('.gov-panel[data-gov-panel="' + btn.dataset.govTab + '"]').classList.add('active');
+    });
+  });
 </script>
 </body>
 </html>

@@ -488,6 +488,25 @@
   .vm-card p{margin-top:14px;color:var(--color-text-muted);line-height:1.7}
   @media (max-width:800px){.vm-split{grid-template-columns:1fr}}
   .related-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+  .feat-card{position:relative;background:var(--pb-ink-900);color:#fff;border-radius:var(--radius-lg);padding:32px;overflow:hidden;text-decoration:none;min-height:172px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .18s var(--ease-out), box-shadow .18s var(--ease-out)}
+  .feat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+  .feat-card::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 100% at 100% 0%, var(--color-primary) 0%, transparent 55%);opacity:.55}
+  .feat-card .fc-icon{position:relative;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.14);display:grid;place-items:center;margin-bottom:16px;color:#fff}
+  .feat-card h3{position:relative;font-size:var(--fs-xl);color:#fff}
+  .feat-card p{position:relative;margin-top:8px;color:rgba(255,255,255,.72);font-size:.92rem;max-width:36ch}
+  .feat-card .go{position:relative;margin-top:18px;font-size:.82rem;font-weight:700;color:#fff;display:inline-flex;align-items:center;gap:6px;transition:gap .18s ease}
+  .feat-card:hover .go{gap:10px}
+
+  .compact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--color-border);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden}
+  .compact-grid a{background:#fff;padding:24px 20px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:10px;transition:background .18s ease}
+  .compact-grid a:hover{background:var(--color-surface-2)}
+  .compact-grid .ci{color:var(--color-primary)}
+  .compact-grid h4{font-family:var(--font-body);font-weight:700;font-size:.9rem;color:var(--color-text)}
+  .compact-grid p{font-size:.8rem;color:var(--color-text-muted);margin-top:2px}
+  @media (max-width:820px){.feat-grid{grid-template-columns:1fr}.compact-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:480px){.compact-grid{grid-template-columns:1fr}}
 </style>
 
 </head>
@@ -608,20 +627,32 @@
         <h2>O nama</h2>
         <p>125 godina povjerenja, stabilnosti i podrške klijentima širom Crne Gore. Ovdje su sve informacije o banci, njenom upravljanju i poslovanju.</p>
       </div>
-      <div class="qa-grid">
-        <a class="qa-card" href="banka-danas/index.html"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21h16"/><path d="M6 21V10l6-5 6 5v11"/><path d="M10 21v-6h4v6"/></svg></div><h3>Banka danas</h3><p>Ko smo i čime se bavimo danas</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 2"/></svg></div><h3>Istorija banke</h3><p>125 godina, od 1901. do danas</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 3-3 3-3-3z"/><path d="M4 21h16"/><path d="M6 21l1.5-9h9L18 21"/></svg></div><h3>Korporativno upravljanje</h3><p>Organi upravljanja i struktura banke</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7M9 15.5h7M9 8.5h3"/></svg></div><h3>Opšti uslovi poslovanja</h3><p>Uslovi i pravila poslovanja banke</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div><h3>Poslovna mreža</h3><p>Filijale i šalteri širom Crne Gore</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8.3 6.7 15 15 15l2-4-5-2-2 2c-2.3-1-4-2.7-5-5l2-2-2-5-4 1"/></svg></div><h3>Kontakt</h3><p>Kontakt centar i podružnice</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H8l-4 4V5z"/><path d="M8 10h8M8 13h5"/></svg></div><h3>Prigovori</h3><p>Kako podnijeti prigovor</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7.5-4.6-9.4-9.9C1.6 6.6 3.9 4 7 4c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.1 0 5.4 2.6 4.4 6.1C19.5 15.4 12 20 12 20z"/></svg></div><h3>Društvena odgovornost</h3><p>Projekti u lokalnoj zajednici</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11v2a2 2 0 0 0 2 2h1l3 4V7l-3 4H5a2 2 0 0 0-2 2z"/><path d="M14 8a5 5 0 0 1 0 8"/><path d="M17 5a9 9 0 0 1 0 14"/></svg></div><h3>Saopštenja</h3><p>Vijesti i zvanična saopštenja banke</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V11M10 20V6M16 20v-8M22 20H2"/></svg></div><h3>Finansijski izvještaji</h3><p>Godišnji izvještaji i revizija</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M11 20c0-3.3 2.7-5.5 6-5.5s5 2.2 5 5.5"/></svg></div><h3>Akcionari banke</h3><p>Struktura vlasništva banke</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="16" height="11" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M4 13h16"/></svg></div><h3>Karijera</h3><p>Otvorene pozicije i prijave</p></a>
-        <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="14" height="12" rx="1.5"/><path d="M17 9h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7"/><path d="M7 10h6M7 13h6M7 16h4"/></svg></div><h3>Media / Press centar</h3><p>Informacije za medije i novinare</p></a>
+      <div class="feat-grid">
+        <a class="feat-card" href="banka-danas/index.html">
+          <div class="fc-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21h16"/><path d="M6 21V10l6-5 6 5v11"/><path d="M10 21v-6h4v6"/></svg></div>
+          <h3>Banka danas</h3>
+          <p>125 godina poslovanja, 31 poslovnica, 50.000+ klijenata — upoznaj banku kakva je danas.</p>
+          <span class="go">Otvori <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="feat-card" href="#">
+          <div class="fc-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 2"/></svg></div>
+          <h3>Istorija banke</h3>
+          <p>Od Nikšićke štedionice 1901. do danas — ključne prekretnice.</p>
+          <span class="go">Otvori <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+      <div class="compact-grid">
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 3-3 3-3-3z"/><path d="M4 21h16"/><path d="M6 21l1.5-9h9L18 21"/></svg><h4>Korporativno upravljanje</h4><p>Organi i struktura banke</p></a>
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7M9 15.5h7M9 8.5h3"/></svg><h4>Opšti uslovi poslovanja</h4><p>Uslovi i pravila</p></a>
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg><h4>Poslovna mreža</h4><p>Filijale i šalteri</p></a>
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5c0 8.3 6.7 15 15 15l2-4-5-2-2 2c-2.3-1-4-2.7-5-5l2-2-2-5-4 1"/></svg><h4>Kontakt</h4><p>Centar i podružnice</p></a>
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v11H8l-4 4V5z"/><path d="M8 10h8M8 13h5"/></svg><h4>Prigovori</h4><p>Kako podnijeti</p></a>
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7.5-4.6-9.4-9.9C1.6 6.6 3.9 4 7 4c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.1 0 5.4 2.6 4.4 6.1C19.5 15.4 12 20 12 20z"/></svg><h4>Društvena odgovornost</h4><p>Projekti u zajednici</p></a>
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11v2a2 2 0 0 0 2 2h1l3 4V7l-3 4H5a2 2 0 0 0-2 2z"/><path d="M14 8a5 5 0 0 1 0 8"/><path d="M17 5a9 9 0 0 1 0 14"/></svg><h4>Saopštenja</h4><p>Vijesti i objave</p></a>
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V11M10 20V6M16 20v-8M22 20H2"/></svg><h4>Finansijski izvještaji</h4><p>Godišnji i revizija</p></a>
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M11 20c0-3.3 2.7-5.5 6-5.5s5 2.2 5 5.5"/></svg><h4>Akcionari banke</h4><p>Struktura vlasništva</p></a>
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="16" height="11" rx="2"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M4 13h16"/></svg><h4>Karijera</h4><p>Pozicije i prijave</p></a>
+        <a href="#"><svg class="ci" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="14" height="12" rx="1.5"/><path d="M17 9h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7"/><path d="M7 10h6M7 13h6M7 16h4"/></svg><h4>Media / Press centar</h4><p>Za medije i novinare</p></a>
       </div>
     </div>
   </section>
@@ -729,7 +760,7 @@
   document.getElementById('drawer-close').addEventListener('click', () => { drawer.classList.remove('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','false'); });
 
   // Scroll-reveal
-  const revealEls = document.querySelectorAll('.section-head, .qa-card, .bd-stat, .vm-card');
+  const revealEls = document.querySelectorAll('.section-head, .feat-card, .compact-grid a, .bd-stat, .vm-card');
   const revealGroups = new Map();
   revealEls.forEach(el => {
     el.classList.add('reveal');

@@ -486,13 +486,17 @@
   .gov-panel-head span{font-size:.86rem;color:var(--color-text-muted)}
   .gov-body{display:grid;grid-template-columns:1fr 1.6fr;gap:40px}
   .gov-members h4, .gov-duties h4{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--color-primary);margin:0 0 14px}
-  .gov-members ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+  .gov-members ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
   .gov-members li{font-size:.94rem;color:var(--color-text)}
-  .gov-members li span{display:block;color:var(--color-text-muted);font-size:.84rem;margin-top:2px}
-  .gov-duties ol, .gov-duties ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px}
-  .gov-duties ol ol, .gov-duties ol ul{margin-top:8px;padding-left:20px}
-  .gov-duties li{font-size:.92rem;color:var(--color-text-muted);line-height:1.65}
-  .gov-duties li::marker{color:var(--color-primary);font-weight:700}
+  .gov-members li strong{font-size:1.3em}
+  .gov-members li span{display:block;color:var(--color-text-muted);font-size:.84rem;margin-top:4px}
+
+  .gov-duties{display:flex;flex-direction:column;gap:0}
+  .gov-duties ol, .gov-duties ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+  .gov-duties > ol > li, .gov-duties > ul > li{border-left:3px solid var(--color-primary);padding:1px 0 1px 14px;text-transform:uppercase;font-size:.86rem;font-weight:700;letter-spacing:.02em;color:var(--color-text);line-height:1.5}
+  .gov-duties > ol > li > ol, .gov-duties > ol > li > ul{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+  .gov-duties > ol > li > ol > li, .gov-duties > ol > li > ul > li{border-left:0;padding-left:16px;position:relative;font-size:.92rem;font-weight:400;letter-spacing:normal;text-transform:none;color:var(--color-text-muted);line-height:1.65}
+  .gov-duties > ol > li > ol > li::before, .gov-duties > ol > li > ul > li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--color-primary)}
   @media (max-width:800px){.gov-body{grid-template-columns:1fr;gap:24px}}
 
   .gov-extra{display:flex;flex-wrap:wrap;gap:20px;margin-top:44px}
@@ -679,7 +683,7 @@
         <div class="gov-extra-card">
           <h4>Organizaciona šema</h4>
           <p>Pregled pune organizacione strukture banke.</p>
-          <a href="#" class="btn btn-ghost">Pogledaj šemu <span aria-hidden="true">→</span></a>
+          <a href="../../assets/images/org-sema-2025.jpg" target="_blank" rel="noopener" class="btn btn-ghost">Pogledaj šemu <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>

@@ -473,19 +473,20 @@
   .page-hero-inner{padding:56px 0}
   .page-hero-inner h1{color:#fff;max-width:20ch;font-size:var(--fs-3xl)}
   .page-hero-inner .lead{margin-top:16px;color:rgba(255,255,255,.85);max-width:60ch;font-size:var(--fs-lg)}
-  .bd-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .bd-stat{background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:30px 24px;text-align:center;position:relative;overflow:hidden}
-  .bd-stat::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--color-primary)}
-  .bd-stat .n{display:block;font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700;color:var(--color-primary)}
-  .bd-stat .l{display:block;margin-top:8px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-muted)}
-  @media (max-width:700px){.bd-stats{grid-template-columns:1fr}}
+  .bd-stats{display:flex;flex-wrap:wrap;gap:12px 56px}
+  .bd-stat{text-align:left}
+  .bd-stat .n{display:block;font-family:var(--font-display);font-size:clamp(3.6rem, 1.6rem + 6.2vw, 6.4rem);font-weight:700;color:var(--color-primary);line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .bd-stat .l{display:block;margin-top:12px;font-size:.84rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-muted)}
+  @media (max-width:700px){.bd-stats{gap:28px 40px}.bd-stat .n{font-size:clamp(2.8rem, 2rem + 6vw, 4.4rem)}}
   .bd-copy p + p{margin-top:20px}
   .bd-copy p{font-size:1.05rem;line-height:1.75;color:var(--color-text)}
   .vm-split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-  .vm-card{background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:36px;position:relative}
-  .vm-card::before{content:"";position:absolute;top:0;left:36px;width:40px;height:3px;background:var(--color-primary)}
-  .vm-card h3{font-size:var(--fs-xl);margin-top:14px}
-  .vm-card p{margin-top:14px;color:var(--color-text-muted);line-height:1.7}
+  .vm-card{background:linear-gradient(135deg, var(--pb-red-600) 0%, var(--pb-brown) 100%);border-radius:var(--radius-xl);padding:8px;position:relative;overflow:hidden}
+  .vm-card::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 100% 0%, rgba(255,255,255,.12), transparent 60%);pointer-events:none}
+  .vm-inner{position:relative;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:calc(var(--radius-xl) - 8px);padding:34px 36px}
+  .vm-inner::before{content:"";display:block;width:40px;height:3px;background:var(--pb-gold-500);margin-bottom:16px}
+  .vm-card h3{font-size:var(--fs-xl);color:#fff}
+  .vm-card p{margin-top:14px;color:rgba(255,255,255,.82);line-height:1.7}
   @media (max-width:800px){.vm-split{grid-template-columns:1fr}}
   .related-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
 </style>
@@ -591,8 +592,10 @@
 
   <div class="hero-frame">
     <section class="hero" style="min-height:320px">
+      <div class="hero-bg" data-parallax="0.18" style="background-image:url('../../assets/images/banka-danas-hero.jpg')"></div>
+      <div class="hero-photo-overlay" aria-hidden="true"></div>
       <div class="wrap hero-inner page-hero-inner">
-        <span class="kicker" style="color:#fff">O nama · Banka danas</span>
+        <span class="kicker" style="color:#fff">O nama</span>
         <h1>Banka danas</h1>
         <p class="lead">Dobro došli u Prvu banku Crne Gore! Mi smo najstarija finansijska institucija u zemlji, osnovana davne 1901. godine u tadašnjoj Knjaževini Crnoj Gori pod nazivom Nikšićka štedionica.</p>
       </div>
@@ -621,12 +624,16 @@
     <div class="wrap">
       <div class="vm-split">
         <div class="vm-card">
-          <h3>Vizija</h3>
-          <p>Vizija naše Banke je da budemo sinonim za stabilnost, povjerenje i inovacije u bankarskom sektoru. Njegujući domaće vrijednosti, uz kontinuirano ulaganje u digitalnu transformaciju i moderne finansijske usluge, ostajemo posvećeni potrebama naših klijenata. Pružamo im sigurnost, bliskost i podršku na svakom koraku. Banka smo sa najrasprostranjenijom mrežom filijala, što je još jedan pokazatelj da je naša vizija uvijek bila i ostala okrenuta potrebama naših klijenata, unapređenju korisničkog iskustva i doprinosu održivom razvoju zajednice i ekonomije.</p>
+          <div class="vm-inner">
+            <h3>Vizija</h3>
+            <p>Vizija naše Banke je da budemo sinonim za stabilnost, povjerenje i inovacije u bankarskom sektoru. Njegujući domaće vrijednosti, uz kontinuirano ulaganje u digitalnu transformaciju i moderne finansijske usluge, ostajemo posvećeni potrebama naših klijenata. Pružamo im sigurnost, bliskost i podršku na svakom koraku. Banka smo sa najrasprostranjenijom mrežom filijala, što je još jedan pokazatelj da je naša vizija uvijek bila i ostala okrenuta potrebama naših klijenata, unapređenju korisničkog iskustva i doprinosu održivom razvoju zajednice i ekonomije.</p>
+          </div>
         </div>
         <div class="vm-card">
-          <h3>Misija</h3>
-          <p>Naša misija je da sa svojim klijentima gradimo partnerstvo i pružimo inovativna i fleksibilna bankarska rješenja koja omogućavaju sigurno upravljanje finansijama. Posvećeni smo izgradnji dugoročnih odnosa zasnovanih na povjerenju i transparentnosti. Naša misija je unaprijediti ekonomsku stabilnost i dobrobit naših klijenata, kroz kontinuiranu inovaciju i društveno odgovorno poslovanje.</p>
+          <div class="vm-inner">
+            <h3>Misija</h3>
+            <p>Naša misija je da sa svojim klijentima gradimo partnerstvo i pružimo inovativna i fleksibilna bankarska rješenja koja omogućavaju sigurno upravljanje finansijama. Posvećeni smo izgradnji dugoročnih odnosa zasnovanih na povjerenju i transparentnosti. Naša misija je unaprijediti ekonomsku stabilnost i dobrobit naših klijenata, kroz kontinuiranu inovaciju i društveno odgovorno poslovanje.</p>
+          </div>
         </div>
       </div>
     </div>

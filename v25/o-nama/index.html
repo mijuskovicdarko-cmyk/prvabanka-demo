@@ -488,12 +488,6 @@
   .vm-card p{margin-top:14px;color:var(--color-text-muted);line-height:1.7}
   @media (max-width:800px){.vm-split{grid-template-columns:1fr}}
   .related-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-  .onama-cards .qa-card{background:var(--color-primary);border-color:var(--color-primary)}
-  .onama-cards .qa-card:hover{background:var(--color-primary-hover)}
-  .onama-cards .qa-icon{background:rgba(255,255,255,.16);box-shadow:none}
-  .onama-cards .qa-icon::before{background:linear-gradient(180deg, rgba(255,255,255,.3) 0%, rgba(255,255,255,0) 100%)}
-  .onama-cards .qa-card h3{color:#fff}
-  .onama-cards .qa-card p{color:rgba(255,255,255,.82)}
 </style>
 
 </head>
@@ -597,6 +591,8 @@
 
   <div class="hero-frame">
     <section class="hero" style="min-height:320px">
+      <div class="hero-bg" data-parallax="0.18" style="background-image:url('../assets/images/o-nama-hero.png')"></div>
+      <div class="hero-photo-overlay" aria-hidden="true"></div>
       <div class="wrap hero-inner page-hero-inner">
         <span class="kicker" style="color:#fff">od 1901</span>
         <h1>Upoznajte Prvu banku Crne Gore</h1>
@@ -612,7 +608,7 @@
         <h2>O nama</h2>
         <p>125 godina povjerenja, stabilnosti i podrške klijentima širom Crne Gore. Ovdje su sve informacije o banci, njenom upravljanju i poslovanju.</p>
       </div>
-      <div class="qa-grid onama-cards">
+      <div class="qa-grid">
         <a class="qa-card" href="banka-danas/index.html"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21h16"/><path d="M6 21V10l6-5 6 5v11"/><path d="M10 21v-6h4v6"/></svg></div><h3>Banka danas</h3><p>Ko smo i čime se bavimo danas</p></a>
         <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 2"/></svg></div><h3>Istorija banke</h3><p>125 godina, od 1901. do danas</p></a>
         <a class="qa-card" href="#"><div class="qa-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l3 3-3 3-3-3z"/><path d="M4 21h16"/><path d="M6 21l1.5-9h9L18 21"/></svg></div><h3>Korporativno upravljanje</h3><p>Organi upravljanja i struktura banke</p></a>

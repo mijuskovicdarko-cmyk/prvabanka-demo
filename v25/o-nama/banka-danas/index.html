@@ -479,13 +479,12 @@
   .bd-stat .l{display:block;margin-top:14px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-muted)}
   .bd-copy p + p{margin-top:20px}
   .bd-copy p{font-size:1.05rem;line-height:1.75;color:var(--color-text)}
-  .vm-split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-  .vm-card{background:#fff;border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:36px;display:flex;flex-direction:column}
-  .vm-icon-badge{width:48px;height:48px;border-radius:12px;background:var(--color-primary);color:#fff;display:grid;place-items:center;margin-bottom:20px;flex-shrink:0}
-  .vm-card h3{font-size:var(--fs-xl);color:var(--color-text)}
-  .vm-card p{margin-top:14px;color:var(--color-text-muted);line-height:1.75;flex:1}
-  .vm-card .tag{margin-top:20px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--color-primary)}
-  @media (max-width:800px){.vm-split{grid-template-columns:1fr}}
+  .vm-split{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  .vm-item{border-left:3px solid var(--color-primary);padding-left:28px}
+  .vm-item .vm-label{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--color-primary)}
+  .vm-item .vm-quote{margin-top:16px;font-family:var(--font-display);font-size:1.5rem;line-height:1.45;color:var(--color-text);font-style:italic}
+  .vm-item .vm-sub{margin-top:18px;font-family:var(--font-body);font-style:normal;font-size:.92rem;color:var(--color-text-muted);line-height:1.7}
+  @media (max-width:800px){.vm-split{grid-template-columns:1fr;gap:40px}}
   .related-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
 </style>
 
@@ -621,17 +620,15 @@
   <section>
     <div class="wrap">
       <div class="vm-split">
-        <div class="vm-card">
-          <div class="vm-icon-badge"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
-          <h3>Vizija</h3>
-          <p>Vizija naše Banke je da budemo sinonim za stabilnost, povjerenje i inovacije u bankarskom sektoru. Njegujući domaće vrijednosti, uz kontinuirano ulaganje u digitalnu transformaciju i moderne finansijske usluge, ostajemo posvećeni potrebama naših klijenata. Pružamo im sigurnost, bliskost i podršku na svakom koraku. Banka smo sa najrasprostranjenijom mrežom filijala, što je još jedan pokazatelj da je naša vizija uvijek bila i ostala okrenuta potrebama naših klijenata, unapređenju korisničkog iskustva i doprinosu održivom razvoju zajednice i ekonomije.</p>
-          <span class="tag">Stabilnost · Povjerenje · Inovacija</span>
+        <div class="vm-item">
+          <span class="vm-label">Vizija</span>
+          <p class="vm-quote">"Sinonim za stabilnost, povjerenje i inovacije u bankarskom sektoru."</p>
+          <p class="vm-sub">Vizija naše Banke je da budemo sinonim za stabilnost, povjerenje i inovacije u bankarskom sektoru. Njegujući domaće vrijednosti, uz kontinuirano ulaganje u digitalnu transformaciju i moderne finansijske usluge, ostajemo posvećeni potrebama naših klijenata. Pružamo im sigurnost, bliskost i podršku na svakom koraku. Banka smo sa najrasprostranjenijom mrežom filijala, što je još jedan pokazatelj da je naša vizija uvijek bila i ostala okrenuta potrebama naših klijenata, unapređenju korisničkog iskustva i doprinosu održivom razvoju zajednice i ekonomije.</p>
         </div>
-        <div class="vm-card">
-          <div class="vm-icon-badge"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg></div>
-          <h3>Misija</h3>
-          <p>Naša misija je da sa svojim klijentima gradimo partnerstvo i pružimo inovativna i fleksibilna bankarska rješenja koja omogućavaju sigurno upravljanje finansijama. Posvećeni smo izgradnji dugoročnih odnosa zasnovanih na povjerenju i transparentnosti. Naša misija je unaprijediti ekonomsku stabilnost i dobrobit naših klijenata, kroz kontinuiranu inovaciju i društveno odgovorno poslovanje.</p>
-          <span class="tag">Partnerstvo · Transparentnost</span>
+        <div class="vm-item">
+          <span class="vm-label">Misija</span>
+          <p class="vm-quote">"Partnerstvo zasnovano na povjerenju, transparentnosti i inovaciji."</p>
+          <p class="vm-sub">Naša misija je da sa svojim klijentima gradimo partnerstvo i pružimo inovativna i fleksibilna bankarska rješenja koja omogućavaju sigurno upravljanje finansijama. Posvećeni smo izgradnji dugoročnih odnosa zasnovanih na povjerenju i transparentnosti. Naša misija je unaprijediti ekonomsku stabilnost i dobrobit naših klijenata, kroz kontinuiranu inovaciju i društveno odgovorno poslovanje.</p>
         </div>
       </div>
     </div>
@@ -753,7 +750,7 @@
   document.getElementById('drawer-close').addEventListener('click', () => { drawer.classList.remove('open'); document.getElementById('drawer-open').setAttribute('aria-expanded','false'); });
 
   // Scroll-reveal
-  const revealEls = document.querySelectorAll('.section-head, .qa-card, .bd-stat, .vm-card');
+  const revealEls = document.querySelectorAll('.section-head, .qa-card, .bd-stat, .vm-item');
   const revealGroups = new Map();
   revealEls.forEach(el => {
     el.classList.add('reveal');

@@ -673,9 +673,9 @@
           <h2 class="two-tone"><span class="muted-line">Sve što želiš,</span>na dohvat ruke</h2>
           <p class="cw-desc">Bez obzira da li planiraš putovanje na omiljenu destinaciju, kupovinu automobila, renoviranje stana&nbsp;&hellip; brzo i povoljno dođi do sredstava!</p>
           <p class="cw-promo">Iskoristi posebnu ponudu do 31. avgusta 2026. godine.</p>
-          <div class="hero-ctas">
-            <a href="#" class="btn btn-primary">Privreda</a>
-            <a href="#" class="btn btn-primary">Stanovništvo</a>
+          <div class="hero-ctas segment-toggle" role="group" aria-label="Za koga je kredit">
+            <a href="#" class="btn btn-ghost" data-segment="privreda" aria-pressed="false">Privreda</a>
+            <a href="#" class="btn btn-primary" data-segment="stanovnistvo" aria-pressed="true">Stanovništvo</a>
           </div>
         </div>
         <div class="credit-widget-tabs">
@@ -1030,6 +1030,22 @@
       document.getElementById('credit-price').innerHTML = `već od <strong>${d.price}</strong> mjesečno`;
       const lowerName = d.name.charAt(0).toLowerCase() + d.name.slice(1);
       document.getElementById('credit-cta').innerHTML = `Zatraži ${lowerName} <span aria-hidden="true">→</span>`;
+    });
+  });
+
+  // Segment toggle (Privreda / Stanovništvo) — jasno aktivno/neaktivno stanje
+  document.querySelectorAll('.segment-toggle').forEach(group => {
+    const opts = group.querySelectorAll('a');
+    opts.forEach(opt => {
+      opt.addEventListener('click', e => {
+        e.preventDefault();
+        opts.forEach(o => {
+          const active = o === opt;
+          o.classList.toggle('btn-primary', active);
+          o.classList.toggle('btn-ghost', !active);
+          o.setAttribute('aria-pressed', String(active));
+        });
+      });
     });
   });
 

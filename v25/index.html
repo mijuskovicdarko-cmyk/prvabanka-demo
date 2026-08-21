@@ -166,7 +166,7 @@
   .credit-tabs{display:flex;flex-wrap:wrap;gap:8px}
   .credit-tabs button{background:#F1EFEA;border:0;padding:12px 20px;border-radius:999px;font-weight:700;font-size:.92rem;color:var(--color-text-muted);white-space:nowrap}
   .credit-tabs button[aria-selected="true"]{background:#DEDBD4;color:var(--color-text)}
-  .credit-result{margin-top:22px;background:linear-gradient(135deg, var(--pb-red-600) 0%, var(--pb-brown) 100%);border-radius:var(--radius-xl);padding:8px;position:relative;overflow:hidden}
+  .credit-result{width:100%;box-sizing:border-box;margin-top:22px;background:linear-gradient(135deg, var(--pb-red-600) 0%, var(--pb-brown) 100%);border-radius:var(--radius-xl);padding:8px;position:relative;overflow:hidden}
   .credit-result::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 100% 0%, rgba(255,255,255,.10), transparent 60%);pointer-events:none}
   .credit-result-inner{position:relative;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:calc(var(--radius-xl) - 8px);padding:34px 36px;color:#fff}
   .credit-result-inner h3{font-size:var(--fs-2xl);color:#fff;margin:0}
@@ -176,6 +176,7 @@
 
   /* ---- Krediti widget (Homepage_draft.png) ---- */
   .credit-widget{background:#fff;border:1.5px solid var(--pb-red-200);border-radius:32px;padding:48px;display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
+  .credit-widget-text, .credit-widget-tabs{min-width:0}
   @media (max-width:900px){.credit-widget{grid-template-columns:1fr;padding:32px 24px;gap:32px}}
 
   /* ---- World map: kalkulator + kursna lista ---- */

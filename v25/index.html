@@ -48,7 +48,7 @@
 
   /* ---- Header ---- */
   header.site{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--color-border)}
-  .header-row{display:flex;align-items:center;gap:28px;height:var(--header-h)}
+  .header-row{display:flex;align-items:center;justify-content:space-between;gap:28px;height:var(--header-h)}
   .logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
   .logo img{height:34px}
   nav.mega{display:flex;align-items:center;gap:4px;flex:1}
@@ -120,6 +120,9 @@
   @media (max-width: 900px){
     .hero-inner{padding-top:52px}
     .hero h1{font-size:var(--fs-3xl);max-width:none}
+  }
+  @media (max-width: 480px){
+    .hero-inner{padding-left:8px;padding-right:8px}
   }
 
   /* ---- Sections generic ---- */
@@ -679,6 +682,7 @@
               <h3 id="credit-name">Gotovinski kredit</h3>
               <p id="credit-desc">Za renoviranje, putovanje ili ono što odavno planiraš</p>
               <div class="price" id="credit-price">već od <strong>189€</strong> mjesečno</div>
+              <a href="#" class="btn btn-white" id="credit-cta" style="margin-top:18px">Zatraži gotovinski kredit <span aria-hidden="true">→</span></a>
             </div>
           </div>
         </div>
@@ -1015,6 +1019,8 @@
       document.getElementById('credit-name').textContent = d.name;
       document.getElementById('credit-desc').textContent = d.desc;
       document.getElementById('credit-price').innerHTML = `već od <strong>${d.price}</strong> mjesečno`;
+      const lowerName = d.name.charAt(0).toLowerCase() + d.name.slice(1);
+      document.getElementById('credit-cta').innerHTML = `Zatraži ${lowerName} <span aria-hidden="true">→</span>`;
     });
   });
 
